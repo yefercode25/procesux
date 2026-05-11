@@ -1,0 +1,240 @@
+.header {
+  height: 76px;
+  display: grid;
+  grid-template-columns: 250px minmax(280px, 1fr) auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.35rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid var(--px-border);
+  backdrop-filter: blur(18px);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .78rem;
+  min-width: 0;
+}
+
+.brandMark {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #004884, #0066b3);
+  box-shadow: 0 14px 28px rgba(0,72,132,.18);
+}
+
+.brandMark span {
+  position: absolute;
+  border-radius: 8px;
+  transform: rotate(-35deg);
+}
+
+.brandShapeTop {
+  width: 30px;
+  height: 12px;
+  background: rgba(255,255,255,.65);
+  left: -4px;
+  top: 7px;
+}
+
+.brandShapeMiddle {
+  width: 34px;
+  height: 13px;
+  background: rgba(255,255,255,.42);
+  left: 10px;
+  top: 17px;
+}
+
+.brandShapeBottom {
+  width: 30px;
+  height: 12px;
+  background: rgba(255,255,255,.22);
+  right: -3px;
+  bottom: 7px;
+}
+
+.brandText strong {
+  display: block;
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  color: var(--px-blue-950);
+}
+
+.brandText small {
+  display: block;
+  margin-top: .12rem;
+  color: #66758d;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.searchBox {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 0 .9rem 0 1rem;
+  border: 1px solid var(--px-border-strong);
+  border-radius: 10px;
+  background: rgba(255,255,255,.86);
+  box-shadow: 0 10px 26px rgba(7,30,66,.04);
+  color: var(--px-blue-700);
+}
+
+.searchBox input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--px-text);
+  font-weight: 650;
+}
+
+.searchBox input::placeholder {
+  color: #7b8ca5;
+  font-weight: 550;
+}
+
+.searchBox kbd {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 .45rem;
+  border: 1px solid #dbe5ef;
+  border-radius: 8px;
+  background: #f6f9fc;
+  color: #6c7b90;
+  font-size: .7rem;
+  font-weight: 850;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .28rem;
+  border-radius: 10px;
+  background: #edf5fd;
+}
+
+.nav button {
+  border: 0;
+  background: transparent;
+  border-radius: 14px;
+  min-height: 40px;
+  padding: 0 .95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
+  color: var(--px-blue-900);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.nav button:hover {
+  background: rgba(255,255,255,.72);
+}
+
+.nav .active {
+  color: #fff;
+  background: linear-gradient(180deg, #005aa0, #004884);
+  box-shadow: 0 12px 22px rgba(0,72,132,.22);
+}
+
+.nav .active:hover {
+  background: linear-gradient(180deg, #005aa0, #004884);
+  box-shadow: 0 12px 22px rgba(0,72,132,.32);
+}
+
+.userCluster {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
+.iconButton,
+.userButton {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.iconButton {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--px-blue-800);
+}
+
+.iconButton:hover {
+  background: #edf5fd;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: .62rem;
+  padding: .25rem .35rem .25rem .25rem;
+  border-radius: 10px;
+}
+
+.userButton:hover {
+  background: #f2f7fc;
+}
+
+.userButton > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #004884;
+  color: white;
+  font-size: .82rem;
+  font-weight: 900;
+}
+
+.userButton div {
+  text-align: left;
+}
+
+.userButton strong {
+  display: block;
+  color: var(--px-blue-950);
+  font-size: .82rem;
+  font-weight: 900;
+}
+
+.userButton small {
+  color: #66758d;
+  font-size: .68rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1180px) {
+  .header {
+    grid-template-columns: 230px minmax(220px, 1fr) auto;
+  }
+  .userCluster { display: none; }
+}
+
+@media (max-width: 880px) {
+  .header {
+    height: auto;
+    grid-template-columns: 1fr;
+    padding: .9rem;
+  }
+  .nav { justify-self: start; overflow-x: auto; max-width: 100%; }
+}

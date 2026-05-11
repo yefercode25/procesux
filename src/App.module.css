@@ -1,0 +1,35 @@
+.appShell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 8% -10%, rgba(0, 72, 132, 0.14), transparent 34rem),
+    radial-gradient(circle at 88% 14%, rgba(1, 138, 44, 0.08), transparent 28rem),
+    linear-gradient(180deg, #f8fbff 0%, #edf4f7 100%);
+  color: var(--px-text);
+}
+
+.workspace {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 332px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+@media (max-width: 1120px) {
+  .workspace {
+    grid-template-columns: 286px minmax(0, 1fr);
+    gap: .85rem;
+    padding: .85rem;
+  }
+}
+
+@media (max-width: 880px) {
+  .workspace {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+}

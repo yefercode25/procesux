@@ -1,0 +1,256 @@
+.inspectorCard {
+  min-height: 610px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.mutedCard {
+  min-height: 300px;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.mutedCard strong {
+  color: var(--px-blue-950);
+  font-weight: 950;
+}
+
+.mutedCard p {
+  color: var(--px-muted);
+  font-weight: 650;
+}
+
+.inspectorHeader {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--px-border);
+}
+
+.inspectorHeader strong {
+  color: var(--px-blue-950);
+  font-size: .95rem;
+  font-weight: 950;
+}
+
+.inspectorHeader button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  color: #53647c;
+  cursor: pointer;
+}
+
+.inspectorHeader button:hover {
+  background: #f2f7fc;
+}
+
+.stepTitleRow {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--px-border);
+}
+
+.stepNumber {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: #def4df;
+  color: var(--px-green-700);
+  font-size: 1.05rem;
+  font-weight: 950;
+}
+
+.stepTitleRow h3 {
+  margin: 0;
+  color: var(--px-blue-950);
+  font-size: 1rem;
+  line-height: 1.18;
+  font-weight: 950;
+  letter-spacing: -.025em;
+}
+
+.phasePill {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  color: white;
+  font-size: .88rem;
+  font-weight: 950;
+}
+
+.phase_p { background: var(--px-blue-700); }
+.phase_h { background: var(--px-green-700); }
+.phase_v { background: var(--px-purple-600); }
+.phase_a { background: var(--px-red-600); }
+
+.dataRows {
+  border-bottom: 1px solid var(--px-border);
+}
+
+.dataRows div {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 1rem;
+  padding: .82rem 1rem;
+  border-bottom: 1px solid #edf3f8;
+}
+
+.dataRows div:last-child {
+  border-bottom: 0;
+}
+
+.dataRows span,
+.activityBox span,
+.responsibleBox span,
+.branchesBox > span {
+  color: #62728a;
+  font-size: .66rem;
+  font-weight: 950;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.dataRows strong {
+  color: #51637a;
+  font-size: .8rem;
+  line-height: 1.35;
+  font-weight: 750;
+}
+
+.activityBox {
+  padding: 1rem;
+  border-bottom: 1px solid var(--px-border);
+}
+
+.activityBox p {
+  margin: .45rem 0 0;
+  color: #52637b;
+  font-size: .84rem;
+  line-height: 1.5;
+  font-weight: 650;
+}
+
+.responsibleBox {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  margin: 1rem;
+  padding: .85rem;
+  border: 1px solid var(--px-border);
+  border-radius: 15px;
+  background: #fbfdff;
+}
+
+.responsibleBox svg {
+  color: var(--px-blue-700);
+}
+
+.responsibleBox strong {
+  display: block;
+  margin-top: .28rem;
+  color: var(--px-blue-950);
+  font-size: .82rem;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.branchesBox {
+  margin: 0 1rem 1rem;
+  padding: .85rem;
+  border: 1px solid #f0dc91;
+  border-radius: 15px;
+  background: #fffdf0;
+}
+
+.branchesBox > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  color: #7a5300;
+}
+
+.branchesBox p {
+  margin: .4rem 0 0;
+  color: #6e560b;
+  font-size: .78rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.checklistMini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: auto 1rem 1rem;
+}
+
+.checklistMini span {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  min-height: 28px;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  background: #eef9f1;
+  color: var(--px-green-700);
+  font-size: .68rem;
+  font-weight: 850;
+}
+
+.stepActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .65rem;
+  padding: 1rem;
+  border-top: 1px solid var(--px-border);
+}
+
+.stepActions button {
+  height: 42px;
+  border: 1px solid var(--px-border-strong);
+  border-radius: 13px;
+  background: #fff;
+  color: var(--px-blue-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  font-size: .82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.stepActions button:hover:not(:disabled) {
+  background: #f1f8ff;
+}
+
+.stepActions button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1280px) {
+  .inspectorCard {
+    min-height: auto;
+  }
+}

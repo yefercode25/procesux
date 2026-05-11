@@ -1,0 +1,89 @@
+.builderPanel {
+  height: calc(100vh - 108px);
+  overflow: auto;
+  display: grid;
+  gap: 1rem;
+  padding-right: .2rem;
+}
+
+.welcomeCard,
+.infoCard,
+.codeCard {
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.9);
+  box-shadow: var(--px-shadow-card);
+}
+
+.welcomeCard {
+  padding: 1.5rem;
+}
+
+.welcomeCard span {
+  color: var(--px-blue-700);
+  font-size: .72rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.welcomeCard h1 {
+  margin: .55rem 0 .7rem;
+  color: var(--px-blue-950);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+.welcomeCard p,
+.infoCard p {
+  margin: 0;
+  color: #5e6f86;
+  line-height: 1.6;
+  font-weight: 650;
+}
+
+.builderGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.infoCard,
+.codeCard {
+  padding: 1rem;
+}
+
+.infoCard header,
+.codeCard header {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: .7rem;
+}
+
+.infoCard svg,
+.codeCard svg {
+  color: var(--px-blue-700);
+}
+
+.infoCard h2,
+.codeCard h2 {
+  margin: 0;
+  color: var(--px-blue-950);
+  font-size: .95rem;
+  font-weight: 950;
+}
+
+.codeCard pre {
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #071e42;
+  color: #e8f4ff;
+  line-height: 1.45;
+}
+
+@media (max-width: 980px) {
+  .builderGrid { grid-template-columns: 1fr; }
+}

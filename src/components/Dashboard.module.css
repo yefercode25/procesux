@@ -1,0 +1,156 @@
+.dashboardPanel {
+  height: calc(100vh - 108px);
+  overflow: auto;
+  display: grid;
+  gap: 1rem;
+  padding-right: .2rem;
+}
+
+.welcomeCard,
+.howtoCard,
+.macroCard,
+.metricGrid article {
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.9);
+  box-shadow: var(--px-shadow-card);
+}
+
+.welcomeCard {
+  padding: 1.6rem;
+}
+
+.welcomeCard span {
+  color: var(--px-blue-700);
+  font-size: .72rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.welcomeCard h1 {
+  max-width: 760px;
+  margin: .6rem 0 .75rem;
+  color: var(--px-blue-950);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+.welcomeCard p {
+  max-width: 780px;
+  margin: 0 0 1rem;
+  color: #5e6f86;
+  line-height: 1.6;
+  font-weight: 650;
+}
+
+.welcomeCard button {
+  height: 44px;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 14px;
+  background: var(--px-blue-700);
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(0,72,132,.22);
+}
+
+.metricGrid,
+.macroGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 1rem;
+}
+
+.metricGrid article {
+  padding: 1rem;
+}
+
+.metricGrid svg {
+  color: var(--px-blue-700);
+}
+
+.metricGrid span {
+  display: block;
+  margin: .7rem 0 .25rem;
+  color: #64748b;
+  font-size: .75rem;
+  font-weight: 850;
+}
+
+.metricGrid strong {
+  color: var(--px-blue-950);
+  font-size: 1.65rem;
+  font-weight: 950;
+}
+
+.howtoCard {
+  padding: 1.2rem;
+}
+
+.howtoCard > div {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
+.howtoCard svg {
+  color: var(--px-blue-700);
+}
+
+.howtoCard h2 {
+  margin: 0;
+  color: var(--px-blue-950);
+  font-size: 1rem;
+  font-weight: 950;
+}
+
+.howtoCard li {
+  margin: .45rem 0;
+  color: #56677f;
+  font-weight: 650;
+}
+
+.macroGrid {
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+
+.macroCard {
+  padding: 1.1rem;
+  border-top: 4px solid var(--px-blue-700);
+}
+
+.macroCard span {
+  color: var(--px-blue-700);
+  font-weight: 950;
+}
+
+.macroCard h3 {
+  margin: .45rem 0 .35rem;
+  color: var(--px-blue-950);
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.macroCard p {
+  margin: 0;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.macro_misional { border-top-color: var(--px-green-700); }
+.macro_apoyo { border-top-color: var(--px-red-600); }
+.macro_evaluacion_control { border-top-color: var(--px-purple-600); }
+
+@media (max-width: 980px) {
+  .metricGrid,
+  .macroGrid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+@media (max-width: 620px) {
+  .dashboardPanel { height: auto; overflow: visible; }
+  .metricGrid,
+  .macroGrid { grid-template-columns: 1fr; }
+}
