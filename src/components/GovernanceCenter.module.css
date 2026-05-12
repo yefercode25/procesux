@@ -929,3 +929,656 @@
   font-size: .78rem;
   font-weight: 800;
 }
+
+/* Módulos profesionales adicionales */
+.timelineList,
+.dependencyList,
+.executiveGrid {
+  display: grid;
+  gap: .75rem;
+}
+
+.traceCard,
+.dependencyCard,
+.executiveCard,
+.actDraft,
+.miniBlock {
+  border: 1px solid rgba(218, 231, 242, .92);
+  border-radius: var(--px-radius-md);
+  background: #fff;
+  box-shadow: var(--px-shadow-xs);
+  min-width: 0;
+}
+
+.traceCard {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  gap: .85rem;
+  align-items: start;
+  padding: .86rem;
+}
+
+.traceCard > div:first-child {
+  display: grid;
+  gap: .2rem;
+  color: var(--px-muted);
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.traceCard > div:first-child span {
+  color: var(--px-blue-700);
+  font-weight: 950;
+}
+
+.traceCard h3,
+.actDraft h3,
+.executiveCard strong {
+  margin: 0 0 .35rem;
+  color: var(--px-blue-950);
+  letter-spacing: -.025em;
+}
+
+.traceCard p,
+.traceCard small,
+.dependencyCard p,
+.miniBlock p,
+.miniBlock small,
+.executiveCard p,
+.actDraft p {
+  margin: .18rem 0;
+  color: var(--px-muted);
+  line-height: 1.45;
+  font-size: .82rem;
+  font-weight: 620;
+}
+
+.traceCard button,
+.dependencyCard button,
+.findingCard button {
+  border: 1px solid rgba(0,72,132,.14);
+  border-radius: var(--px-radius-sm);
+  background: #eef6ff;
+  color: var(--px-blue-800);
+  min-height: 34px;
+  padding: 0 .68rem;
+  font-size: .76rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.trustAlta { background: var(--px-green-100); color: #006b2e; }
+.trustMedia { background: var(--px-yellow-100); color: #795700; }
+.trustBaja { background: #fff1d6; color: #9f5200; }
+.trustValidacion { background: var(--px-red-100); color: #a2191f; }
+
+.progressLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .55rem;
+  align-items: center;
+  margin: .55rem 0 .65rem;
+}
+
+.progressLine meter {
+  width: 100%;
+  height: 10px;
+  accent-color: var(--px-blue-700);
+}
+
+.progressLine strong {
+  color: var(--px-blue-900);
+  font-size: .8rem;
+}
+
+.checkGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .38rem;
+  margin-top: .55rem;
+}
+
+.checkPill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: .22rem .5rem;
+  font-size: .68rem;
+  font-weight: 900;
+}
+
+.check_cumple { background: var(--px-green-100); color: #006b2e; }
+.check_parcial { background: var(--px-yellow-100); color: #795700; }
+.check_pendiente { background: var(--px-red-100); color: #a2191f; }
+
+.miniBlock {
+  padding: .62rem;
+  margin-top: .52rem;
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+}
+
+.miniBlock b {
+  display: block;
+  color: var(--px-blue-950);
+  font-size: .82rem;
+}
+
+.dependencyCard {
+  display: grid;
+  grid-template-columns: auto 24px auto minmax(0, 1fr);
+  align-items: center;
+  gap: .7rem;
+  padding: .8rem;
+}
+
+.dependencyCard > span {
+  color: var(--px-green-700);
+  font-size: 1.2rem;
+  font-weight: 950;
+  text-align: center;
+}
+
+.dependencyCard b {
+  display: block;
+  color: var(--px-blue-950);
+  font-size: .9rem;
+}
+
+.levelBadge,
+.positiveTone {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: .22rem .52rem;
+  font-size: .7rem;
+  font-weight: 950;
+}
+
+.levelBadge {
+  color: var(--px-blue-900);
+  background: var(--px-blue-100);
+}
+
+.executiveGrid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.executiveCard {
+  padding: 1rem;
+  display: grid;
+  gap: .42rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.executiveCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--px-blue-700), var(--px-green-700));
+}
+
+.executiveCard strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.executiveCard b {
+  color: var(--px-blue-800);
+  font-size: .82rem;
+}
+
+.positiveTone {
+  background: var(--px-green-100);
+  color: #006b2e;
+}
+
+.actDraft {
+  padding: 1rem;
+  max-height: min(68vh, 720px);
+  overflow: auto;
+}
+
+.actDraft .listBlock:first-of-type {
+  border-top: 0;
+}
+
+@media (max-width: 820px) {
+  .traceCard,
+  .dependencyCard {
+    grid-template-columns: 1fr;
+  }
+
+  .dependencyCard > span {
+    display: none;
+  }
+}
+
+/* Corrección UX definitiva para el menú de Gobernanza.
+   Con muchos módulos es mejor mantener una barra horizontal estable,
+   sin saltos de línea ni compresión de botones. */
+.tabBar {
+  position: sticky !important;
+  top: .2rem !important;
+  z-index: 20 !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: .48rem !important;
+  min-height: 62px !important;
+  height: 62px !important;
+  max-height: 62px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: .58rem .66rem !important;
+  scroll-snap-type: x proximity;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabBar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tabBar::-webkit-scrollbar-track {
+  background: rgba(221, 234, 246, .65);
+  border-radius: 999px;
+}
+
+.tabBar::-webkit-scrollbar-thumb {
+  background: rgba(0, 72, 132, .28);
+  border-radius: 999px;
+}
+
+.tabBar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 72, 132, .42);
+}
+
+.tabBar button {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: max-content !important;
+  max-width: none !important;
+  min-height: 42px !important;
+  height: 42px !important;
+  padding: 0 .86rem !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  scroll-snap-align: start;
+}
+
+.tabBar button:hover:not(.activeTab) {
+  color: var(--px-blue-900) !important;
+  background: rgba(255, 255, 255, .88) !important;
+  border-color: rgba(199, 216, 231, .9) !important;
+}
+
+.tabBar .activeTab,
+.tabBar .activeTab:hover,
+.tabBar .activeTab:focus,
+.tabBar .activeTab:focus-visible {
+  color: #fff !important;
+  background: linear-gradient(180deg, var(--px-blue-600), var(--px-blue-700)) !important;
+  border-color: transparent !important;
+  box-shadow: 0 10px 22px rgba(0, 72, 132, .2) !important;
+}
+
+.tabBar .activeTab svg,
+.tabBar .activeTab:hover svg,
+.tabBar .activeTab:focus svg,
+.tabBar .activeTab:focus-visible svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+
+@media (max-width: 1180px) {
+  .tabBar {
+    display: flex !important;
+    grid-template-columns: none !important;
+    position: sticky !important;
+  }
+
+  .tabBar button {
+    width: auto !important;
+    min-width: max-content !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .tabBar {
+    position: sticky !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    max-height: 58px !important;
+    padding: .5rem !important;
+  }
+
+  .tabBar button {
+    min-height: 40px !important;
+    height: 40px !important;
+    padding-inline: .76rem !important;
+  }
+}
+
+/* Herramientas avanzadas: layout compacto, visualmente coherente y sin saturar el menú principal. */
+.advancedGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem;
+  align-items: start;
+}
+
+.advancedSection {
+  min-width: 0;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-md);
+  padding: .95rem;
+  box-shadow: var(--px-shadow-xs);
+  display: grid;
+  gap: .75rem;
+}
+
+.advancedSection h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--px-blue-950);
+  font-size: .96rem;
+  letter-spacing: -.02em;
+}
+
+.advancedSection h4 {
+  margin: 0;
+  color: var(--px-blue-950);
+  font-size: .9rem;
+  line-height: 1.2;
+}
+
+.advancedSection p,
+.advancedSection small,
+.advancedSection span {
+  overflow-wrap: anywhere;
+}
+
+.compactList,
+.simulationStack,
+.qualityList,
+.faqList,
+.timelineBox,
+.assistantSteps {
+  display: grid;
+  gap: .55rem;
+}
+
+.compactList button,
+.qualityList button {
+  width: 100%;
+  border: 1px solid rgba(199,216,231,.9);
+  background: linear-gradient(180deg, #fff, #f7fbff);
+  border-radius: var(--px-radius-sm);
+  padding: .72rem;
+  text-align: left;
+  display: grid;
+  gap: .24rem;
+  color: var(--px-blue-950);
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.compactList button:hover,
+.qualityList button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0,72,132,.24);
+  box-shadow: var(--px-shadow-sm);
+}
+
+.compactList b,
+.qualityList b {
+  font-size: .84rem;
+}
+
+.compactList span,
+.qualityList span,
+.compactList small,
+.qualityList small {
+  color: var(--px-muted);
+  font-size: .76rem;
+  line-height: 1.35;
+}
+
+.qualityList button {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+}
+
+.qualityList strong {
+  grid-row: span 2;
+  min-width: 62px;
+  min-height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf7ff;
+  color: var(--px-blue-800);
+  font-size: .85rem;
+}
+
+.qualityList span {
+  grid-column: 2;
+}
+
+.simulationCard,
+.beforeAfterGrid section,
+.faqList section,
+.glossaryGrid section,
+.tagGrid section,
+.publicationGrid section,
+.roleGrid section,
+.dependencyScoreGrid section,
+.timelineBox section,
+.assistantSteps section {
+  border: 1px solid rgba(210,226,240,.92);
+  background: rgba(248,251,255,.88);
+  border-radius: var(--px-radius-sm);
+  padding: .72rem;
+  min-width: 0;
+}
+
+.simulationCard {
+  display: grid;
+  gap: .45rem;
+}
+
+.beforeAfterGrid,
+.glossaryGrid,
+.tagGrid,
+.publicationGrid,
+.roleGrid,
+.dependencyScoreGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: .62rem;
+}
+
+.beforeAfterGrid p,
+.glossaryGrid p,
+.tagGrid p,
+.publicationGrid p,
+.roleGrid p,
+.dependencyScoreGrid p,
+.faqList p,
+.timelineBox p,
+.assistantSteps p {
+  margin: .25rem 0;
+  color: var(--px-muted);
+  font-size: .8rem;
+  line-height: 1.35;
+}
+
+.beforeAfterGrid small,
+.glossaryGrid small,
+.tagGrid small,
+.publicationGrid small,
+.roleGrid small,
+.dependencyScoreGrid small,
+.assistantSteps small {
+  color: #64748b;
+  font-size: .74rem;
+  line-height: 1.35;
+}
+
+.glossaryGrid span,
+.publicationGrid span,
+.timelineBox span,
+.tagGrid span {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  padding: .16rem .42rem;
+  border-radius: 999px;
+  background: #eaf4ff;
+  color: var(--px-blue-800);
+  font-size: .68rem;
+  font-weight: 900;
+}
+
+.tagGrid div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .28rem;
+  margin-top: .35rem;
+}
+
+.faqList section {
+  display: grid;
+  gap: .38rem;
+}
+
+.faqList button,
+.faqList span {
+  width: fit-content;
+  border: 1px solid rgba(0,72,132,.12);
+  border-radius: 999px;
+  padding: .34rem .62rem;
+  background: #eef6ff;
+  color: var(--px-blue-800);
+  font-size: .74rem;
+  font-weight: 900;
+}
+
+.minuteBox {
+  display: grid;
+  gap: .55rem;
+}
+
+.publish_listo {
+  border-color: rgba(1,138,44,.28) !important;
+  background: rgba(239,253,244,.88) !important;
+}
+
+.publish_revision_juridica,
+.publish_revision_dependencia,
+.publish_aprobacion {
+  border-color: rgba(245,158,11,.28) !important;
+  background: rgba(255,251,235,.92) !important;
+}
+
+.publish_no_publicable {
+  border-color: rgba(220,38,38,.28) !important;
+  background: rgba(254,242,242,.9) !important;
+}
+
+.roleGrid section,
+.dependencyScoreGrid section {
+  display: grid;
+  gap: .28rem;
+}
+
+.roleGrid b {
+  color: var(--px-blue-900);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.dependencyScoreGrid strong {
+  width: fit-content;
+  padding: .26rem .52rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--px-blue-600), var(--px-blue-700));
+  color: #fff;
+  font-size: .82rem;
+}
+
+.timelineBox {
+  position: relative;
+}
+
+.timelineBox section {
+  border-left: 4px solid rgba(0,72,132,.22);
+}
+
+.timeline_hecho {
+  border-left-color: rgba(1,138,44,.7) !important;
+}
+
+.timeline_en_proceso {
+  border-left-color: rgba(0,72,132,.7) !important;
+}
+
+.timeline_siguiente {
+  border-left-color: rgba(245,158,11,.7) !important;
+}
+
+.assistantSteps section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .65rem;
+}
+
+.assistantSteps section > span {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--px-blue-700);
+  color: #fff;
+  font-weight: 950;
+}
+
+@media (max-width: 1100px) {
+  .advancedGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .beforeAfterGrid,
+  .glossaryGrid,
+  .tagGrid,
+  .publicationGrid,
+  .roleGrid,
+  .dependencyScoreGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .qualityList button {
+    grid-template-columns: 1fr;
+  }
+
+  .qualityList strong,
+  .qualityList span {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

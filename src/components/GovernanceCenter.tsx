@@ -1,25 +1,36 @@
 import { memo, useCallback, useDeferredValue, useEffect, useMemo, useState, useTransition, type ReactNode } from 'react';
 import {
   Archive,
+  Activity,
+  AlertTriangle,
   BadgeCheck,
   BookOpenCheck,
+  CheckCircle2,
   ClipboardCheck,
+  ClipboardList,
   Download,
   Eye,
   FileCheck2,
+  FilePenLine,
   FileSpreadsheet,
   FileText,
   GitCompare,
+  Gauge,
+  History,
   Layers3,
   LibraryBig,
   ListChecks,
   MessageSquareText,
+  Route,
+  Scale,
   Network,
   Printer,
   Search,
   ShieldCheck,
   SlidersHorizontal,
   TableProperties,
+  Target,
+  Workflow,
   X,
 } from 'lucide-react';
 import { allProcedures } from '../data/manualData';
@@ -27,20 +38,51 @@ import { allFunctionProfiles } from '../data/functionsManualData';
 import type { FunctionProfile, ProcedureItem } from '../types/manual';
 import { buildProfileLoad, buildProcedureIntelligence, coverageLabel, riskLabel, type IntelligenceRisk } from '../utils/intelligence';
 import {
+  buildAdministrativeActDraft,
   buildAuditChecklist,
+  buildChangeTrace,
+  buildCriticalityClassification,
+  buildDependencyMap,
   buildDuplicateFindings,
+  buildEvidenceModel,
+  buildExecutiveSummary,
+  buildMaturityAssessment,
   buildNormativeLibrary,
+  buildPrioritizedNormativeUpdates,
+  buildProcedureIndicatorSuggestions,
   buildProcedureSheet,
   buildQualityIndicators,
   buildRaciForProcedure,
+  buildRelationConfidenceMatrix,
+  buildResponsibilityInconsistencies,
   buildUpdatePlan,
+  buildValidationChecklist,
+  exportAdministrativeActDraft,
   exportProcedureSheet,
   exportProfileSheet,
   exportRelationshipMatrix,
   exportUpdatePlan,
+  exportValidationChecklist,
+  exportMeetingMinuteDraft,
+  buildChangeImpactModel,
+  buildUpdateSimulationScenarios,
+  buildGlobalBeforeAfter,
+  buildDocumentQualityValidator,
+  buildInstitutionalGlossary,
+  buildInstitutionalFaqs,
+  buildInstitutionalTags,
+  buildUpdateEvidenceControl,
+  buildMeetingMinuteDraft,
+  buildPublicationReadiness,
+  buildRoleControlModel,
+  buildInstitutionalTimeline,
+  buildDependencySummary,
+  buildUpdateAssistantSteps,
   manualVersions,
   semanticSearch,
+  type AdministrativeActDraft,
   type ApprovalStage,
+  type ChangeTraceItem,
   type InstitutionalProcedureSheet,
   type NormativeLibraryItem,
   type RaciRole,
@@ -55,12 +97,25 @@ interface GovernanceCenterProps {
   onSelectProfile: (profileId: string) => void;
 }
 
-type TabId = 'plan' | 'fichas' | 'indicadores' | 'duplicidades' | 'normativa' | 'auditoria' | 'raci' | 'buscador' | 'versiones' | 'publico';
+type TabId = 'plan' | 'herramientas' | 'fichas' | 'indicadores' | 'trazabilidad' | 'confianza' | 'evidencias' | 'priorizacion' | 'validacion' | 'indicadoresProc' | 'criticidad' | 'dependencias' | 'inconsistencias' | 'acto' | 'madurez' | 'ejecutiva' | 'duplicidades' | 'normativa' | 'auditoria' | 'raci' | 'buscador' | 'versiones' | 'publico';
 
 const tabs: { id: TabId; label: string; icon: typeof ClipboardCheck }[] = [
   { id: 'plan', label: 'Plan de actualización', icon: ClipboardCheck },
+  { id: 'herramientas', label: 'Herramientas avanzadas', icon: SlidersHorizontal },
   { id: 'fichas', label: 'Fichas institucionales', icon: FileCheck2 },
   { id: 'indicadores', label: 'Indicadores', icon: Layers3 },
+  { id: 'trazabilidad', label: 'Trazabilidad', icon: History },
+  { id: 'confianza', label: 'Confianza relación', icon: Target },
+  { id: 'evidencias', label: 'Evidencias mínimas', icon: ClipboardList },
+  { id: 'priorizacion', label: 'Prioridad normativa', icon: AlertTriangle },
+  { id: 'validacion', label: 'Checklist calidad', icon: CheckCircle2 },
+  { id: 'indicadoresProc', label: 'Indicadores por proceso', icon: Activity },
+  { id: 'criticidad', label: 'Criticidad', icon: Gauge },
+  { id: 'dependencias', label: 'Dependencias cruzadas', icon: Route },
+  { id: 'inconsistencias', label: 'Inconsistencias', icon: Scale },
+  { id: 'acto', label: 'Acto administrativo', icon: FilePenLine },
+  { id: 'madurez', label: 'Madurez', icon: Workflow },
+  { id: 'ejecutiva', label: 'Vista ejecutiva', icon: BookOpenCheck },
   { id: 'duplicidades', label: 'Duplicidades', icon: GitCompare },
   { id: 'normativa', label: 'Normativa', icon: LibraryBig },
   { id: 'auditoria', label: 'Modo auditoría', icon: ShieldCheck },
@@ -107,6 +162,32 @@ export function GovernanceCenter({ onSelectProcedure, onSelectProfile }: Governa
   const audit = useMemo(() => buildAuditChecklist(), []);
   const profileLoad = useMemo(() => buildProfileLoad(intelligenceRows), [intelligenceRows]);
   const missing = useMemo(() => getMissingProcedureRecommendations(), []);
+  const trace = useMemo(() => buildChangeTrace(), []);
+  const confidence = useMemo(() => buildRelationConfidenceMatrix(), []);
+  const evidenceModel = useMemo(() => buildEvidenceModel(), []);
+  const prioritizedUpdates = useMemo(() => buildPrioritizedNormativeUpdates(), []);
+  const validationChecklist = useMemo(() => buildValidationChecklist(), []);
+  const procedureIndicators = useMemo(() => buildProcedureIndicatorSuggestions(), []);
+  const criticality = useMemo(() => buildCriticalityClassification(), []);
+  const dependencies = useMemo(() => buildDependencyMap(), []);
+  const inconsistencies = useMemo(() => buildResponsibilityInconsistencies(), []);
+  const actDraft = useMemo(() => buildAdministrativeActDraft(), []);
+  const maturity = useMemo(() => buildMaturityAssessment(), []);
+  const executive = useMemo(() => buildExecutiveSummary(), []);
+  const changeImpact = useMemo(() => buildChangeImpactModel(), []);
+  const simulations = useMemo(() => buildUpdateSimulationScenarios(), []);
+  const beforeAfter = useMemo(() => buildGlobalBeforeAfter(), []);
+  const documentQuality = useMemo(() => buildDocumentQualityValidator(), []);
+  const glossary = useMemo(() => buildInstitutionalGlossary(), []);
+  const faqs = useMemo(() => buildInstitutionalFaqs(), []);
+  const institutionalTags = useMemo(() => buildInstitutionalTags(), []);
+  const updateEvidence = useMemo(() => buildUpdateEvidenceControl(), []);
+  const meetingMinute = useMemo(() => buildMeetingMinuteDraft(), []);
+  const publication = useMemo(() => buildPublicationReadiness(), []);
+  const roles = useMemo(() => buildRoleControlModel(), []);
+  const timeline = useMemo(() => buildInstitutionalTimeline(), []);
+  const dependencySummary = useMemo(() => buildDependencySummary(), []);
+  const assistantSteps = useMemo(() => buildUpdateAssistantSteps(), []);
 
   const [tab, setTab] = useState<TabId>('plan');
   const [planStatus, setPlanStatus] = useState('todos');
@@ -187,6 +268,89 @@ export function GovernanceCenter({ onSelectProcedure, onSelectProfile }: Governa
         })}
       </nav>
 
+
+      {tab === 'herramientas' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}>
+            <div><SlidersHorizontal size={18} /><h2>Herramientas profesionales de actualización institucional</h2></div>
+            <button type="button" onClick={exportMeetingMinuteDraft}><Download size={14} /> Exportar minuta</button>
+          </header>
+          <p className={styles.lead}>Este bloque agrupa funciones avanzadas para pasar del diagnóstico a la decisión, adopción, publicación y seguimiento de los manuales.</p>
+
+          <div className={styles.advancedGrid}>
+            <article className={styles.advancedSection}>
+              <h3><Target size={16} /> Motor de impacto del cambio</h3>
+              <div className={styles.compactList}>{changeImpact.slice(0, 8).map((item) => <button key={item.procedureId} type="button" onClick={() => onSelectProcedure(item.procedureId)}><b>{item.code}</b><span>{item.summary}</span><small>{item.leader} · apoyo: {item.supportDependencies.join(', ') || 'por definir'}</small></button>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><GitCompare size={16} /> Simulador de actualización</h3>
+              <div className={styles.simulationStack}>{simulations.map((scenario) => <section key={scenario.id} className={styles.simulationCard}><span className={`${styles.badge} ${priorityClass(scenario.risk)}`}>{riskLabel[scenario.risk]}</span><h4>{scenario.title}</h4><p>{scenario.question}</p><ListBlock title="Efectos esperados" items={scenario.effects} /><ListBlock title="Acciones requeridas" items={scenario.requiredActions} /></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><GitCompare size={16} /> Antes y después global</h3>
+              <div className={styles.beforeAfterGrid}>{beforeAfter.map((item) => <section key={item.id}><span className={`${styles.badge} ${priorityClass(item.priority)}`}>{riskLabel[item.priority]}</span><h4>{item.scope}</h4><p><b>Actual:</b> {item.currentState}</p><p><b>Propuesto:</b> {item.proposedState}</p><small>{item.impact}</small></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><ClipboardCheck size={16} /> Validador de calidad documental</h3>
+              <div className={styles.qualityList}>{documentQuality.slice(0, 10).map((item) => <button key={item.procedureId} type="button" onClick={() => onSelectProcedure(item.procedureId)}><strong>{item.score}/100</strong><b>{item.code} · {item.title}</b><span>Falta: {item.missing.slice(0, 5).join(', ') || 'Sin faltantes críticos'}</span></button>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><BookOpenCheck size={16} /> Glosario institucional</h3>
+              <div className={styles.glossaryGrid}>{glossary.map((item) => <section key={item.term}><b>{item.term}</b><span>{item.category}</span><p>{item.definition}</p><small>{item.example}</small></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><MessageSquareText size={16} /> Preguntas frecuentes institucionales</h3>
+              <div className={styles.faqList}>{faqs.map((faq) => <section key={faq.question}><h4>{faq.question}</h4><p>{faq.answer}</p>{faq.targetType === 'procedimiento' && faq.targetId && <button type="button" onClick={() => onSelectProcedure(faq.targetId!)}>{faq.actionLabel}</button>}{faq.targetType === 'cargo' && faq.targetId && <button type="button" onClick={() => onSelectProfile(faq.targetId!)}>{faq.actionLabel}</button>}{!faq.targetId && <span>{faq.actionLabel}</span>}</section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><Archive size={16} /> Etiquetas institucionales</h3>
+              <div className={styles.tagGrid}>{institutionalTags.map((item) => <section key={item.tag}><b>{item.tag}</b><p>{item.purpose}</p><small>{item.suggestedUse}</small><div>{item.examples.map((example) => <span key={example}>{example}</span>)}</div></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><FileCheck2 size={16} /> Control de evidencias de actualización</h3>
+              <div className={styles.tableWrap}><table className={styles.dataTable}><thead><tr><th>Elemento</th><th>Evidencia</th><th>Responsable</th><th>Estado</th></tr></thead><tbody>{updateEvidence.map((item) => <tr key={item.id}><td><b>{item.title}</b><small>{item.target}</small></td><td>{item.evidenceType}</td><td>{item.responsible}</td><td><span className={styles.badge}>{item.status}</span></td></tr>)}</tbody></table></div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><FileText size={16} /> Generador de minuta de reunión</h3>
+              <div className={styles.minuteBox}><h4>{meetingMinute.title}</h4>{meetingMinute.sections.map((section) => <ListBlock key={section.title} title={section.title} items={section.items} />)}<button type="button" className={styles.primaryButton} onClick={exportMeetingMinuteDraft}><Download size={14} /> Descargar minuta</button></div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><Eye size={16} /> Modo publicación</h3>
+              <div className={styles.publicationGrid}>{publication.slice(0, 18).map((item) => <section key={item.id} className={styles[`publish_${item.status}`]}><b>{item.title}</b><span>{item.status.replaceAll('_', ' ')}</span><p>{item.reason}</p><small>{item.nextStep}</small></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><ShieldCheck size={16} /> Control de roles</h3>
+              <div className={styles.roleGrid}>{roles.map((role) => <section key={role.role}><h4>{role.role}</h4><p>{role.description}</p><b>Puede ver</b><small>{role.canSee.join(' · ')}</small><b>Puede hacer</b><small>{role.canDo.join(' · ')}</small></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><History size={16} /> Línea de tiempo institucional</h3>
+              <div className={styles.timelineBox}>{timeline.map((item) => <section key={item.id} className={styles[`timeline_${item.status}`]}><span>{item.date}</span><h4>{item.title}</h4><p>{item.description}</p></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><Layers3 size={16} /> Dependencias responsables y calificación</h3>
+              <div className={styles.dependencyScoreGrid}>{dependencySummary.map((item) => <section key={item.dependency}><strong>{item.score}/100</strong><h4>{item.dependency}</h4><p>{item.procedures} procedimientos · {item.profiles} cargos · {item.highRisk} riesgos altos</p><small>{item.recommendation}</small></section>)}</div>
+            </article>
+
+            <article className={styles.advancedSection}>
+              <h3><Workflow size={16} /> Asistente de actualización</h3>
+              <div className={styles.assistantSteps}>{assistantSteps.map((step) => <section key={step.step}><span>{step.step}</span><div><h4>{step.title}</h4><p>{step.description}</p><small><b>Salida:</b> {step.expectedOutput} · <b>Módulo:</b> {step.relatedModule}</small></div></section>)}</div>
+            </article>
+          </div>
+        </section>
+      )}
+
       {tab === 'plan' && (
         <section className={styles.panelCard}>
           <header className={styles.panelHeader}>
@@ -249,6 +413,91 @@ export function GovernanceCenter({ onSelectProcedure, onSelectProfile }: Governa
             <header className={styles.panelHeader}><div><SlidersHorizontal size={18} /><h2>Carga funcional por cargo</h2></div></header>
             <div className={styles.loadList}>{profileLoad.slice(0, 14).map((item) => <button key={item.profile.id} type="button" onClick={() => onSelectProfile(item.profile.id)}><b>{item.profile.denomination}</b><small>{item.profile.dependency}</small><meter min="0" max="50" value={Math.min(50, item.procedureCount)} /><span>{item.procedureCount} proc. · {item.linkedFunctionCount}/{item.functionCount} func.</span></button>)}</div>
           </article>
+        </section>
+      )}
+
+
+      {tab === 'trazabilidad' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><History size={18} /><h2>Sistema de trazabilidad de cambios</h2></div></header>
+          <div className={styles.timelineList}>{trace.map((item) => <TraceCard key={item.id} item={item} onSelectProcedure={onSelectProcedure} onSelectProfile={onSelectProfile} />)}</div>
+        </section>
+      )}
+
+      {tab === 'confianza' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><Target size={18} /><h2>Nivel de confianza de relaciones proceso ↔ cargo ↔ función</h2></div></header>
+          <div className={styles.tableWrap}><table className={styles.dataTable}><thead><tr><th>Procedimiento</th><th>Cargo</th><th>Tipo</th><th>Confianza</th><th>Funciones</th><th>Validación</th></tr></thead><tbody>{confidence.slice(0, 260).map((item) => <tr key={item.id}><td><button type="button" onClick={() => onSelectProcedure(item.procedureId)}>{item.procedureCode} · {item.procedureTitle}</button></td><td>{item.profileId ? <button type="button" onClick={() => onSelectProfile(item.profileId!)}>{item.profileName}</button> : 'Sin cargo soporte'}</td><td><span className={styles.badge}>{relationKindLabel(item.relationKind)}</span></td><td><span className={`${styles.badge} ${trustClass(item.trust)}`}>{trustLabel(item.trust)} · {item.score}%</span></td><td>{item.functionNumbers.length ? item.functionNumbers.join(', ') : '—'}</td><td>{item.validationNeed}</td></tr>)}</tbody></table></div>
+        </section>
+      )}
+
+      {tab === 'evidencias' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><ClipboardList size={18} /><h2>Evidencias mínimas por procedimiento</h2></div></header>
+          <div className={styles.cardGrid}>{evidenceModel.map((item) => <article key={item.procedureId} className={styles.findingCard}><h3>{item.procedureCode} · {item.title}</h3><p><b>Custodia:</b> {item.custodyResponsible}</p><p><b>Sistema:</b> {item.preservationSystem}</p><ListBlock title="Evidencias mínimas" items={item.minimumEvidences.slice(0, 4)} /><ListBlock title="Soportes obligatorios" items={item.mandatorySupports.slice(0, 4)} /><small>{item.retentionHint}</small></article>)}</div>
+        </section>
+      )}
+
+      {tab === 'priorizacion' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><AlertTriangle size={18} /><h2>Actualización normativa priorizada</h2></div></header>
+          <div className={styles.tableWrap}><table className={styles.dataTable}><thead><tr><th>Prioridad</th><th>Procedimiento</th><th>Factores</th><th>Primera acción recomendada</th><th>Responsable</th></tr></thead><tbody>{prioritizedUpdates.slice(0, 120).map((item) => <tr key={item.id}><td><span className={`${styles.badge} ${priorityClass(item.priority)}`}>{riskLabel[item.priority]} · {item.score}</span></td><td><button type="button" onClick={() => onSelectProcedure(item.targetId)}>{item.targetCode} · {item.title}</button></td><td>{item.factors.join(' | ')}</td><td>{item.recommendedFirstAction}</td><td>{item.responsible}</td></tr>)}</tbody></table></div>
+        </section>
+      )}
+
+      {tab === 'validacion' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><CheckCircle2 size={18} /><h2>Checklist de validación por procedimiento</h2></div><button type="button" onClick={exportValidationChecklist}><Download size={14} /> Exportar checklist</button></header>
+          <div className={styles.cardGrid}>{validationChecklist.map((item) => <article key={item.procedureId} className={styles.findingCard}><h3>{item.procedureCode} · {item.title}</h3><div className={styles.progressLine}><meter min="0" max="100" value={item.completion} /><strong>{item.completion}%</strong></div><div className={styles.checkGrid}>{item.checks.map((check) => <span key={check.label} className={`${styles.checkPill} ${styles[`check_${check.status}`]}`}>{check.label}</span>)}</div><button type="button" onClick={() => onSelectProcedure(item.procedureId)}>Abrir proceso</button></article>)}</div>
+        </section>
+      )}
+
+      {tab === 'indicadoresProc' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><Activity size={18} /><h2>Indicadores sugeridos por procedimiento</h2></div></header>
+          <div className={styles.cardGrid}>{procedureIndicators.map((item) => <article key={item.procedureId} className={styles.findingCard}><h3>{item.procedureCode} · {item.title}</h3>{item.indicators.map((indicator) => <div key={indicator.name} className={styles.miniBlock}><b>{indicator.name}</b><p>{indicator.formula}</p><small>{indicator.frequency} · {indicator.owner} · {indicator.purpose}</small></div>)}</article>)}</div>
+        </section>
+      )}
+
+      {tab === 'criticidad' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><Gauge size={18} /><h2>Clasificación por criticidad institucional</h2></div></header>
+          <div className={styles.cardGrid}>{criticality.map((item) => <article key={item.procedureId} className={styles.findingCard}><span className={`${styles.badge} ${priorityClass(item.risk)}`}>{riskLabel[item.risk]}</span><h3>{item.procedureCode} · {item.title}</h3><p><b>Categoría:</b> {item.category}</p><p>{item.reason}</p><button type="button" onClick={() => onSelectProcedure(item.procedureId)}>Abrir proceso</button></article>)}</div>
+        </section>
+      )}
+
+      {tab === 'dependencias' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><Route size={18} /><h2>Módulo de dependencias cruzadas</h2></div></header>
+          <div className={styles.dependencyList}>{dependencies.map((item) => <article key={item.id} className={styles.dependencyCard}><button type="button" onClick={() => { const proc = findByProcedureCode(item.fromCode); if (proc) onSelectProcedure(proc.id); }}>{item.fromCode}</button><span>→</span><button type="button" onClick={() => { const proc = findByProcedureCode(item.toCode); if (proc) onSelectProcedure(proc.id); }}>{item.toCode}</button><div><b>{item.relation}</b><p>{item.impact}</p></div></article>)}</div>
+        </section>
+      )}
+
+      {tab === 'inconsistencias' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><Scale size={18} /><h2>Alertas por inconsistencias de responsable</h2></div></header>
+          <div className={styles.tableWrap}><table className={styles.dataTable}><thead><tr><th>Procedimiento</th><th>Actual</th><th>Sugerido</th><th>Riesgo</th><th>Acción</th></tr></thead><tbody>{inconsistencies.map((item) => <tr key={item.id}><td><button type="button" onClick={() => onSelectProcedure(item.procedureId)}>{item.procedureCode} · {item.title}</button><small>{item.reason}</small></td><td>{item.currentResponsible}</td><td>{item.suggestedResponsible}</td><td><span className={`${styles.badge} ${priorityClass(item.severity)}`}>{riskLabel[item.severity]}</span></td><td>{item.action}</td></tr>)}</tbody></table></div>
+        </section>
+      )}
+
+      {tab === 'acto' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><FilePenLine size={18} /><h2>Modo preparar acto administrativo</h2></div><button type="button" onClick={exportAdministrativeActDraft}><Download size={14} /> Exportar borrador</button></header>
+          <ActDraftView draft={actDraft} />
+        </section>
+      )}
+
+      {tab === 'madurez' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><Workflow size={18} /><h2>Control de madurez de procedimientos</h2></div></header>
+          <div className={styles.cardGrid}>{maturity.map((item) => <article key={item.procedureId} className={styles.findingCard}><span className={styles.levelBadge}>Nivel {item.level}</span><h3>{item.procedureCode} · {item.title}</h3><p><b>{item.label}</b></p><p>{item.evidence}</p><p><b>Siguiente paso:</b> {item.nextStep}</p><button type="button" onClick={() => onSelectProcedure(item.procedureId)}>Abrir proceso</button></article>)}</div>
+        </section>
+      )}
+
+      {tab === 'ejecutiva' && (
+        <section className={styles.panelCard}>
+          <header className={styles.panelHeader}><div><BookOpenCheck size={18} /><h2>Vista ejecutiva para Alcalde y Secretarios</h2></div></header>
+          <div className={styles.executiveGrid}>{executive.map((item) => <article key={item.id} className={styles.executiveCard}><span className={item.tone === 'positivo' ? styles.positiveTone : priorityClass(item.tone)}>{item.title}</span><strong>{item.value}</strong><p>{item.detail}</p><b>{item.action}</b></article>)}</div>
         </section>
       )}
 
@@ -316,6 +565,56 @@ export function GovernanceCenter({ onSelectProcedure, onSelectProfile }: Governa
 
 function findByProcedureCode(code: string) {
   return procedureByCode.get(code.toLowerCase());
+}
+
+function relationKindLabel(kind: string) {
+  const labels: Record<string, string> = {
+    directa: 'Relación directa',
+    parcial: 'Relación parcial',
+    apoyo_operativo_condicionado: 'Apoyo operativo condicionado',
+    normativa: 'Relación normativa',
+    sugerida: 'Relación sugerida',
+    sin_soporte: 'Sin soporte funcional',
+  };
+  return labels[kind] ?? kind;
+}
+
+function trustLabel(trust: string) {
+  const labels: Record<string, string> = {
+    alta: 'Alta confianza',
+    media: 'Media confianza',
+    baja: 'Baja confianza',
+    validacion: 'Requiere validación',
+  };
+  return labels[trust] ?? trust;
+}
+
+function trustClass(trust: string) {
+  if (trust === 'alta') return styles.trustAlta;
+  if (trust === 'media') return styles.trustMedia;
+  if (trust === 'baja') return styles.trustBaja;
+  return styles.trustValidacion;
+}
+
+function TraceCard({ item, onSelectProcedure, onSelectProfile }: { item: ChangeTraceItem; onSelectProcedure: (id: string) => void; onSelectProfile: (id: string) => void }) {
+  return <article className={styles.traceCard}>
+    <div><span>{item.date}</span><b>{item.actor}</b></div>
+    <section><h3>{item.title}</h3><p><b>Antes:</b> {item.previousState}</p><p><b>Después:</b> {item.newState}</p><p><b>Justificación:</b> {item.justification}</p><small>{item.observation}</small></section>
+    {item.targetType === 'procedimiento' && <button type="button" onClick={() => onSelectProcedure(item.targetId)}>Abrir</button>}
+    {item.targetType === 'cargo' && <button type="button" onClick={() => onSelectProfile(item.targetId)}>Abrir</button>}
+  </article>;
+}
+
+function ActDraftView({ draft }: { draft: AdministrativeActDraft }) {
+  return <div className={styles.actDraft}>
+    <h3>{draft.title}</h3>
+    <ListBlock title="Considerandos" items={draft.considerations} />
+    <ListBlock title="Justificación técnica" items={draft.technicalJustification.slice(0, 10)} />
+    <ListBlock title="Cambios propuestos" items={draft.proposedChanges} />
+    <ListBlock title="Anexo de procedimientos ajustados" items={draft.procedureAnnex.slice(0, 12)} />
+    <ListBlock title="Anexo de funciones ajustadas" items={draft.functionAnnex.slice(0, 10)} />
+    <ListBlock title="Articulado base" items={draft.articles} />
+  </div>;
 }
 
 const Metric = memo(function Metric({ label, value, note }: { label: string; value: number | string; note: string }) {
