@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react';
-import { AlertTriangle, BadgeCheck, BriefcaseBusiness, ClipboardList, Eye, FileWarning, GitMerge, Layers3, ListChecks, Network, Scale, ScrollText, ShieldAlert, X } from 'lucide-react';
+import { AlertTriangle, BadgeCheck, BriefcaseBusiness, Download, Eye, FileWarning, GitMerge, Layers3, ListChecks, Network, RotateCcw, Scale, ScrollText, Search, Share2, ShieldAlert, SlidersHorizontal, X } from 'lucide-react';
 import type { FunctionItem, FunctionProfile, ManualData, ProcedureItem } from '../types/manual';
-import { countLinkedFunctions, getFunctionRelations, getFunctionStrictRules, getProcedureRelationships, getProfileUpdateFindings } from '../utils/relations';
+import { countLinkedFunctions, getFunctionRelations, getFunctionStrictRules, getProcedureRelationships, getProfileFunctionUpdateActions, getProfileUpdateFindings } from '../utils/relations';
 import { ProcedurePreviewModal } from './ProcedurePreviewModal';
 import { OrgChart } from './OrgChart';
+import { exportProfileSheet } from '../utils/governance';
+import { FunctionUpdateModal } from './FunctionUpdateModal';
 import { allFunctionProfiles } from '../data/functionsManualData';
 import styles from './FunctionDetail.module.css';
 
@@ -11,6 +13,8 @@ interface FunctionDetailProps {
   profile: FunctionProfile;
   manualData: ManualData;
   onSelectProfile?: (profileId: string) => void;
+  onShareProfile?: () => void;
+  isSharedView?: boolean;
 }
 
 const flattenProcedures = (data: ManualData) => data.macroprocesses.flatMap((macro) =>
@@ -30,6 +34,8 @@ const legalLabel = {
   no_recomendado: 'No recomendado',
 };
 
+type FunctionFilter = 'todas' | 'relacionadas' | 'sin_relacion' | 'validacion';
+
 function FunctionRecommendation({ fn, profile }: { fn: FunctionItem; profile: FunctionProfile }) {
   const rules = getFunctionStrictRules(fn, profile);
   if (rules.length === 0) {
@@ -45,10 +51,13 @@ function FunctionRecommendation({ fn, profile }: { fn: FunctionItem; profile: Fu
   );
 }
 
-export function FunctionDetail({ profile, manualData, onSelectProfile }: FunctionDetailProps) {
+export function FunctionDetail({ profile, manualData, onSelectProfile, onShareProfile, isSharedView = false }: FunctionDetailProps) {
   const [previewProcedure, setPreviewProcedure] = useState<ProcedureItem | null>(null);
   const [expandedFunctionId, setExpandedFunctionId] = useState<string | null>(null);
   const [isOrgChartOpen, setIsOrgChartOpen] = useState(false);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [functionQuery, setFunctionQuery] = useState('');
+  const [functionFilter, setFunctionFilter] = useState<FunctionFilter>('todas');
   const procedures = useMemo(() => flattenProcedures(manualData), [manualData]);
   const procedureMap = useMemo(() => new Map(procedures.map((item) => [item.procedure.id, item])), [procedures]);
   const linkedFunctions = countLinkedFunctions(profile);
@@ -56,6 +65,27 @@ export function FunctionDetail({ profile, manualData, onSelectProfile }: Functio
   const relatedProcedures = relatedProcedureIds.map((id) => procedureMap.get(id)).filter(Boolean) as ReturnType<typeof flattenProcedures>;
   const unlinkedFunctions = profile.functions.filter((fn) => getFunctionRelations(fn, profile).every((relation) => !relation.procedureId));
   const updateFindings = getProfileUpdateFindings(profile.id);
+  const updateActions = getProfileFunctionUpdateActions(profile.id);
+  const normalizedFunctionQuery = functionQuery.trim().toLowerCase();
+  const functionsNeedingValidation = profile.functions.filter((fn) => getFunctionStrictRules(fn, profile).some((rule) => rule.legalFit !== 'compatible'));
+  const directRelationCount = profile.functions.reduce((acc, fn) => acc + getFunctionRelations(fn, profile).filter((relation) => relation.procedureId).length, 0);
+  const filteredFunctions = profile.functions.filter((fn) => {
+    const relations = getFunctionRelations(fn, profile).filter((relation) => relation.procedureId);
+    const rules = getFunctionStrictRules(fn, profile);
+    const matchesFilter = functionFilter === 'todas'
+      ? true
+      : functionFilter === 'relacionadas'
+        ? relations.length > 0
+        : functionFilter === 'sin_relacion'
+          ? relations.length === 0
+          : rules.some((rule) => rule.legalFit !== 'compatible');
+    if (!matchesFilter) return false;
+    if (!normalizedFunctionQuery) return true;
+    return [fn.number, fn.description, profile.denomination, profile.functionalArea]
+      .join(' ')
+      .toLowerCase()
+      .includes(normalizedFunctionQuery);
+  });
 
   return (
     <main className={styles.detailPanel}>
@@ -69,6 +99,16 @@ export function FunctionDetail({ profile, manualData, onSelectProfile }: Functio
             <span>{profile.dependency}</span>
             <span>{profile.positions} cargo{profile.positions === 1 ? '' : 's'}</span>
           </div>
+          <div className={styles.heroButtonRow}>
+            {onShareProfile && !isSharedView && (
+              <button type="button" className={styles.shareHeroButton} onClick={onShareProfile}>
+                <Share2 size={15} /> Compartir URL de consulta
+              </button>
+            )}
+            <button type="button" className={styles.shareHeroButton} onClick={() => exportProfileSheet(profile)}>
+              <Download size={15} /> Exportar ficha
+            </button>
+          </div>
         </div>
 
         <aside className={styles.metaPanel}>
@@ -79,6 +119,14 @@ export function FunctionDetail({ profile, manualData, onSelectProfile }: Functio
           <div><span>Área funcional</span><strong>{profile.functionalArea}</strong></div>
           <div><span>Jefe inmediato</span><strong>{profile.immediateBoss}</strong></div>
         </aside>
+      </section>
+
+      <section className={styles.insightGrid} aria-label="Indicadores del perfil funcional">
+        <article><span>Funciones</span><strong>{profile.functions.length}</strong><small>{filteredFunctions.length} visibles</small></article>
+        <article><span>Relacionadas</span><strong>{linkedFunctions}</strong><small>{directRelationCount} vínculos</small></article>
+        <article><span>Sin relación</span><strong>{unlinkedFunctions.length}</strong><small>Criterio estricto</small></article>
+        <article><span>Validación</span><strong>{functionsNeedingValidation.length}</strong><small>Funcional/legal</small></article>
+        <article><span>Procedimientos</span><strong>{relatedProcedures.length}</strong><small>Asociados</small></article>
       </section>
 
       <section className={styles.contentCard}>
@@ -109,25 +157,33 @@ export function FunctionDetail({ profile, manualData, onSelectProfile }: Functio
           </button>
         </section>
 
-        {updateFindings.length > 0 && (
+        {(updateFindings.length > 0 || updateActions.length > 0) && (
           <section className={styles.updateCard}>
             <header className={styles.sectionHeader}>
               <div><ShieldAlert size={18} /><h2>Revisión de actualización del cargo</h2></div>
-              <span className={styles.badge}>{updateFindings.length}</span>
+              <span className={styles.badge}>{updateFindings.length + updateActions.length}</span>
             </header>
-            <div className={styles.findingList}>
-              {updateFindings.map((finding) => (
-                <article key={finding.id} className={styles.findingItem}>
-                  <span className={styles[`finding_${finding.severity}`]}>{finding.severity}</span>
-                  <div>
-                    <h3>{finding.title}</h3>
-                    <p><b>Ámbito:</b> {finding.scope}</p>
-                    <p>{finding.summary}</p>
-                    <p><strong>Recomendación:</strong> {finding.recommendation}</p>
-                  </div>
-                </article>
-              ))}
+            <div className={styles.updateIntro}>
+              <p>Consulta qué funciones conviene mantener, modificar, agregar, quitar, fusionar o trasladar antes de actualizar formalmente el manual.</p>
+              <button type="button" className={styles.primaryActionButton} onClick={() => setIsUpdateModalOpen(true)}>
+                <ShieldAlert size={17} /> Abrir propuesta de actualización
+              </button>
             </div>
+            {updateFindings.length > 0 && (
+              <div className={styles.findingList}>
+                {updateFindings.map((finding) => (
+                  <article key={finding.id} className={styles.findingItem}>
+                    <span className={styles[`finding_${finding.severity}`]}>{finding.severity}</span>
+                    <div>
+                      <h3>{finding.title}</h3>
+                      <p><b>Ámbito:</b> {finding.scope}</p>
+                      <p>{finding.summary}</p>
+                      <p><strong>Recomendación:</strong> {finding.recommendation}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
           </section>
         )}
 
@@ -143,6 +199,25 @@ export function FunctionDetail({ profile, manualData, onSelectProfile }: Functio
             <span className={styles.badge}>Apartado IV</span>
           </header>
 
+          <div className={styles.filterPanel}>
+            <label className={styles.searchControl}>
+              <Search size={14} />
+              <input value={functionQuery} onChange={(event) => setFunctionQuery(event.target.value)} placeholder="Buscar texto de la función..." />
+            </label>
+            <label className={styles.selectControl}>
+              <SlidersHorizontal size={14} />
+              <select value={functionFilter} onChange={(event) => setFunctionFilter(event.target.value as FunctionFilter)} aria-label="Filtrar funciones">
+                <option value="todas">Todas las funciones</option>
+                <option value="relacionadas">Con procedimiento</option>
+                <option value="sin_relacion">Sin relación estricta</option>
+                <option value="validacion">Requieren validación</option>
+              </select>
+            </label>
+            <button type="button" className={styles.secondaryButton} onClick={() => { setFunctionQuery(''); setFunctionFilter('todas'); }}>
+              <RotateCcw size={14} /> Limpiar
+            </button>
+          </div>
+
           <div className={styles.tableWrap}>
             <table className={styles.functionTable}>
               <thead>
@@ -154,7 +229,7 @@ export function FunctionDetail({ profile, manualData, onSelectProfile }: Functio
                 </tr>
               </thead>
               <tbody>
-                {profile.functions.map((fn) => {
+                {filteredFunctions.map((fn) => {
                   const relations = getFunctionRelations(fn, profile).filter((relation) => relation.procedureId);
                   const rules = getFunctionStrictRules(fn, profile);
                   const isExpanded = expandedFunctionId === fn.id;
@@ -264,6 +339,13 @@ export function FunctionDetail({ profile, manualData, onSelectProfile }: Functio
           </section>
         </div>
       )}
+      <FunctionUpdateModal
+        profile={profile}
+        findings={updateFindings}
+        actions={updateActions}
+        isOpen={isUpdateModalOpen}
+        onClose={() => setIsUpdateModalOpen(false)}
+      />
       <ProcedurePreviewModal procedure={previewProcedure} manualData={manualData} onClose={() => setPreviewProcedure(null)} />
     </main>
   );

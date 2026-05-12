@@ -1,4 +1,4 @@
-import { BookOpen, ChevronDown, FolderTree, LibraryBig } from 'lucide-react';
+import { BookOpen, ChevronDown, FolderTree, LibraryBig, Share2 } from 'lucide-react';
 import type { FunctionProfile, FunctionsManualData, ManualData, ManualModule } from '../types/manual';
 import { getStatusLabel, procedureProgress } from '../utils/manualStats';
 import { countLinkedFunctions } from '../utils/relations';
@@ -13,6 +13,8 @@ interface SidebarProps {
   module: ManualModule;
   onSelectProcedure: (procedureId: string) => void;
   onSelectProfile: (profileId: string) => void;
+  onShareProcedure?: (procedureId: string) => void;
+  onShareProfile?: (profileId: string) => void;
 }
 
 const macroLabel: Record<string, string> = {
@@ -29,7 +31,7 @@ const levelLabel: Record<FunctionProfile['level'], string> = {
   asistencial: 'Asistencial',
 };
 
-export function Sidebar({ data, functionsData, query, selectedProcedureId, selectedProfileId, module, onSelectProcedure, onSelectProfile }: SidebarProps) {
+export function Sidebar({ data, functionsData, query, selectedProcedureId, selectedProfileId, module, onSelectProcedure, onSelectProfile, onShareProcedure, onShareProfile }: SidebarProps) {
   const normalizedQuery = query.trim().toLowerCase();
 
   return (
@@ -86,6 +88,24 @@ export function Sidebar({ data, functionsData, query, selectedProcedureId, selec
                               <small>
                                 {getStatusLabel(procedure.status)} · {procedureProgress(procedure)}% · {macroLabel[macro.type]}
                               </small>
+                              {onShareProcedure && (
+                                <span
+                                  role="button"
+                                  tabIndex={0}
+                                  className={styles.shareButton}
+                                  title="Copiar URL de consulta del procedimiento"
+                                  onClick={(event) => { event.stopPropagation(); onShareProcedure(procedure.id); }}
+                                  onKeyDown={(event) => {
+                                    if (event.key === 'Enter' || event.key === ' ') {
+                                      event.preventDefault();
+                                      event.stopPropagation();
+                                      onShareProcedure(procedure.id);
+                                    }
+                                  }}
+                                >
+                                  <Share2 size={13} /> Compartir URL
+                                </span>
+                              )}
                             </button>
                           ))}
                         </div>
@@ -142,6 +162,24 @@ export function Sidebar({ data, functionsData, query, selectedProcedureId, selec
                             <span className={styles.procedureCode}>{profile.code} · Grado {profile.grade}</span>
                             <strong>{profile.denomination}</strong>
                             <small>{profile.functionCount} funciones · {profile.positions} cargo(s) · {countLinkedFunctions(profile)} relacionadas</small>
+                            {onShareProfile && (
+                              <span
+                                role="button"
+                                tabIndex={0}
+                                className={styles.shareButton}
+                                title="Copiar URL de consulta del cargo"
+                                onClick={(event) => { event.stopPropagation(); onShareProfile(profile.id); }}
+                                onKeyDown={(event) => {
+                                  if (event.key === 'Enter' || event.key === ' ') {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                    onShareProfile(profile.id);
+                                  }
+                                }}
+                              >
+                                <Share2 size={13} /> Compartir URL
+                              </span>
+                            )}
                           </button>
                         ))}
                       </div>

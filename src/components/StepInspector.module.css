@@ -254,3 +254,22 @@
     min-height: auto;
   }
 }
+
+/* UI harmony refresh */
+.inspectorCard,
+.dataRows,
+.flowStepsGrid article,
+.checklistMini,
+.branchesBox {
+  border-radius: var(--px-radius-lg) !important;
+  border-color: rgba(199,216,231,.88) !important;
+  background: #fff !important;
+  box-shadow: var(--px-shadow-sm) !important;
+}
+.inspectorHeader h2,
+.stepTitleRow strong { font-weight: 850 !important; }
+.inspectorCard p,
+.dataRows dd,
+.checklistMini li { color: var(--px-muted) !important; font-weight: 500 !important; }
+.badge,
+.phasePill { font-weight: 800 !important; }

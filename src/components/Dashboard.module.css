@@ -154,3 +154,111 @@
   .metricGrid,
   .macroGrid { grid-template-columns: 1fr; }
 }
+
+/* UI harmony refresh */
+.dashboardPanel {
+  height: calc(100vh - 96px);
+  gap: .85rem;
+  padding-right: .12rem;
+}
+
+.welcomeCard,
+.howtoCard,
+.macroCard,
+.metricGrid article {
+  border-radius: var(--px-radius-lg);
+  border-color: rgba(199, 216, 231, .86);
+  background: rgba(255,255,255,.90);
+  box-shadow: var(--px-shadow-soft);
+}
+
+.welcomeCard {
+  position: relative;
+  overflow: hidden;
+  padding: 1.35rem;
+  background:
+    linear-gradient(135deg, rgba(0,72,132,.08), transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,251,254,.94));
+}
+
+.welcomeCard h1 {
+  max-width: 880px;
+  margin: .5rem 0 .65rem;
+  font-size: clamp(1.55rem, 3vw, 2.55rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+  font-weight: 850;
+}
+
+.welcomeCard span,
+.macroCard span {
+  font-weight: 850;
+}
+
+.welcomeCard p {
+  max-width: 900px;
+  margin-bottom: 1rem;
+  color: var(--px-muted);
+  font-size: .92rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.welcomeCard button {
+  height: 42px;
+  border-radius: var(--px-radius-md);
+  background: linear-gradient(180deg, var(--px-blue-600), var(--px-blue-700));
+  font-weight: 800;
+  box-shadow: 0 12px 24px rgba(0,72,132,.18);
+}
+
+.metricGrid {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: .75rem;
+}
+
+.metricGrid article {
+  position: relative;
+  overflow: hidden;
+  min-height: 112px;
+  padding: .9rem;
+}
+
+.metricGrid article::after {
+  content: '';
+  position: absolute;
+  right: -22px;
+  top: -24px;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  background: rgba(0,72,132,.055);
+}
+
+.metricGrid svg { color: var(--px-blue-700); }
+.metricGrid span {
+  margin: .62rem 0 .15rem;
+  color: var(--px-muted);
+  font-size: .72rem;
+  font-weight: 720;
+}
+.metricGrid strong {
+  font-size: 1.45rem;
+  font-weight: 860;
+}
+
+.howtoCard { padding: 1rem; }
+.howtoCard h2 { font-weight: 850; }
+.howtoCard li { color: var(--px-muted); font-weight: 520; line-height: 1.5; }
+
+.macroGrid { gap: .75rem; }
+.macroCard {
+  padding: 1rem;
+  border-top-width: 0;
+  border-left: 5px solid var(--px-blue-700);
+}
+.macroCard h3 { font-size: 1rem; font-weight: 850; }
+.macroCard p { color: var(--px-muted); font-weight: 600; }
+.macro_misional { border-left-color: var(--px-green-700); }
+.macro_apoyo { border-left-color: var(--px-red-600); }
+.macro_evaluacion_control { border-left-color: var(--px-purple-600); }

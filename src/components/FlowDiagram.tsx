@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, type CSSProperties } from 'react';
 import {
   Background,
   Controls,
@@ -12,6 +12,7 @@ import {
   type NodeProps,
 } from '@xyflow/react';
 import dagre from 'dagre';
+import { Maximize2, X } from 'lucide-react';
 import type { FlowStep } from '../types/manual';
 import styles from './FlowDiagram.module.css';
 
@@ -35,7 +36,7 @@ const PHASE_LABEL: Record<string, string> = {
 };
 
 const NODE_WIDTH = 292;
-const NODE_HEIGHT = 82;
+const NODE_HEIGHT = 94;
 const DECISION_WIDTH = 246;
 const DECISION_HEIGHT = 176;
 const TERMINAL_WIDTH = 176;
@@ -99,6 +100,9 @@ function getMiniMapNodeColor(node: Node<ProcedureNodeData>) {
   const step = node.data?.step;
   if (step?.type === 'decision') return '#f7c948';
   if (step?.type === 'start' || step?.type === 'end') return '#cfeedd';
+  if (step?.type === 'document') return '#cfe2ff';
+  if (step?.type === 'connector') return '#e7d8ff';
+  if (step?.type === 'software') return '#d1f2eb';
   const cycle = step?.cycle;
   if (cycle === 'P') return '#004884';
   if (cycle === 'H') return '#1f7a32';
@@ -163,7 +167,7 @@ function buildEdges(steps: FlowStep[]): Edge[] {
 function getLayoutedElements(steps: FlowStep[], activeStepId: string | null) {
   const graph = new dagre.graphlib.Graph();
   graph.setDefaultEdgeLabel(() => ({}));
-  graph.setGraph({ rankdir: 'TB', ranksep: 58, nodesep: 56, marginx: 50, marginy: 40 });
+  graph.setGraph({ rankdir: 'TB', ranksep: 64, nodesep: 60, marginx: 56, marginy: 46 });
 
   steps.forEach((step) => graph.setNode(step.id, nodeSize(step)));
 
@@ -189,7 +193,7 @@ function getLayoutedElements(steps: FlowStep[], activeStepId: string | null) {
       },
       width: size.width,
       height: size.height,
-      style: { width: size.width, height: size.height },
+      style: { width: size.width, height: size.height, '--node-index': String(steps.indexOf(step)) } as CSSProperties,
       data: { step, active: activeStepId === step.id, branchBadges },
       draggable: false,
       selectable: true,
@@ -199,12 +203,54 @@ function getLayoutedElements(steps: FlowStep[], activeStepId: string | null) {
   return { nodes, edges: buildEdges(steps) };
 }
 
-export function FlowDiagram({ steps, activeStepId, onSelectStep }: FlowDiagramProps) {
+function FlowCanvas({
+  steps,
+  activeStepId,
+  onSelectStep,
+  fullscreen = false,
+}: FlowDiagramProps & { fullscreen?: boolean }) {
   const visibleActiveStep = activeStepId ?? steps.find((step) => step.type !== 'start')?.id ?? steps[0]?.id ?? null;
   const { nodes, edges } = useMemo(
     () => getLayoutedElements(steps, visibleActiveStep),
     [steps, visibleActiveStep],
   );
+
+  return (
+    <div className={fullscreen ? styles.fullscreenReactFlowShell : styles.reactFlowShell}>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        nodeTypes={nodeTypes}
+        nodesDraggable={false}
+        nodesConnectable={false}
+        fitView
+        fitViewOptions={{ padding: fullscreen ? 0.24 : 0.18, minZoom: 0.16, maxZoom: fullscreen ? 1.25 : 1.15 }}
+        minZoom={0.12}
+        maxZoom={1.7}
+        onNodeClick={(_, node) => onSelectStep(node.id)}
+        proOptions={{ hideAttribution: true }}
+      >
+        <Background gap={18} size={1} color="#d7e4f2" />
+        <MiniMap
+          pannable
+          zoomable
+          position="bottom-right"
+          nodeColor={getMiniMapNodeColor}
+          nodeStrokeColor={getMiniMapNodeStroke}
+          nodeStrokeWidth={3}
+          maskColor="rgba(0, 72, 132, 0.08)"
+          maskStrokeColor="#004884"
+          maskStrokeWidth={2}
+          className={styles.minimap}
+        />
+        <Controls showInteractive={false} className={styles.controls} />
+      </ReactFlow>
+    </div>
+  );
+}
+
+export function FlowDiagram({ steps, activeStepId, onSelectStep }: FlowDiagramProps) {
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   if (steps.length === 0) {
     return (
@@ -216,37 +262,34 @@ export function FlowDiagram({ steps, activeStepId, onSelectStep }: FlowDiagramPr
   }
 
   return (
-    <section className={styles.flowBoard} aria-label="Diagrama de flujo interactivo">
-      <div className={styles.reactFlowShell}>
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          nodeTypes={nodeTypes}
-          nodesDraggable={false}
-          nodesConnectable={false}
-          fitView
-          fitViewOptions={{ padding: 0.18, minZoom: 0.22, maxZoom: 1.15 }}
-          minZoom={0.2}
-          maxZoom={1.6}
-          onNodeClick={(_, node) => onSelectStep(node.id)}
-          proOptions={{ hideAttribution: true }}
-        >
-          <Background gap={18} size={1} color="#d7e4f2" />
-          <MiniMap
-            pannable
-            zoomable
-            position="bottom-right"
-            nodeColor={getMiniMapNodeColor}
-            nodeStrokeColor={getMiniMapNodeStroke}
-            nodeStrokeWidth={3}
-            maskColor="rgba(0, 72, 132, 0.08)"
-            maskStrokeColor="#004884"
-            maskStrokeWidth={2}
-            className={styles.minimap}
-          />
-          <Controls showInteractive={false} className={styles.controls} />
-        </ReactFlow>
-      </div>
-    </section>
+    <>
+      <section className={styles.flowBoard} aria-label="Diagrama de flujo interactivo">
+        <div className={styles.toolbar}>
+          <span>Flujo del procedimiento</span>
+          <button type="button" onClick={() => setIsFullscreen(true)}>
+            <Maximize2 size={15} /> Abrir pantalla completa
+          </button>
+        </div>
+        <FlowCanvas steps={steps} activeStepId={activeStepId} onSelectStep={onSelectStep} />
+      </section>
+
+      {isFullscreen && (
+        <div className={styles.fullscreenBackdrop} role="dialog" aria-modal="true" aria-label="Flujo del procedimiento en pantalla completa">
+          <section className={styles.fullscreenModal}>
+            <header className={styles.fullscreenHeader}>
+              <div>
+                <span>Modo paso a paso</span>
+                <h2>Flujo del procedimiento</h2>
+                <p>Selecciona cada nodo para revisar el detalle del paso en la vista principal.</p>
+              </div>
+              <button type="button" onClick={() => setIsFullscreen(false)} aria-label="Cerrar pantalla completa">
+                <X size={18} />
+              </button>
+            </header>
+            <FlowCanvas steps={steps} activeStepId={activeStepId} onSelectStep={onSelectStep} fullscreen />
+          </section>
+        </div>
+      )}
+    </>
   );
 }

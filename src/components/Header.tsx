@@ -1,4 +1,4 @@
-import { Bell, ChevronDown, Search, Sparkles } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 import styles from './Header.module.css';
 
 interface HeaderProps {
@@ -12,7 +12,8 @@ const navItems = [
   { id: 'inicio', label: 'Inicio' },
   { id: 'revision', label: 'Procesos' },
   { id: 'funciones', label: 'Funciones' },
-  { id: 'constructor', label: 'Constructor' },
+  { id: 'analisis', label: 'Análisis' },
+  { id: 'gobernanza', label: 'Gobernanza' },
 ];
 
 export function Header({ query, onQueryChange, activeView, onViewChange }: HeaderProps) {
@@ -25,8 +26,8 @@ export function Header({ query, onQueryChange, activeView, onViewChange }: Heade
           <span className={styles.brandShapeBottom} />
         </div>
         <div className={styles.brandText}>
-          <strong>ProcesUX</strong>
-          <small>Procesos y funciones</small>
+          <strong>Procesux</strong>
+          <small>Manuales institucionales · funciones · procesos</small>
         </div>
       </div>
 
@@ -47,8 +48,7 @@ export function Header({ query, onQueryChange, activeView, onViewChange }: Heade
             type="button"
             onClick={() => onViewChange(item.id)}
           >
-            {item.id === 'constructor' && <Sparkles size={15} />}
-            {item.id === 'funciones' && <Sparkles size={15} />}
+            {(item.id === 'funciones' || item.id === 'analisis' || item.id === 'gobernanza') && <Sparkles size={15} />}
             {item.label}
           </button>
         ))}

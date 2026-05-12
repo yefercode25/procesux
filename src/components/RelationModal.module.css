@@ -243,3 +243,17 @@
   font-weight: 700;
   line-height: 1.35;
 }
+
+/* UI harmony refresh */
+.backdrop { background: rgba(7,23,47,.64) !important; backdrop-filter: blur(10px); }
+.modal { border-radius: var(--px-radius-xl) !important; background: #f7fbff !important; }
+.header { background: #fff !important; }
+.header h2 { font-weight: 860 !important; letter-spacing: -.03em !important; }
+.closeButton,
+.primaryButton,
+.secondaryButton { border-radius: var(--px-radius-md) !important; }
+.card,
+.infoCard,
+.functionItem,
+.procedureItem,
+.alertBox { border-radius: var(--px-radius-lg) !important; box-shadow: var(--px-shadow-sm) !important; }

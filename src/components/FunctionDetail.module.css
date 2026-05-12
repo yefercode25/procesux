@@ -604,3 +604,291 @@
     padding: .75rem;
   }
 }
+
+.updateIntro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .85rem;
+  margin-bottom: .75rem;
+  padding: .75rem;
+  border: 1px solid rgba(0, 72, 132, .12);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.updateIntro p {
+  margin: 0;
+  color: #5f7188;
+  font-size: .82rem;
+  line-height: 1.45;
+  font-weight: 750;
+}
+
+@media (max-width: 720px) {
+  .updateIntro {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+/* Professional compact function review layer */
+.insightGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+
+.insightGrid article {
+  min-width: 0;
+  padding: .8rem .9rem;
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 10px 22px rgba(7, 30, 66, .045);
+}
+
+.insightGrid span {
+  display: block;
+  color: #62728a;
+  font-size: .66rem;
+  font-weight: 950;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.insightGrid strong {
+  display: block;
+  margin-top: .24rem;
+  color: var(--px-blue-950);
+  font-size: 1.35rem;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -.04em;
+}
+
+.insightGrid small {
+  display: block;
+  margin-top: .26rem;
+  color: #71829a;
+  font-size: .7rem;
+  font-weight: 800;
+}
+
+.filterPanel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: .75rem;
+  padding: .65rem;
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: #fbfdff;
+}
+
+.searchControl,
+.selectControl {
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
+  border: 1px solid #dce8f3;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--px-blue-800);
+  font-size: .74rem;
+  font-weight: 900;
+}
+
+.searchControl {
+  flex: 1 1 280px;
+  padding: 0 .65rem;
+}
+
+.searchControl input,
+.selectControl select {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  background: transparent;
+  color: var(--px-blue-900);
+  font: inherit;
+}
+
+.searchControl input {
+  width: 100%;
+}
+
+.selectControl {
+  padding: 0 .55rem;
+}
+
+.secondaryButton {
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  border: 1px solid #dce8f3;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--px-blue-800);
+  padding: 0 .72rem;
+  font-size: .74rem;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.secondaryButton:hover,
+.searchControl:focus-within,
+.selectControl:focus-within {
+  border-color: rgba(0, 72, 132, .32);
+  background: #f6fbff;
+}
+
+.contentCard,
+.heroCard,
+.matrixCard,
+.relationCard,
+.infoCard {
+  border-radius: 10px;
+}
+
+.heroCard {
+  padding: 1.1rem 1.15rem;
+}
+
+.heroCard h1 {
+  font-size: clamp(1.55rem, 2.35vw, 2.55rem);
+}
+
+.matrixCard,
+.relationCard {
+  padding: .9rem;
+}
+
+@media (max-width: 1320px) {
+  .insightGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .insightGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .filterPanel { align-items: stretch; }
+  .searchControl,
+  .selectControl,
+  .secondaryButton { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .insightGrid { grid-template-columns: 1fr; }
+}
+
+/* UI harmony refresh */
+.detailPanel { height: calc(100vh - 96px); }
+
+.heroCard,
+.contentCard,
+.matrixCard,
+.relationCard,
+.infoCard,
+.orgLauncherCard,
+.updateCard,
+.warningBox,
+.ruleBox {
+  border-radius: var(--px-radius-lg);
+  border-color: rgba(199, 216, 231, .88);
+  background: rgba(255, 255, 255, .91);
+  box-shadow: var(--px-shadow-soft);
+}
+
+.heroCard {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 350px);
+  gap: .85rem;
+  padding: 1.15rem;
+  margin-bottom: .85rem;
+}
+.breadcrumb {
+  color: var(--px-green-700);
+  font-size: .68rem;
+  font-weight: 850;
+}
+.heroCard h1 {
+  margin: .48rem 0 .65rem;
+  font-size: clamp(1.35rem, 2.3vw, 2.1rem);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+  font-weight: 860;
+}
+.purpose { color: var(--px-muted); font-size: .9rem; line-height: 1.55; font-weight: 500; }
+.metaRow { gap: .42rem; margin-top: .75rem; }
+.metaRow span,
+.badge,
+.warning {
+  min-height: 28px;
+  padding: .28rem .62rem;
+  font-size: .68rem;
+  font-weight: 750;
+}
+.metaRow .codeChip { background: var(--px-green-700); font-weight: 850; }
+.metaPanel {
+  gap: .66rem;
+  padding: .8rem;
+  border-radius: var(--px-radius-md);
+  background: linear-gradient(180deg, #fff 0%, var(--px-green-50) 100%);
+}
+.metaPanel span { font-size: .63rem; font-weight: 820; }
+.metaPanel strong { font-size: .82rem; font-weight: 800; }
+.contentCard { padding: .85rem; gap: .85rem; }
+.summaryGrid { gap: .75rem; }
+.infoCard,
+.matrixCard,
+.relationCard { padding: .9rem; box-shadow: var(--px-shadow-sm); }
+.infoCard h2,
+.sectionHeader h2 { font-size: .92rem; font-weight: 850; }
+.infoCard p { color: var(--px-muted); font-weight: 500; }
+.tableWrap { border-radius: var(--px-radius-md); }
+.functionTable th { background: #f4f8fc; font-weight: 820; }
+.functionTable th,
+.functionTable td { padding: .68rem .72rem; }
+.functionTable td { color: var(--px-muted); font-weight: 540; }
+.functionText { line-height: 1.52; }
+.codePill { font-weight: 800; }
+.relationItem { border-radius: var(--px-radius-md); background: var(--px-surface-soft); }
+.relationItem h3 { font-weight: 820; }
+.relationItem p { color: var(--px-muted); font-weight: 500; }
+.primaryActionButton,
+.secondaryButton,
+.inlineButton,
+.procedureLink { border-radius: var(--px-radius-md); }
+.warning { font-weight: 720; }
+@media (max-width: 1160px) { .heroCard, .summaryGrid { grid-template-columns: 1fr; } }
+
+.shareHeroButton {
+  margin-top: .8rem;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
+  padding: 0 .82rem;
+  border: 1px solid rgba(0, 72, 132, .20);
+  border-radius: var(--px-radius-md);
+  color: var(--px-blue-800);
+  background: #fff;
+  font-size: .78rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: var(--px-shadow-xs);
+}
+
+.shareHeroButton:hover {
+  border-color: rgba(0, 72, 132, .36);
+  box-shadow: var(--px-shadow-soft);
+}
+
+.heroButtonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .65rem;
+}

@@ -202,3 +202,19 @@
   .stats { justify-content: flex-start; }
   .reactFlowShell { height: 72vh; min-height: 480px; }
 }
+
+/* UI harmony refresh */
+.orgModal,
+.orgChartShell,
+.orgCard,
+.legendCard,
+.statsCard {
+  border-radius: var(--px-radius-xl) !important;
+  border-color: rgba(199,216,231,.88) !important;
+  background: rgba(255,255,255,.94) !important;
+  box-shadow: var(--px-shadow-soft) !important;
+}
+.orgModalBackdrop { background: rgba(7,23,47,.66) !important; backdrop-filter: blur(10px); }
+.orgModalHeader { background: #fff !important; }
+.orgModalHeader h2 { font-weight: 860 !important; }
+.closeButton { border-radius: var(--px-radius-md) !important; }

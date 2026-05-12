@@ -1,35 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import '@xyflow/react/dist/style.css';
 
 :root {
-  --px-blue-950: #06152e;
-  --px-blue-900: #071e42;
-  --px-blue-800: #0b2f5f;
+  --px-blue-950: #07172f;
+  --px-blue-900: #09224a;
+  --px-blue-800: #123a70;
   --px-blue-700: #004884;
-  --px-blue-600: #0066b3;
-  --px-blue-100: #e8f4ff;
-  --px-green-700: #1f7a32;
-  --px-green-600: #2f9e44;
+  --px-blue-600: #0b61a4;
+  --px-blue-500: #2f80c3;
+  --px-blue-100: #eaf4ff;
+  --px-blue-50: #f5faff;
+
+  --px-green-700: #018a2c;
+  --px-green-600: #168a3d;
   --px-green-100: #eaf8ee;
-  --px-red-600: #d71920;
-  --px-red-100: #fdebed;
-  --px-yellow-500: #f7c948;
-  --px-yellow-100: #fff7d6;
+  --px-green-50: #f4fbf6;
+
+  --px-red-700: #b70f18;
+  --px-red-600: #db0a13;
+  --px-red-100: #fdeced;
+  --px-red-50: #fff7f7;
+
+  --px-yellow-600: #c98a00;
+  --px-yellow-500: #f3c316;
+  --px-yellow-100: #fff7da;
   --px-purple-600: #7250c7;
   --px-purple-100: #f0ebff;
-  --px-bg: #eef4f7;
+
+  --px-bg: #f4f7fb;
+  --px-bg-strong: #edf3f9;
   --px-surface: #ffffff;
   --px-surface-soft: #f8fbfe;
+  --px-surface-muted: #f2f6fb;
   --px-border: #dbe7f1;
   --px-border-strong: #c7d8e7;
-  --px-text: #10223d;
-  --px-muted: #64748b;
-  --px-shadow-soft: 0 10px 26px rgba(7, 30, 66, 0.06);
-  --px-shadow-card: 0 20px 48px rgba(7, 30, 66, 0.08);
-  --px-radius-sm: 12px;
-  --px-radius-md: 18px;
-  --px-radius-lg: 26px;
-  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --px-text: #14233b;
+  --px-text-strong: #07172f;
+  --px-muted: #607086;
+  --px-muted-soft: #7d8da3;
+
+  --px-shadow-xs: 0 1px 2px rgba(7, 23, 47, .05);
+  --px-shadow-sm: 0 8px 18px rgba(7, 23, 47, .055);
+  --px-shadow-soft: 0 14px 32px rgba(7, 23, 47, .07);
+  --px-shadow-card: 0 18px 48px rgba(7, 23, 47, .085);
+
+  --px-radius-xs: 8px;
+  --px-radius-sm: 10px;
+  --px-radius-md: 14px;
+  --px-radius-lg: 18px;
+  --px-radius-xl: 24px;
+
+  --px-space-1: .25rem;
+  --px-space-2: .5rem;
+  --px-space-3: .75rem;
+  --px-space-4: 1rem;
+  --px-space-5: 1.25rem;
+  --px-space-6: 1.5rem;
+
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,8 +72,29 @@ body {
   color: var(--px-text);
   overflow: hidden;
 }
-button, input { font: inherit; }
-button { color: inherit; }
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(0, 72, 132, .22);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(0, 72, 132, .16);
+}
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb {
@@ -54,6 +103,31 @@ button { color: inherit; }
   border: 2px solid transparent;
   background-clip: content-box;
 }
+::-webkit-scrollbar-thumb:hover { background-color: #93aabd; }
 ::-webkit-scrollbar-track { background: transparent; }
 
 .react-flow__attribution { display: none; }
+.react-flow__controls {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(199, 216, 231, .95);
+  box-shadow: var(--px-shadow-sm);
+}
+.react-flow__controls-button {
+  border-bottom-color: var(--px-border) !important;
+}
+.react-flow__minimap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(199, 216, 231, .95);
+  box-shadow: var(--px-shadow-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+}

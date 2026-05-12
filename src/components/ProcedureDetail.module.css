@@ -638,3 +638,374 @@
   background: #eef6ff;
   border-color: rgba(0, 72, 132, .35);
 }
+
+.updateProposalCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 1rem 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 72, 132, .16);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef8ff 100%);
+  box-shadow: 0 10px 24px rgba(7, 30, 66, .045);
+}
+
+.updateProposalCard span {
+  color: var(--px-blue-700);
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.updateProposalCard h2 {
+  margin: .35rem 0 .25rem;
+  color: var(--px-blue-950);
+  font-size: 1rem;
+  font-weight: 950;
+}
+
+.updateProposalCard p {
+  margin: 0;
+  max-width: 820px;
+  color: #52627a;
+  font-size: .82rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.updateProposalActions {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  flex-shrink: 0;
+}
+
+.updateProposalActions strong {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  background: #fff3cd;
+  color: #805400;
+  font-size: .72rem;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.updateProposalActions button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 10px;
+  padding: .55rem .9rem;
+  background: var(--px-blue-700);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 72, 132, .18);
+}
+
+.updateProposalActions button:hover {
+  background: var(--px-blue-800);
+}
+
+@media (max-width: 820px) {
+  .updateProposalCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .updateProposalActions {
+    justify-content: space-between;
+  }
+}
+
+/* Professional compact review layer */
+.insightGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+
+.insightGrid article {
+  min-width: 0;
+  padding: .8rem .9rem;
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 10px 22px rgba(7, 30, 66, .045);
+}
+
+.insightGrid span {
+  display: block;
+  color: #62728a;
+  font-size: .66rem;
+  font-weight: 950;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.insightGrid strong {
+  display: block;
+  margin-top: .24rem;
+  color: var(--px-blue-950);
+  font-size: 1.35rem;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -.04em;
+}
+
+.insightGrid small {
+  display: block;
+  margin-top: .26rem;
+  color: #71829a;
+  font-size: .7rem;
+  font-weight: 800;
+}
+
+.filterBarCompact,
+.tableSearch,
+.headerActions select {
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--px-blue-800);
+  font-size: .72rem;
+  font-weight: 900;
+}
+
+.filterBarCompact {
+  padding: 0 .55rem;
+}
+
+.filterBarCompact select,
+.headerActions select,
+.tableSearch input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--px-blue-900);
+  font: inherit;
+}
+
+.tableSearch {
+  min-width: 230px;
+  padding: 0 .65rem;
+}
+
+.tableSearch input {
+  width: 100%;
+  min-width: 0;
+}
+
+.headerActions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.reviewCard {
+  border-radius: 10px;
+}
+
+.heroCard {
+  padding: 1.1rem 1.15rem;
+}
+
+.heroCard h1 {
+  font-size: clamp(1.55rem, 2.45vw, 2.55rem);
+}
+
+.metaPanel {
+  gap: .65rem;
+  padding: .8rem;
+}
+
+.infoCard,
+.flowSection,
+.matrixCard,
+.accordionCard {
+  border-radius: 10px;
+}
+
+@media (max-width: 1320px) {
+  .insightGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .insightGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tableSearch { min-width: 100%; }
+  .headerActions { justify-content: stretch; }
+  .headerActions button,
+  .headerActions select,
+  .tableSearch { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .insightGrid { grid-template-columns: 1fr; }
+}
+
+/* UI harmony refresh */
+.detailPanel { height: calc(100vh - 96px); }
+
+.heroCard,
+.reviewCard,
+.infoCard,
+.flowSection,
+.matrixCard,
+.accordionCard,
+.relationCard,
+.updateProposalCard {
+  border-radius: var(--px-radius-lg);
+  border-color: rgba(199, 216, 231, .88);
+  background: rgba(255,255,255,.91);
+  box-shadow: var(--px-shadow-soft);
+}
+
+.heroCard {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
+  gap: .9rem;
+  padding: 1.15rem;
+  margin-bottom: .85rem;
+  align-items: stretch;
+}
+
+.breadcrumb {
+  font-size: .68rem;
+  font-weight: 850;
+  color: var(--px-blue-700);
+}
+
+.heroCard h1 {
+  margin: .48rem 0 .72rem;
+  max-width: 920px;
+  font-size: clamp(1.35rem, 2.4vw, 2.12rem);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+  font-weight: 860;
+}
+
+.metaRow { gap: .42rem; }
+.metaRow span {
+  min-height: 28px;
+  padding: .28rem .62rem;
+  font-size: .68rem;
+  font-weight: 750;
+  background: var(--px-blue-50);
+  border: 1px solid rgba(0,72,132,.08);
+}
+.metaRow .codeChip { background: var(--px-blue-700); border-color: transparent; font-weight: 850; }
+
+.metaPanel {
+  gap: .75rem;
+  padding: .85rem;
+  border-radius: var(--px-radius-md);
+  background: linear-gradient(180deg, #fff 0%, var(--px-blue-50) 100%);
+}
+.metaPanel span { font-size: .64rem; font-weight: 820; }
+.metaPanel strong { font-size: .76rem; font-weight: 800; }
+.progressTrack { height: 7px; background: #dfeefa; }
+
+.tabs {
+  min-height: 48px;
+  padding: 0 .7rem;
+  background: rgba(249,252,255,.9);
+}
+.tabs button {
+  height: 48px;
+  padding: 0 .82rem;
+  font-size: .78rem;
+  font-weight: 760;
+}
+
+.summaryGrid {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+  gap: .85rem;
+  padding: .85rem;
+}
+
+.infoCard,
+.matrixCard,
+.relationCard,
+.accordionCard,
+.flowSection { box-shadow: var(--px-shadow-sm); }
+.infoCard { padding: .9rem; }
+.infoCard h2,
+.sectionHeader h2,
+.sectionHeaderCompact h2 { font-size: .92rem; font-weight: 850; }
+.twoCols { gap: .7rem; }
+.fieldBox {
+  min-height: 116px;
+  padding: .82rem;
+  border-radius: var(--px-radius-md);
+  background: var(--px-surface-soft);
+}
+.fieldBox span,
+.sourceList dt { font-size: .64rem; font-weight: 820; }
+.fieldBox p { color: var(--px-muted); font-size: .82rem; font-weight: 500; line-height: 1.55; }
+.sourceList dd { font-weight: 800; }
+
+.activityTable th,
+.matrixCard th,
+.matrixTable th {
+  background: #f4f8fc;
+  font-weight: 820;
+}
+.activityTable td,
+.matrixCard td,
+.matrixTable td { font-weight: 540; color: var(--px-muted); }
+
+.filterBarCompact,
+.headerActions,
+.updateProposalActions,
+.legendInline {
+  gap: .5rem;
+}
+
+button,
+.relationButton,
+.cleanButton {
+  border-radius: var(--px-radius-md);
+}
+
+@media (max-width: 1160px) {
+  .heroCard,
+  .summaryGrid { grid-template-columns: 1fr; }
+}
+
+.shareHeroButton {
+  margin-top: .8rem;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
+  padding: 0 .82rem;
+  border: 1px solid rgba(0, 72, 132, .20);
+  border-radius: var(--px-radius-md);
+  color: var(--px-blue-800);
+  background: #fff;
+  font-size: .78rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: var(--px-shadow-xs);
+}
+
+.shareHeroButton:hover {
+  border-color: rgba(0, 72, 132, .36);
+  box-shadow: var(--px-shadow-soft);
+}
+
+.heroButtonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .65rem;
+}
