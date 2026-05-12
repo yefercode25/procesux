@@ -1,9 +1,11 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { BookOpenCheck, CalendarDays, CheckCircle2, ChevronDown, ClipboardList, DatabaseZap, Download, FileText, Filter, GitBranch, Layers3, PanelRightClose, Star, TableProperties } from 'lucide-react';
 import type { MacroprocessItem, ProcessItem, ProcedureItem } from '../types/manual';
 import { FlowDiagram } from './FlowDiagram';
 import { StepInspector } from './StepInspector';
 import { getStatusLabel, procedureProgress } from '../utils/manualStats';
+import { getProcedureRelationships, type ProcedureRelationship } from '../utils/relations';
+import { RelationModal } from './RelationModal';
 import styles from './ProcedureDetail.module.css';
 
 interface ProcedureDetailProps {
@@ -28,6 +30,8 @@ export function ProcedureDetail({ macro, process, procedure, activeStepId, onSel
   const progress = procedureProgress(procedure);
   const currentStep = procedure.detail.flowSteps.find((step) => step.id === activeStepId) ?? procedure.detail.flowSteps[0];
   const activitySteps = procedure.detail.flowSteps.filter((step) => step.type !== 'start' && step.type !== 'end');
+  const functionRelations = getProcedureRelationships(procedure);
+  const [selectedRelation, setSelectedRelation] = useState<ProcedureRelationship | null>(null);
 
   return (
     <main className={styles.detailPanel}>
@@ -123,6 +127,37 @@ export function ProcedureDetail({ macro, process, procedure, activeStepId, onSel
           </div>
         </section>
 
+
+        <section className={styles.matrixCard}>
+          <header className={styles.sectionHeaderCompact}>
+            <div>
+              <DatabaseZap size={18} />
+              <h2>Relación con manual de funciones ({functionRelations.length})</h2>
+            </div>
+          </header>
+
+          {functionRelations.length > 0 ? (
+            <div className={styles.relationGrid}>
+              {functionRelations.map((relation) => (
+                <article key={relation.profile.id} className={styles.relationCard}>
+                  <span>{relation.confidence === 'directa' ? 'Relación directa estricta' : 'Coincidencia probable'}</span>
+                  <h3>{relation.profile.denomination} · {relation.profile.functionalArea}</h3>
+                  <p>{relation.reason}</p>
+                  <div className={styles.relationMeta}>
+                    <b>{relation.functions.length} función(es) específicas</b>
+                    <em>Nivel {relation.criticality}</em>
+                  </div>
+                  <button type="button" className={styles.relationButton} onClick={() => setSelectedRelation(relation)}>
+                    Ver funciones y recomendación
+                  </button>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className={styles.alertText}>⚠ Este procedimiento no tiene perfil ni función relacionada en la matriz inicial del manual de funciones.</p>
+          )}
+        </section>
+
         <section className={styles.matrixCard}>
           <header className={styles.sectionHeaderCompact}>
             <div>
@@ -179,6 +214,7 @@ export function ProcedureDetail({ macro, process, procedure, activeStepId, onSel
           </AccordionCard>
         </section>
       </section>
+      <RelationModal procedure={procedure} relation={selectedRelation} onClose={() => setSelectedRelation(null)} />
     </main>
   );
 }

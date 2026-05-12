@@ -71,3 +71,65 @@ export interface ManualData {
   notes: string[];
   macroprocesses: MacroprocessItem[];
 }
+
+export type ManualModule = 'processes' | 'functions';
+export type FunctionRelationConfidence = 'directa' | 'probable' | 'sin_relacion';
+
+
+export type RelationCriticality = 'critico' | 'alto' | 'medio' | 'bajo';
+export type LegalFitLevel = 'compatible' | 'requiere_validacion' | 'no_recomendado';
+
+export interface StrictFunctionRelationRule {
+  procedureIds: string[];
+  profileId: string;
+  functionNumbers: number[];
+  confidence: 'directa' | 'probable';
+  criticality: RelationCriticality;
+  legalFit: LegalFitLevel;
+  legalReview: string;
+  reason: string;
+  recommendation: string;
+}
+
+export interface FunctionProcessRelation {
+  procedureId: string;
+  functionProfileId: string;
+  functionId?: string;
+  confidence: FunctionRelationConfidence;
+  reason: string;
+}
+
+export interface FunctionItem {
+  id: string;
+  number: number;
+  title: string;
+  description: string;
+  relatedProcedureIds: string[];
+  relationNote?: string;
+}
+
+export interface FunctionProfile {
+  id: string;
+  level: 'directivo' | 'profesional' | 'tecnico' | 'asistencial';
+  dependency: string;
+  functionalArea: string;
+  denomination: string;
+  code: string;
+  grade: string;
+  positions: number;
+  immediateBoss: string;
+  purpose: string;
+  pageStart: number;
+  pageEnd: number;
+  functionCount: number;
+  functions: FunctionItem[];
+}
+
+export interface FunctionsManualData {
+  projectName: string;
+  entity: string;
+  sourceTitle: string;
+  issueDate: string;
+  profiles: FunctionProfile[];
+  notes: string[];
+}

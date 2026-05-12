@@ -10,7 +10,8 @@ interface HeaderProps {
 
 const navItems = [
   { id: 'inicio', label: 'Inicio' },
-  { id: 'revision', label: 'Revisión' },
+  { id: 'revision', label: 'Procesos' },
+  { id: 'funciones', label: 'Funciones' },
   { id: 'constructor', label: 'Constructor' },
 ];
 
@@ -25,7 +26,7 @@ export function Header({ query, onQueryChange, activeView, onViewChange }: Heade
         </div>
         <div className={styles.brandText}>
           <strong>ProcesUX</strong>
-          <small>Revisión visual de procesos</small>
+          <small>Procesos y funciones</small>
         </div>
       </div>
 
@@ -34,7 +35,7 @@ export function Header({ query, onQueryChange, activeView, onViewChange }: Heade
         <input
           value={query}
           onChange={(event) => onQueryChange(event.target.value)}
-          placeholder="Buscar código, proceso, responsable o palabra clave..."
+          placeholder="Buscar código, proceso, cargo, función o responsable..."
         />
       </label>
 
@@ -47,6 +48,7 @@ export function Header({ query, onQueryChange, activeView, onViewChange }: Heade
             onClick={() => onViewChange(item.id)}
           >
             {item.id === 'constructor' && <Sparkles size={15} />}
+            {item.id === 'funciones' && <Sparkles size={15} />}
             {item.label}
           </button>
         ))}

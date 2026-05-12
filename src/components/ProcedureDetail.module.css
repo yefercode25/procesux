@@ -545,3 +545,96 @@
     flex-wrap: wrap;
   }
 }
+
+.relationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: .75rem;
+}
+
+.relationCard {
+  padding: .85rem;
+  border: 1px solid var(--px-border);
+  border-radius: 10px;
+  background: #fbfdff;
+}
+
+.relationCard span {
+  display: inline-flex;
+  margin-bottom: .45rem;
+  padding: .24rem .55rem;
+  border-radius: 999px;
+  background: #eef8f0;
+  color: var(--px-green-700);
+  font-size: .66rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.relationCard h3 {
+  margin: 0 0 .35rem;
+  color: var(--px-blue-950);
+  font-size: .9rem;
+}
+
+.relationCard p {
+  margin: 0 0 .45rem;
+  color: #60728a;
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.relationCard b {
+  color: var(--px-blue-800);
+  font-size: .76rem;
+}
+
+.alertText {
+  margin: 0;
+  padding: .85rem;
+  border: 1px solid rgba(219, 10, 19, .18);
+  border-radius: 10px;
+  background: #fff3f3;
+  color: #a80710;
+  font-size: .82rem;
+  font-weight: 850;
+}
+
+.relationMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  margin-top: .5rem;
+}
+
+.relationMeta em {
+  display: inline-flex;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  background: #fff7e8;
+  color: #9a5b00;
+  font-size: .66rem;
+  font-style: normal;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.relationButton {
+  width: 100%;
+  margin-top: .65rem;
+  min-height: 34px;
+  border: 1px solid rgba(0, 72, 132, .18);
+  border-radius: 9px;
+  background: #f5faff;
+  color: var(--px-blue-900);
+  cursor: pointer;
+  font-size: .74rem;
+  font-weight: 950;
+}
+
+.relationButton:hover {
+  background: #eef6ff;
+  border-color: rgba(0, 72, 132, .35);
+}

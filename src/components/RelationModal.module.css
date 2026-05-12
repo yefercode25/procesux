@@ -1,0 +1,245 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(9, 31, 57, .38);
+  backdrop-filter: blur(8px);
+}
+
+.modal {
+  width: min(1040px, 96vw);
+  max-height: 88vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(9,31,57,.28);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid #e5edf7;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.kicker {
+  display: inline-flex;
+  margin-bottom: .35rem;
+  color: var(--px-green-700);
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--px-blue-950);
+  font-size: 1.18rem;
+  line-height: 1.1;
+}
+
+.header p {
+  margin: .35rem 0 0;
+  color: #60728a;
+  font-size: .82rem;
+  font-weight: 650;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #dce7f3;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--px-blue-900);
+  cursor: pointer;
+}
+
+.body {
+  overflow: auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.card {
+  padding: .85rem;
+  border: 1px solid #e3edf7;
+  border-radius: 12px;
+  background: #fbfdff;
+}
+
+.card h3 {
+  margin: 0 0 .4rem;
+  color: var(--px-blue-950);
+  font-size: .86rem;
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+}
+
+.card p {
+  margin: 0;
+  color: #5e7087;
+  line-height: 1.45;
+  font-size: .8rem;
+  font-weight: 650;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+
+.badge,
+.badgeCritical,
+.badgeWarn,
+.badgeOk {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  min-height: 28px;
+  padding: .28rem .65rem;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.badge { background: #eef5ff; color: var(--px-blue-800); }
+.badgeOk { background: #eef8f0; color: var(--px-green-700); }
+.badgeWarn { background: #fff7e8; color: #9a5b00; }
+.badgeCritical { background: #fff2f2; color: #b10812; }
+
+.functionList {
+  display: grid;
+  gap: .65rem;
+}
+
+.functionItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .65rem;
+  align-items: flex-start;
+  padding: .75rem;
+  border: 1px solid #e3edf7;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.number {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #eef8f0;
+  color: var(--px-green-700);
+  font-size: .72rem;
+  font-weight: 950;
+}
+
+.functionItem strong {
+  display: block;
+  margin-bottom: .2rem;
+  color: var(--px-blue-950);
+  font-size: .86rem;
+}
+
+.functionItem p {
+  margin: 0;
+  color: #52647c;
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+.tableWrap {
+  overflow: auto;
+  border: 1px solid #e3edf7;
+  border-radius: 12px;
+}
+
+.flowTable {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.flowTable th,
+.flowTable td {
+  padding: .62rem .7rem;
+  border-bottom: 1px solid #edf2f7;
+  text-align: left;
+  vertical-align: top;
+  font-size: .78rem;
+}
+
+.flowTable th {
+  background: #f4f8fd;
+  color: var(--px-blue-900);
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.flowTable td {
+  color: #52647c;
+  font-weight: 650;
+}
+
+.empty {
+  padding: .85rem;
+  border: 1px solid rgba(219,10,19,.18);
+  border-radius: 12px;
+  background: #fff4f4;
+  color: #a80710;
+  font-size: .82rem;
+  font-weight: 850;
+}
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+  .modal { width: 98vw; max-height: 92vh; }
+  .header { padding: .85rem; }
+  .body { padding: .85rem; }
+}
+
+.miniFunctions {
+  display: grid;
+  gap: .35rem;
+  margin-top: .55rem;
+}
+
+.miniFunctions span,
+.miniFunctions em {
+  display: block;
+  padding: .45rem .55rem;
+  border: 1px solid #edf2f7;
+  border-radius: 9px;
+  background: #fbfdff;
+  color: #53657c;
+  font-size: .74rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.35;
+}

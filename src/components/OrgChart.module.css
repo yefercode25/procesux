@@ -1,0 +1,204 @@
+.orgCard {
+  display: grid;
+  gap: .85rem;
+  min-height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  margin-bottom: .35rem;
+  color: var(--px-green-700);
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--px-blue-950);
+  font-size: 1.08rem;
+  line-height: 1.15;
+}
+
+.header p {
+  max-width: 820px;
+  margin: .35rem 0 0;
+  color: #60728a;
+  font-size: .82rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.stats,
+.legendRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+
+.stats {
+  justify-content: flex-end;
+}
+
+.stats span,
+.legendRow span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  min-height: 30px;
+  padding: .32rem .6rem;
+  border: 1px solid #dfeaf6;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--px-blue-900);
+  font-size: .7rem;
+  font-weight: 900;
+}
+
+.legendRow i {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.legendDirectivo { background: #004884; }
+.legendProfesional { background: #2f9e44; }
+.legendTecnico { background: #fdd400; }
+.legendAsistencial { background: #db0a13; }
+
+.reactFlowShell {
+  height: min(68vh, 720px);
+  min-height: 520px;
+  border: 1px solid var(--px-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle, rgba(0, 72, 132, 0.10) 1px, transparent 1px),
+    #f8fcff;
+  background-size: 22px 22px;
+}
+
+.orgNode {
+  position: relative;
+  display: grid;
+  gap: .38rem;
+  width: 292px;
+  min-height: 118px;
+  padding: .78rem .84rem;
+  border: 2px solid #dbe8f5;
+  border-radius: 14px;
+  background: rgba(255,255,255,.97);
+  box-shadow: 0 12px 26px rgba(6, 21, 46, .10);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--px-blue-950);
+  transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+.orgNode:hover,
+.selectedNode {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(6, 21, 46, .16);
+}
+
+.level_directivo { border-color: #004884; }
+.level_profesional { border-color: #2f9e44; }
+.level_tecnico { border-color: #fdd400; }
+.level_asistencial { border-color: #db0a13; }
+
+.selectedNode {
+  outline: 4px solid rgba(1, 138, 44, .15);
+  background: #fbfffc;
+}
+
+.nodeTopline,
+.nodeMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem;
+}
+
+.nodeTopline {
+  justify-content: space-between;
+}
+
+.nodeTopline span,
+.nodeTopline em,
+.nodeMeta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: .18rem .48rem;
+  border-radius: 999px;
+  background: #eef5ff;
+  color: var(--px-blue-800);
+  font-size: .62rem;
+  font-style: normal;
+  font-weight: 950;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.nodeTopline em {
+  background: #eef8f0;
+  color: var(--px-green-700);
+}
+
+.orgNode strong {
+  display: block;
+  color: var(--px-blue-950);
+  font-size: .86rem;
+  line-height: 1.16;
+  font-weight: 950;
+}
+
+.orgNode p {
+  margin: 0;
+  color: #64768c;
+  font-size: .7rem;
+  line-height: 1.28;
+  font-weight: 780;
+}
+
+.nodeMeta span {
+  background: #f7faff;
+  color: #5b6f88;
+  font-size: .6rem;
+  text-transform: none;
+}
+
+.handle {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #fff;
+  background: var(--px-green-700);
+}
+
+.minimap {
+  border: 1px solid #dfeaf6;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.controls {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(6, 21, 46, .14);
+}
+
+@media (max-width: 860px) {
+  .header { flex-direction: column; }
+  .stats { justify-content: flex-start; }
+  .reactFlowShell { height: 72vh; min-height: 480px; }
+}

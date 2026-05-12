@@ -35,6 +35,29 @@ const procedure = (
   },
 });
 
+const proceduresWithoutFlowToAdd = [
+  'PE-PE-RBP-05',
+  'PE-PE-EPF-15',
+  'PE-PE-SO-16',
+  'PE-PE-RR-17',
+  'PE-PE-PAAC-18',
+  'PE-SG-SIG-01',
+  'PM-GDS-AU-22',
+  'PA-GTH-MSA-13',
+  'PA-GJ-AD-06',
+  'PA-GJ-AL-07',
+  'PA-GJ-EGMG-08',
+  'PA-GJ-RBUP-09',
+  'PA-GC-PA-06',
+  'PA-GF-IEP-02',
+  'PA-GF-GCB-03',
+  'PA-GF-RI-04',
+  'PA-GF-IDC-05',
+  'PA-GF-PT-07',
+  'PA-GF-CB-08',
+  'PA-GF-RGN-10',
+];
+
 const planDesarrolloSteps: FlowStep[] = [
   { id: 'inicio', number: 0, type: 'start', label: 'INICIO', cycle: '', activity: 'Inicio del procedimiento', responsible: '' },
   { id: 'epd-01-1', number: 1, type: 'activity', label: 'Elaborar diagnósticos', cycle: 'P', activity: 'Elaborar diagnósticos para la formulación del Plan de Desarrollo.', responsible: 'Secretaría de Infraestructura y Planeación' },
@@ -8770,6 +8793,48 @@ const pePeProcedures: ProcedureItem[] = [
       flowSteps: suspensionObraSancionesSteps,
     },
   },
+  {
+    ...procedure(
+      'PE-PE-RBP-05',
+      'Registro Banco de Proyectos',
+      'Secretaría de Planeación',
+    ),
+  },
+  {
+    ...procedure(
+      'PE-PE-EPF-15',
+      'Estudio de Perfectibilidad y Factibilidad',
+      'Secretaría de Planeación',
+    ),
+  },
+  {
+    ...procedure(
+      'PE-PE-SO-16',
+      'Supervisión de Obra',
+      'Secretaría de Planeación',
+    ),
+  },
+  {
+    ...procedure(
+      'PE-PE-RR-17',
+      'Reporte de Regalías',
+      'Secretaría de Planeación',
+    ),
+  },
+  {
+    ...procedure(
+      'PE-PE-PAAC-18',
+      'Formulación Plan Anticorrupción y Atención al Ciudadano',
+      'Secretaría de Planeación',
+    ),
+  },
+  {
+    ...procedure(
+      'PE-SG-SIG-01',
+      'Manual del Sistema Integrado de Gestión',
+      'Secretaría de Planeación',
+    ),
+  },
 ];
 
 export const manualData: ManualData = {
@@ -8791,2974 +8856,3098 @@ export const manualData: ManualData = {
     {
       id: 'pm', code: 'PM', name: 'Procesos Misionales', type: 'misional',
       processes: [
-        { id: 'pm-gds', code: 'PM-GDS', name: 'Gestión del Desarrollo Social', procedures: [
-          {
-            ...procedure('PM-GDS-CJT-01', 'Comité de Justicia Transicional y Subcomités', 'Secretaría de Gobierno y Desarrollo Institucional', 42),
-            source: { pageStart: 42, pageEnd: 42, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Elaborar planes de acción en el marco de los planes de desarrollo a fin de lograr la atención, asistencia y reparación integral a las víctimas, coordinar acciones con las entidades del Sistema Nacional de Atención y Reparación a las Víctimas y articular la oferta institucional.',
-              scope: 'El proceso inicia con la invitación realizada por la Secretaría Técnica de cada subcomité y comité, informando lugar, fecha, hora y orden del día, y finaliza con el acta de reunión y registro de asistencia.',
-              definitions: [
-                'Plan de acción: herramienta de planificación empleada para la gestión y control de tareas o proyectos.',
-                'Inclusión social: proceso que asegura oportunidades y recursos para participar en la vida económica, social y cultural.',
-                'Desmovilización: proceso por el cual una tropa deja de ejercer su actividad militar.',
-                'Reintegración: oferta institucional para personas desmovilizadas que buscan reintegrarse a la vida social y económica.',
-                'Subcomité técnico: instancia de coordinación encargada de diseñar e implementar la política pública de prevención, asistencia, atención y reparación integral a las víctimas.',
-              ],
-              generalDispositions: ['Realizar convocatoria con los términos establecidos en el reglamento del comité y subcomités.'],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: comiteJusticiaTransicionalSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-PP-02', 'Proyectos Productivos', 'Secretaría Desarrollo Económico', 43),
-            source: { pageStart: 43, pageEnd: 43, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Obtener las medidas de reparación que propendan por la indemnización, rehabilitación, satisfacción y garantías de no repetición en sus dimensiones individual, colectiva, material, moral y simbólica.',
-              scope: 'El proceso inicia por medio del subcomité de reparación integral, donde se presentan requisitos, líneas de unidades productivas, cantidad de personas beneficiarias y monto por unidad; culmina con la entrega de unidades productivas a cargo del operador.',
-              definitions: [
-                'Indemnización: acción que se otorga al acreedor o a la víctima para exigir compensación por un daño.',
-                'Rehabilitación: conjunto de estrategias, planes, programas y acciones jurídicas, médicas, psicológicas y sociales dirigidas al restablecimiento de las víctimas.',
-              ],
-              generalDispositions: ['Estar registrado como incluido en el Registro Único de Víctimas.'],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: proyectosProductivosSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-SAA-03', 'Subsidio por un Auxilio de Arrendamiento Temporal', 'Secretaría de Gobierno y Desarrollo Institucional', 44),
-            source: { pageStart: 44, pageEnd: 45, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Contribuir a la implementación de la política nacional de atención y reparación integral de víctimas del conflicto armado para la superación definitiva de sus condiciones de vulnerabilidad y la garantía de goce efectivo de derechos.',
-              scope: 'El trámite inicia con la solicitud radicada en Ventanilla Única y correspondencia por parte de la víctima, y finaliza con el reconocimiento del pago mediante acto administrativo.',
-              definitions: [
-                'Conflicto armado: periodo caracterizado por confrontación armada en el territorio colombiano.',
-                'Condiciones de vulnerabilidad: capacidad disminuida de una persona o grupo para anticiparse, resistir y recuperarse de los efectos de un peligro.',
-              ],
-              generalDispositions: [
-                'Estar registrado como incluido en el Registro Único de Víctimas.',
-                'Ser residente del Municipio.',
-                'Contrato de arrendamiento.',
-                'Certificado de libertad y tradición.',
-                'Acta de subcomité de atención, asistencia y medidas de rehabilitación donde se aprueba solicitud.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: subsidioArrendamientoTemporalSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-AF-04', 'Asistencia Funeraria', 'Secretaría de Gobierno y Desarrollo Institucional', 46),
-            source: { pageStart: 46, pageEnd: 46, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Garantizar la asistencia funeraria contemplada en el Artículo 50 de la Ley 1448 de 2011 a las personas que no cuentan con recursos para sufragar gastos fúnebres.',
-              scope: 'El trámite inicia con la solicitud radicada por parte de la familia de la víctima fallecida y finaliza con el reconocimiento del pago por medio de acto administrativo.',
-              definitions: [
-                'Víctima: persona que sufre un daño provocado por un sujeto.',
-                'Post-Conflicto: periodo posterior a la superación total o parcial de conflictos armados.',
-                'Derechos Humanos: condiciones instrumentales que permiten a la persona su realización.',
-                'Acto administrativo: manifestación de un poder público en ejercicio de potestades administrativas.',
-              ],
-              generalDispositions: [
-                'Estar registrado como incluido en el Registro Único de Víctimas.',
-                'No contar con plan exequial.',
-                'Ser residente del Municipio.',
-                'Expedición de acto administrativo.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: asistenciaFunerariaSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-AHI-05', 'Ayuda Humanitaria Inmediata', 'Secretaría de Gobierno y Desarrollo Institucional', 47),
-            source: { pageStart: 47, pageEnd: 47, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Socorrer, asistir, proteger y atender necesidades de alimentación, aseo personal, manejo de abastecimientos, utensilios de cocina, atención médica y psicológica de emergencia, transporte y alojamiento transitorio en condiciones dignas.',
-              scope: 'El trámite inicia con la declaración realizada en el Ministerio Público y radicada en correspondencia por parte de la víctima, y finaliza con la entrega de las ayudas a la población afectada.',
-              definitions: [
-                'Ministerio Público: entidad que representa a la sociedad ante órganos jurisdiccionales del Estado, con autonomía funcional y administrativa.',
-              ],
-              generalDispositions: [
-                'Declaración realizada en el Ministerio Público.',
-                'La declaración no debe exceder tres meses desde la ocurrencia del hecho victimizante.',
-                'Haber declarado bajo el hecho victimizante de desplazamiento forzado y encontrarse en situación de vulnerabilidad acentuada.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: ayudaHumanitariaInmediataSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-AOP-06', 'Atención y Orientación a Población Víctima', 'Secretaría de Gobierno y Desarrollo Institucional', 48, ['PM-GDS-FR-01 Acta de Visita']),
-            source: { pageStart: 48, pageEnd: 48, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Dar información, orientación y acompañamiento jurídico y psicosocial a la víctima, facilitando el acceso y goce efectivo de derechos a la verdad, justicia y reparación.',
-              scope: 'Inicia con la presencia o remisión de la víctima a la oficina correspondiente y finaliza con el seguimiento a la respuesta oportuna por parte de las dependencias o entidades implicadas.',
-              definitions: [
-                'Derechos Humanos: condiciones instrumentales que permiten a la persona su realización.',
-                'Víctimas: persona física que sufre un daño provocado por un sujeto.',
-                'Post-Conflicto: periodo posterior a la superación total o parcial de conflictos armados.',
-              ],
-              generalDispositions: ['Estar registrado como incluido en el Registro Único de Víctimas.'],
-              documents: [],
-              formats: ['PM-GDS-FR-01 Acta de Visita'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: atencionOrientacionPoblacionVictimaSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-CE-07', 'Comité de Empleo', 'Secretaría de Gobierno y Desarrollo Institucional', 49),
-            source: { pageStart: 49, pageEnd: 49, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Estimular las políticas y programas de empleo en el municipio, generar ingresos en la población y reducir brechas de acceso al empleo.',
-              scope: 'El procedimiento comienza con el envío de invitaciones a cada miembro del Comité y termina con la asignación de tareas y cierre por parte de la secretaría técnica.',
-              definitions: [
-                'Comité: grupo de personas encargadas de un asunto.',
-                'Cajas de Compensación: entidades privadas encargadas de administrar prestaciones de seguridad social y otros beneficios.',
-              ],
-              generalDispositions: [
-                'Enviar invitaciones a los miembros del comité.',
-                'Confirmar asistencia a la reunión.',
-                'Verificación del quórum.',
-                'Lectura del orden del día.',
-                'Deliberación del Comité.',
-                'Compromisos.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: comiteEmpleoSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-RP-08', 'Ruta de la Productividad', 'Secretaría de Desarrollo Social', 50),
-            source: { pageStart: 50, pageEnd: 51, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Dinamizar el emprendimiento y fortalecimiento empresarial en los sectores económicos para aumentar productividad y competitividad del Municipio de Gachetá.',
-              scope: 'Inicia con la caracterización del sector productivo del Municipio y culmina con el seguimiento a la entrega de maquinaria, insumos y/o créditos al empresario o emprendedor.',
-              definitions: [
-                'Emprendimiento: iniciativa de una persona que asume un riesgo económico para aprovechar una oportunidad.',
-                'Productividad: relación entre productos obtenidos y recursos utilizados.',
-                'Competitividad: capacidad de obtener rentabilidad frente a competidores.',
-                'Empresario: persona que crea o adquiere un negocio o empresa y trabaja en su crecimiento.',
-              ],
-              generalDispositions: [
-                'Para acceder a créditos se requiere tener negocio en funcionamiento, no estar reportado en datacrédito y aportar documentos del deudor o codeudor según corresponda.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: rutaProductividadSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-CP-09', 'Caracterización de la Población Minoritaria', 'Secretaría de Desarrollo Social', 52),
-            source: { pageStart: 52, pageEnd: 52, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Realizar la caracterización de la población perteneciente a minorías afrodescendiente, ROM, indígena, LGBTI y habitantes de calle para conocer ubicación, condiciones y mantener comunicación.',
-              scope: 'Inicia con la identificación de la población y finaliza con su inclusión en las bases de datos creadas para tal fin.',
-              definitions: [
-                'Caracterización: determinar las características particulares de alguien.',
-                'ROM: pueblo étnico gitano.',
-                'LGBTI: población lesbiana, gay, bisexual, transexual e intersexuada.',
-                'Afrodescendiente: personas con antepasados africanos.',
-                'Afrocolombiano: personas de raza afro que habitan en Colombia.',
-              ],
-              generalDispositions: [
-                'Utilizar los formatos indicados de acuerdo con la minoría.',
-                'Pertenecer a alguna población minoritaria: afrodescendiente, ROM, indígena, LGBTI o habitante de calle.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: caracterizacionPoblacionMinoritariaSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-AC-10', 'Atención a la Comunidad', 'Secretaría de Desarrollo Social', 53),
-            source: { pageStart: 53, pageEnd: 53, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Brindar atención a la población que hace parte de minorías para satisfacer y dar cumplimiento al goce efectivo de derechos humanos.',
-              scope: 'Inicia con la necesidad de la persona perteneciente a población minoritaria y finaliza con la posible solución a su necesidad.',
-              definitions: [
-                'Oferta institucional: conjunto de planes, programas, proyectos y acciones específicas a disposición de la población.',
-                'Minoría: grupo numéricamente menor frente al grupo mayoritario.',
-                'Enfoque diferencial de género y Derechos Humanos: análisis de relaciones sociales desde necesidades específicas.',
-                'Atención diferencial: atención dirigida a poblaciones con condiciones particulares.',
-              ],
-              generalDispositions: [
-                'Obedece a la necesidad o falta de información de personas pertenecientes a minorías.',
-                'La comunidad atendida debe pertenecer a una minoría: afrodescendiente, indígena, ROM, LGBTIQ o habitante de calle.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: atencionComunidadSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-EC-11', 'Eventos Comunitarios', 'Secretaría de Gobierno y Desarrollo Institucional', 54, ['PM-GDS-FR-02 Permiso Provisional Eventos']),
-            source: { pageStart: 54, pageEnd: 55, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Realizar eventos de apoyo comunitario dirigidos a población minoritaria para generar espacios de participación, inclusión y reconocimiento cultural.',
-              scope: 'Inicia con la convocatoria a la población beneficiaria del evento y termina con su ejecución y finalización.',
-              definitions: [
-                'Eventos comunitarios: actividades de construcción social con repercusión positiva.',
-                'Convocatoria: anuncio por medio del cual se convoca a un evento.',
-                'Población humana: grupo de seres humanos que viven en un espacio geográfico.',
-                'Minoría: parte menor de personas dentro de un cuerpo, nación o comunidad.',
-                'Logística: técnica para reunir medios necesarios para organizar un evento.',
-              ],
-              generalDispositions: [
-                'Toda la población del municipio puede hacer parte de convocatorias ofertadas por la Secretaría de Desarrollo Social.',
-                'Según la naturaleza del evento, las actividades podrán dirigirse a un grupo poblacional específico.',
-              ],
-              documents: [],
-              formats: ['PM-GDS-FR-02 Permiso Provisional Eventos'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: eventosComunitariosSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-SPP-12', 'Seguimiento a la Política Pública de Jóvenes', 'Secretaría de Desarrollo Social', 56),
-            source: { pageStart: 56, pageEnd: 57, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Implementar la política pública de juventudes en el municipio de Gachetá, dando cumplimiento a la Ley Estatutaria de Juventudes y mejorando la calidad de vida de jóvenes entre 14 y 28 años.',
-              scope: 'Inicia con la creación de la hoja de ruta por diez años sobre prioridades de jóvenes y finaliza con la divulgación en lugares donde se aglomere la juventud.',
-              definitions: [
-                'Política pública de juventudes: herramienta con orientaciones a corto, mediano y largo plazo para transformar condiciones sociales y ampliar oportunidades.',
-                'Ley de juventudes: marco orientado a garantizar continuidad de derechos de adolescentes y jóvenes.',
-              ],
-              generalDispositions: ['Los beneficiados serán jóvenes entre 14 y 28 años según la Ley 1622 de 2013.'],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: seguimientoPoliticaPublicaJovenesSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-VJ-13', 'Voluntariado Juvenil', 'Secretaría de Desarrollo Social', 58, ['PM-GDS-FR-03 Certificaciones Prácticas Empresariales']),
-            source: { pageStart: 58, pageEnd: 59, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Crear una estrategia de voluntariado juvenil mediante convocatoria a jóvenes para realizar actividades y estrategias de labor social, ambiental, recreativa y cultural.',
-              scope: 'Inicia con la convocatoria a jóvenes entre 18 y 35 años que deseen apoyar el voluntariado juvenil y finaliza con actividades encaminadas al trabajo social, medio ambiente y mejora de calidad de vida.',
-              definitions: ['Voluntariado: conjunto de personas que se unen libre y desinteresadamente para trabajar con fines benéficos o altruistas.'],
-              generalDispositions: [
-                'Los voluntarios deben ser mayores de edad entre 18 y 35 años.',
-                'Firmar formato de consentimiento para uso de datos e imágenes por parte de la administración municipal.',
-              ],
-              documents: [],
-              formats: ['PM-GDS-FR-03 Certificaciones Prácticas Empresariales'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: voluntariadoJuvenilSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-FCS-14', 'Realización de Foros, Congresos, Seminarios', 'Secretaría de Desarrollo Social', 60),
-            source: { pageStart: 60, pageEnd: 61, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Realizar foros, seminarios, congresos y talleres para jóvenes del municipio de Gachetá sobre temas de importancia nacional y carácter general.',
-              scope: 'Inicia con la programación de temas, ponentes y parámetros de cada proceso; termina con la evaluación del impacto sobre los jóvenes.',
-              definitions: [
-                'Foro: técnica de comunicación grupal sobre un tema de interés común.',
-                'Seminario: actividades comunes de profesores y alumnos orientadas a práctica e investigación.',
-                'Congreso: reunión periódica para presentar conferencias o exposiciones sobre temas relacionados.',
-                'Taller: curso breve donde se enseña una actividad práctica o artística.',
-              ],
-              generalDispositions: ['Se realizarán periódicamente, mediante inscripción previa de jóvenes y con temas avalados por la plataforma de juventudes o entes juveniles.'],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: forosCongresosSeminariosSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-DEJ-15', 'Desarrollo de Encuentros Juveniles', 'Secretaría de Desarrollo Social', 62),
-            source: { pageStart: 62, pageEnd: 62, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Desarrollar encuentros juveniles en el municipio de Gachetá con grupos, redes, organizaciones y movimientos juveniles, con el fin de impulsar el talento juvenil.',
-              scope: 'Inicia con la convocatoria a grupos de jóvenes del municipio pertenecientes a redes, organizaciones y movimientos juveniles, y finaliza con premiación y/o entrega de incentivos.',
-              definitions: ['Encuentros de juventudes: espacios didácticos, recreativos y diversos para ejercer participación activa y unir objetivos y talentos de la juventud.'],
-              generalDispositions: [
-                'Se desarrollará mínimo una vez al año con un grupo plural de jóvenes.',
-                'Jóvenes inscritos dentro de la plataforma de juventudes de la personería municipal y/o base de datos de la Dirección de Juventudes.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: encuentrosJuvenilesSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-ICP-16', 'Inscripción a Cursos y Programas de Formación', 'Secretaría de Desarrollo Social', 63),
-            source: { pageStart: 63, pageEnd: 64, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Inscribir a la población juvenil del municipio de Gachetá en cursos complementarios y programas de educación para mejorar el nivel educativo y capacidades laborales.',
-              scope: 'Inicia con la apertura de la convocatoria de cursos complementarios y programas de formación a jóvenes de 14 años en adelante, y finaliza con la participación del personal inscrito.',
-              definitions: [
-                'Inscripción: acción y efecto de inscribir o registrar a alguien o algo.',
-                'SENA: Servicio Nacional de Aprendizaje.',
-              ],
-              generalDispositions: [
-                'El joven debe tener 14 años o más.',
-                'Debe estar inscrito en la plataforma de la entidad a estudiar.',
-                'Debe traer copia del documento de identidad o conocer sus datos personales.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: inscripcionCursosProgramasSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-SIFA-17', 'Novedades SIFA Familias en Acción', 'Secretaría de Desarrollo Social', 65),
-            source: { pageStart: 65, pageEnd: 66, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Mantener actualizada la base de datos en la plataforma nacional SIFA, elaborando novedades realizadas por titulares del programa.',
-              scope: 'Inicia con la solicitud de documentos de identidad para actualización de la plataforma SIFA y culmina con revisión y aprobación por parte de la regional Cundinamarca de Familias en Acción.',
-              definitions: [
-                'Familias en Acción: programa nacional que permite otorgar incentivo monetario a familias inscritas.',
-                'SIFA: sistema de información Familias en Acción.',
-                'Caracterización: identificación de la población a la que pertenece cada usuario.',
-                'Novedades: compromisos o actualizaciones que deben cumplir los usuarios del programa.',
-              ],
-              generalDispositions: [
-                'Cada titular debe actualizar documentos.',
-                'El titular debe allegar fotocopia del documento de identidad al 150% y registro civil legible.',
-                'El usuario debe acercarse personalmente para realizar novedades con soportes legibles.',
-                'Si el titular no puede realizar el trámite, debe enviar apoderado con copia de cédula y trámite firmado.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: novedadesSifaSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-RPF-18', 'Retirados Programa Familias en Acción', 'Secretaría de Desarrollo Social', 67),
-            source: { pageStart: 67, pageEnd: 67, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Registrar el retiro del usuario por no cumplimiento de variables del programa, a partir de suspensión del beneficiario o núcleo familiar dentro de un plazo de dos meses.',
-              scope: 'Inicia con el listado de beneficiarios suspendidos en SIFA y finaliza con la pérdida del beneficio y retiro del sistema por no subsanar novedades.',
-              definitions: [
-                'No cobro: el titular no reclama el incentivo durante cuatro meses consecutivos.',
-                'Graduado: terminación del ciclo escolar.',
-                'Requisito de edad: actualización de documento cuando el beneficiario cambia de registro civil a tarjeta de identidad.',
-              ],
-              generalDispositions: ['Los beneficiarios deben cumplir requisitos de escolaridad, edad y cobro de incentivos en tiempos reglamentados por el DPS.'],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: retiradosFamiliasAccionSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-BCF-19', 'Bienestar Comunitario, Familias en Acción', 'Secretaría de Desarrollo Social', 68),
-            source: { pageStart: 68, pageEnd: 68, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Realizar encuentros de cuidado del programa Familias en Acción, buscando participación de titulares y articulación con profesionales de la institución.',
-              scope: 'Inicia con la citación de madres líderes de cada sector y finaliza con el desarrollo de actividades de compartir por parte de participantes y profesionales líderes.',
-              definitions: [
-                'DPS: Departamento para la Prosperidad Social.',
-                'Citación: llamado a lista de usuarios de Familias en Acción.',
-                'Encuentro pedagógico: agrupación de madres titulares del programa.',
-                'Capacitación: inducción a procesos articulados con profesionales.',
-                'Lúdicas: actividades de integración.',
-              ],
-              generalDispositions: ['Los usuarios deben cumplir los requerimientos del DPS, incluida la asistencia a encuentros de cuidado.'],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: bienestarComunitarioFamiliasAccionSteps,
-            },
-          },
-          {
-            ...procedure('PM-GDS-RCC-20', 'Revisión de Cuentas de Contratistas', 'Secretaría de Hacienda', 69),
-            source: { pageStart: 69, pageEnd: 69, validationMode: 'visual_validated' },
-            detail: {
-              objective: 'Revisar las cuentas de cobro de los contratistas que supervisa la Secretaría de Desarrollo y verificar que las actas cumplan con el objeto y funciones de cada contratista.',
-              scope: 'Inicia con la recepción de la cuenta de cobro del contratista por parte de la Secretaría de Gobierno para revisión y termina con aprobación y visto bueno por parte de la Secretaría de Hacienda.',
-              definitions: [
-                'Contratista: persona que presta un servicio tras recibir el encargo correspondiente.',
-                'Cuenta de cobro: comprobante de la realización de un pago o cobro por prestación de un servicio.',
-              ],
-              generalDispositions: [
-                'Para la firma de las actas, el contratista debe adjuntar todos los documentos exigidos por la Secretaría de Hacienda para revisión por el secretario de gobierno.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: revisionCuentasContratistasSocialSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GDS-RAR-21',
-              'Revisión, Aprobación y Respuesta a Requerimientos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-              70,
-            ),
-            source: {
-              pageStart: 70,
-              pageEnd: 70,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Responder oportunamente a las solicitudes y requerimientos allegadas a la Alcaldía de Gachetá.',
-              scope:
-                'Inicia con la recepción de la documentación proveniente de las diferentes secretarías que conforman la Alcaldía y la ciudadanía que requieran revisión, aprobación o respuesta.',
-              definitions: [
-                'Solicitud: Documento en el que se solicita formalmente algo.',
-                'Seguimiento: Realizar seguimiento a los recibidos de las respuestas de los peticionarios. En caso de devolución, se hace la respectiva publicación.',
-              ],
-              generalDispositions: [
-                'Documentos para revisión, aprobación o respuesta.',
-                'Las solicitudes recepcionadas por parte de la ciudadanía deben estar dirigidas al despacho de la Secretaría de Gobierno y tener los datos básicos del peticionario: nombre, cédula y dirección.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: revisionAprobacionRespuestaRequerimientosSteps,
-            },
-          },
-        ] },
-        { id: 'pm-gde', code: 'PM-GDE', name: 'Gestión del Desarrollo Económico', procedures: [
-          {
-            ...procedure(
-              'PM-GDE-ATA-01',
-              'Asistencia Técnica Agropecuaria',
-              'Gestión de Desarrollo Económico, Sostenible y de Turismo',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Prestar los servicios de asistencia técnica y extensión agropecuaria y rural a proyectos relacionados con el desarrollo rural y proyectos productivos agrícolas, pecuarios y forestales, para incrementar la producción agropecuaria y garantizar la competitividad y la sostenibilidad ambiental y social.',
-              scope:
-                'Este procedimiento inicia cuando se identifica la necesidad de asistencia técnica o se recibe la solicitud de usuarios en el área rural; realiza la visita, asesoría o capacitación y finaliza con el seguimiento y evaluación de la actividad.',
-              definitions: [
-                'Asistencia técnica: Conjunto de actividades que tienen como propósito la transferencia de conocimiento, tecnología, métodos o cualquier otro factor que incida positivamente en la capacidad de los procesos del cliente respecto a una temática específica; se desarrolla mediante actividades de capacitación, asesoría y acompañamiento.',
-                'Capacitación: Proporciona conocimientos que le permiten a las entidades fortalecer la capacidad para la innovación y afrontar el cambio, percibir los requerimientos del entorno, tomar decisiones acertadas en situaciones complejas, generar compromisos, trabajar en equipo y valorar lo público.',
-                'Asesoría: Proporciona ayuda en el proceso de toma de decisiones, identifica problemas, señala oportunidades de mejora, aconseja y recomienda aplicar lineamientos y correctivos a seguir.',
-                'Acompañamiento: Apoyo directo, orientado a la construcción conjunta de soluciones a los temas definidos en el Plan de Asistencia Técnica.',
-                'Asistencia Técnica Directa: Se refiere a la asistencia que brindan los funcionarios de las dependencias del Departamento.',
-                'Asistencia Técnica Indirecta: Cuando la realiza una persona natural o jurídica contratada.',
-              ],
-              generalDispositions: [
-                'Seguimiento y acompañamiento continuo de todos los pequeños y medianos productores del municipio de Gachetá.',
-                'Se prestará asistencia técnica agropecuaria en los siguientes ámbitos: aptitud de los suelos, selección del tipo de actividad, aplicación y usos de tecnologías, uso de recursos adecuados al tipo de actividad productiva y manejo ambiental, sanitario de los agro-ecosistemas.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: asistenciaTecnicaAgropecuariaSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GDE-EA-02',
-              'Estadísticas Agropecuarias',
-              'Gestión de Desarrollo Económico, Sostenible y de Turismo',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Recolectar, sistematizar, analizar, complementar y publicar la información estadística del sector agropecuario del municipio de Gachetá, mediante la realización de Evaluación Agropecuaria Municipal EVA, siguiendo lineamientos del Ministerio de Agricultura y Desarrollo Rural.',
-              scope:
-                'El procedimiento inicia con la preparación logística, programación, capacitación, recolección, sistematización y análisis de la información; y culmina con el informe de los resultados estadísticos.',
-              definitions: [
-                'Estadísticas Agropecuarias: Es una herramienta para el manejo de información agropecuaria de los municipios con el fin de apoyar la toma de decisiones, la orientación de recursos, la implementación de proyectos y programas y la unificación de criterios.',
-                'Evaluación Agropecuaria EVA: Las Evaluaciones Agropecuarias, como mecanismo subjetivo de recolección de información sobre área, producción y rendimiento de la agricultura, desarrollada por el Ministerio de Agricultura y Desarrollo Rural desde 1972, surge como alternativa a la debilidad gremial para operar sistemas de información adecuados y como alternativa al vacío general de información que caracteriza el sector agropecuario.',
-                'Cultivos Transitorios: Cultivos cuyo ciclo de crecimiento es, en general, menor de un año y tiene como característica fundamental que después de la cosecha deben volver a sembrarse para seguir produciendo.',
-                'Cultivos Permanentes: Son aquellos que su periodo de vida vegetativo se puede extender incluso hasta más allá de 25 años continuos como: el aguacate, el mango, las manzanas; los que regularmente una vez realizada la siembra, pueden obtenerse varias cosechas. Estas pueden ser cíclicas, además de continuas, dependiendo del tipo de plantación.',
-                'Cultivos Anuales: Cultivos cuyo ciclo de crecimiento es por lo general entre un año y dieciocho meses y tienen como característica fundamental que después de la cosecha deben volver a sembrarse para seguir produciendo.',
-              ],
-              generalDispositions: [
-                'Todas aquellas personas e instituciones públicas y privadas que posean información de las actividades agrícolas, pecuarias y acuícolas de la región, dentro de las cuales están universidades, gremios, productores, entre otros.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: estadisticasAgropecuariasSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GDE-PIE-03',
-              'Adquisición de Predios de Importancia Estratégica',
-              'Gestión de Desarrollo Económico, Sostenible y de Turismo',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Establecer el procedimiento para la adquisición de predios de importancia estratégica para la preservación, conservación y restauración de cuencas del Municipio de Gachetá.',
-              scope:
-                'El procedimiento inicia con la identificación de predios; continúa con la recepción de propuestas de venta, la verificación de la propuesta y la validación de documentos; y finaliza con el concepto de viabilidad, la suscripción del contrato, el registro legal del predio y el desembolso de los recursos por parte del Municipio.',
-              definitions: [
-                'Predio de Importancia: Área destinada para la conservación, preservación y restauración de los recursos hídricos que surten de agua los acueductos municipales.',
-                'Conservación: Es la conservación in situ de los ecosistemas y los hábitats naturales, mantenimiento y recuperación de poblaciones viables de especies en su entorno natural y, en el caso de las especies domesticadas y cultivadas en los entornos en que hayan desarrollado sus propiedades específicas. La conservación in situ hace referencia a la preservación, restauración, uso sostenible y conocimiento de la biodiversidad.',
-                'Preservación: Mantener la composición, estructura y función de la biodiversidad, conforme su dinámica natural y evitando al máximo la intervención humana y sus efectos.',
-                'Restauración: Restablecer parcial o totalmente la composición, estructura y función de la biodiversidad que haya sido alterada o degradada.',
-              ],
-              generalDispositions: [
-                'Para la adquisición de predios de importancia hídrica, se tendrá en cuenta que estos se encuentren identificados, delimitados y priorizados dentro de las áreas de importancia estratégica establecidas por las autoridades ambientales.',
-                'Para su selección, se tendrán en cuenta los criterios definidos por el Decreto 1076 de 2015, entre los cuales se enuncian a continuación: 1. Población abastecida por los acueductos beneficiados con la conservación del área estratégica dentro de la cual está ubicada el predio. 2. Presencia en el predio de corrientes hídricas, manantiales, afloramientos y humedales.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: adquisicionPrediosImportanciaEstrategicaSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GDE-PIE-04',
-              'Mantenimiento de Predios de Importancia Estratégica',
-              'Gestión de Desarrollo Económico, Sostenible y de Turismo',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Establecer las actividades para identificar y atender las solicitudes de mantenimiento de predios de importancia estratégica.',
-              scope:
-                'El procedimiento inicia con la identificación de predios de importancia estratégica que hayan sido adquiridos con los recursos provenientes de la Ley 99 de 1993 y finaliza con la visita técnica, priorización y programación de mantenimientos.',
-              definitions: [
-                'Mantenimiento de áreas de importancia estratégica: Aquellas actividades directamente desarrolladas en los predios adquiridos por la entidad territorial para la conservación y recuperación de los ecosistemas presentes en los mismos; el mantenimiento comprende actividades de reforestación, cercado y mantenimiento a plantaciones efectuadas anteriormente.',
-                'Predio de Importancia: Área destinada para la conservación, preservación y restauración de los recursos hídricos que surten de agua los acueductos municipales.',
-                'Conservación: Son actividades que existen para regular, minimizar o impedir el daño que las actividades de índole industrial, en el caso de las especies domesticadas y cultivadas, en los entornos en que hayan desarrollado sus propiedades específicas. La conservación hace referencia a la preservación, restauración, uso sostenible y conocimiento de la biodiversidad.',
-                'Preservación: Mantener la composición, estructura y función de la biodiversidad, conforme su dinámica natural y evitando al máximo la intervención humana y sus efectos.',
-                'Restauración: Restablecer parcial o totalmente la composición, estructura y función de la biodiversidad, que haya sido alterada o degradada.',
-              ],
-              generalDispositions: [
-                'Los predios priorizados para mantenimiento deben cumplir el artículo 111 de la Ley 99 de 1993 parágrafo 2.',
-                'El Ministerio de Ambiente, Vivienda y Desarrollo Territorial, institutos de investigación científica adscritos y vinculados, las corporaciones autónomas regionales y de desarrollo sostenible, las autoridades ambientales de los grandes centros urbanos y los establecimientos ambientales a que se refiere el artículo 13 de la Ley 768 de 2002, podrán en el marco de sus competencias efectuar los aportes técnicos, financieros y operativos requeridos para la consolidación del instrumento de pago por servicios ambientales y el desarrollo de proyectos derivados de este instrumento.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: mantenimientoPrediosImportanciaEstrategicaSteps,
-            },
-          },
-        ] },
-        { id: 'pm-gjc', code: 'PM-GJC', name: 'Gestión de Gobierno, Justicia y Convivencia Ciudadana', procedures: [
-          {
-            ...procedure(
-              'PM-GJC-PBI-05',
-              'Verbal Abreviado Protección de Bienes Inmuebles',
-              'Inspección de Policía',
-              undefined,
-              [
-                'PM-GJC-FR-03 Querella Inspección de Policía',
-                'PM-GJC-FR-04 Citación',
-                'PM-GJC-FR-18 Boletas de Notificación',
-                'PM-GJC-FR-25 Auto',
-              ],
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Propiciar en la comunidad comportamientos que favorezcan la convivencia en el espacio público, áreas comunes, lugares abiertos al público o que, siendo privados, trascienden a lo público; promoviendo el respeto, el ejercicio responsable de la libertad, la dignidad, los deberes y los derechos correlativos a la persona humana.',
-              scope:
-                'Inicia con la recepción de la petición o la denuncia por parte de la persona que tenga interés en la aplicación del régimen de policía y termina con el registro de las actuaciones y decisiones tomadas frente a los comparendos que se expiden, en el Sistema de Registro Nacional de Medidas Correctivas de la Policía y la aplicación de acciones de mejoramiento.',
-              definitions: [
-                'Restablecimiento del Statu Quo: Devolución a la situación de hecho existente antes del acto o hecho de vulneración.',
-                'Posesión: Según el artículo 762 del Código Civil, es la tenencia de una cosa determinada con ánimo de señor o dueño.',
-                'Mera Tenencia: Según el artículo 775 del Código Civil, es la que se ejerce sobre una cosa, no como dueño, sino en lugar o a nombre del dueño.',
-                'Servidumbre: Según el artículo 879 del Código Civil, es un gravamen impuesto sobre un predio en utilidad de otro predio de distinto dueño.',
-              ],
-              generalDispositions: [
-                'Las actividades relacionadas con este procedimiento hacen referencia al trámite del proceso verbal abreviado, de conformidad con lo dispuesto en el artículo 79 de la Ley 1801 de 2016.',
-                'La caducidad frente a bienes inmuebles particulares procede dentro de los cuatro (4) meses siguientes a la perturbación por ocupación legal.',
-                'Cuando se trate de hechos de perturbación de bienes de uso público, bienes fiscales, zonas de reserva forestal, bienes de propiedad privada afectados al espacio público, bienes de empresas de servicios públicos, bienes declarados de utilidad pública o de interés social, cultural, arquitectónico o histórico, no existe caducidad de la acción policiva.',
-                'La comunicación al personero procede cuando se trate de hechos de perturbación de bienes de uso público, bienes fiscales, zonas de reserva forestal, bienes de propiedad privada afectados al espacio público, bienes de empresas de servicios públicos, bienes declarados de utilidad pública o de interés social, cultural, arquitectónico o histórico.',
-                'El factor de competencia corresponde a la competencia del despacho o autoridad de policía para conocer sobre los comportamientos contrarios a la convivencia.',
-              ],
-              documents: [],
-              formats: [
-                'PM-GJC-FR-03 Querella Inspección de Policía',
-                'PM-GJC-FR-04 Citación',
-                'PM-GJC-FR-18 Boletas de Notificación',
-                'PM-GJC-FR-25 Auto',
-              ],
-              legalRequirements: [
-                'Ley 1801 de 2016, artículos 79 y 80.',
-                'Código Civil, artículos 762, 775 y 879.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: verbalAbreviadoProteccionBienesInmueblesSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GJC-SIP-06',
-              'Apelación del Proceso Verbal Inmediato Ley 1801 del 2016',
-              'Inspección de Policía',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Proferir un fallo de segunda instancia con respecto a decisiones proferidas por el personal uniformado de la Policía Nacional como resultado de la aplicación del Procedimiento establecido en el Código Nacional de Policía y Convivencia, para garantizar el cumplimiento de los deberes y obligaciones de las personas naturales y jurídicas.',
-              scope:
-                'Aplica para decisiones proferidas por el personal uniformado de la Policía Nacional que sean apeladas por el ciudadano que sea objeto de las mismas, dentro de lo dispuesto por la Ley 1801 de 2016.',
-              definitions: [
-                'Convivencia: Interacción pacífica, respetuosa y armónica entre las personas, con los bienes y con el ambiente en el marco del ordenamiento jurídico.',
-                'De oficio: Actualización iniciada por parte de la autoridad competente sin necesidad de queja o requerimiento de un tercero.',
-                'Estrados: Forma de notificar las decisiones dentro de la audiencia pública.',
-                'Medios de prueba: Aquellos que llevan al funcionario a obtener la certeza sobre la realización o no de las conductas investigadas, para llegar a la toma de una decisión en derecho.',
-              ],
-              generalDispositions: [
-                'En contra de la orden de policía o la medida correctiva procederá el recurso de apelación, el cual se concederá en el efecto devolutivo y se remitirá al Inspector de Policía dentro de las veinticuatro (24) horas siguientes.',
-                'El recurso de apelación se resolverá dentro de los tres (3) días hábiles siguientes al recibo de la actualización y será notificado por medio más eficaz y expedito.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 1801 de 2016.',
-                'Código Nacional de Policía y Convivencia.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: apelacionProcesoVerbalInmediatoSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GJC-CCC-07',
-              'Verbal Abreviado Comportamientos Contrarios a la Convivencia Ciudadana',
-              'Inspección de Policía',
-              undefined,
-              [
-                'PM-GJC-FR-04 Citación',
-                'PM-GJC-FR-18 Boletas de Notificación',
-                'PM-GJC-FR-25 Auto',
-              ],
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Restablecer las condiciones al punto en que se encontraban antes de la ocurrencia de comportamientos contrarios a la convivencia y propiciar el cumplimiento de los deberes y obligaciones de las personas naturales y jurídicas.',
-              scope:
-                'Aplica a los comportamientos contrarios a la convivencia en relación con las normas urbanísticas, ambientales, sanitarias, uso del espacio público, ejercicio de la actividad económica, libertad de circulación, interacciones entre las personas y los animales, uso efectivo de los derechos de niños, niñas y adolescentes del ejercicio de la prostitución, derecho de reunión y relaciones entre personas y autoridades.',
-              definitions: [
-                'Contravencional: Conducta punible que, por no afectar bienes jurídicos de mayor envergadura, no reviste la categoría de delito y su sanción es menos rígida.',
-                'Control: Comprobación, inspección, fiscalización o intervención sobre hechos y deberes legales establecidos a los ciudadanos.',
-                'Cobro persuasivo: Acciones realizadas por la administración en la etapa anterior al proceso de jurisdicción coactiva encaminadas a obtener el pago de obligaciones reconocidas mediante acto administrativo debidamente ejecutoriado.',
-                'Comparendo: Orden de comparecencia que recibe el presunto infractor por parte de la Policía Nacional, para presentarse ante la autoridad correspondiente por la violación de una norma establecida en la Ley 1801 de 2016.',
-                'De oficio: Actuación iniciada por parte de la autoridad competente sin necesidad de queja o requerimiento de un tercero.',
-                'Estrado: Forma de notificar las decisiones dentro de la audiencia pública.',
-                'Medios de prueba: Aquellos que llevan al funcionario a obtener la certeza sobre la realización o no de las conductas investigadas, para llegar a la toma de una decisión en derecho.',
-                'Multa: Imposición del pago de una suma de dinero en moneda colombiana, cuya graduación depende del comportamiento realizado.',
-              ],
-              generalDispositions: [
-                'Para la aplicación de medidas correctivas en asuntos relativos a infracciones, el recurso de apelación se concederá en el efecto suspensivo.',
-                'Los recursos solo procederán contra las decisiones definitivas de las autoridades de Policía.',
-                'Cumplimiento o ejecución de la orden de Policía o medida correctiva: una vez ejecutoriada la decisión que contenga una orden de Policía o una medida correctiva, esta se cumplirá en un término máximo de cinco (5) días.',
-                'Si el presunto infractor no se presenta a la audiencia sin comprobar la ocurrencia de caso fortuito o fuerza mayor, la autoridad tendrá por ciertos los hechos que dieron lugar al comportamiento contrario a la convivencia y entrará a resolver de fondo.',
-                'Con base en las pruebas allegadas y los informes de las autoridades, salvo que la autoridad de Policía considere indispensable decretar prueba de una prueba adicional.',
-              ],
-              documents: [],
-              formats: [
-                'PM-GJC-FR-04 Citación',
-                'PM-GJC-FR-18 Boletas de Notificación',
-                'PM-GJC-FR-25 Auto',
-              ],
-              legalRequirements: [
-                'Ley 1801 de 2016, artículos 79 y 80.',
-                'Código Nacional de Policía y Convivencia.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: verbalAbreviadoConvivenciaCiudadanaSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GJC-CAR-08',
-              'Control y Autorización de Rifas, Juegos y Espectáculos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-              undefined,
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Control y autorización para la realización de rifas, juegos y espectáculos públicos.',
-              scope:
-                'Inicia con la solicitud de autorización para la realización de rifas, juegos y espectáculos públicos y finaliza con la resolución de autorización.',
-              definitions: [
-                'Rifa: Modalidad de juego de suerte y azar mediante la cual se sortean premios en especie entre quienes hubieren adquirido o fueren poseedores de una o varias boletas, emitidas en serie continua, distinguidas con un número de no más de cuatro dígitos y puestas en venta en el mercado a precio fijo para una fecha determinada por un operador, previa y debidamente autorizado.',
-                'Rifas menores: Aquellas cuyo plan de premios tiene un valor comercial inferior a doscientos cincuenta (250) salarios mínimos legales mensuales, circulan o se ofrecen al público exclusivamente en el territorio de un municipio o distrito y no son de carácter permanente.',
-                'Espectáculos públicos: Actividades que congregan al público con fines de recreación colectiva, que se llevan a cabo como consecuencia de una invitación pública, general e indiferenciada, donde los asistentes disfrutan y comparten expresiones artísticas, tales como conciertos, recitales, presentaciones de música, obras de teatro, actuaciones de compañías teatrales, stand up comedies, presentaciones circenses, magia e ilusionismo, desfiles de modas, exhibiciones cinematográficas, óperas, operetas o zarzuela, presentaciones humorísticas, danza, ballet y baile.',
-              ],
-              generalDispositions: [
-                'Rifas de competencia municipal: El Alcalde o quien este delegue será el competente para autorizar exclusivamente las rifas menores dentro de la jurisdicción del Municipio.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Decreto 1660 de 1994, artículo 9.',
-                'RCCDB, artículo 128.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: controlAutorizacionRifasJuegosEspectaculosSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GJC-PVI-09',
-              'Proceso Violencia Intrafamiliar',
-              'Comisaría de Familia',
-              undefined,
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Adelantar el proceso de medida de protección en casos de violencia intrafamiliar, para la garantía de los derechos de los miembros que conforman la unidad doméstica.',
-              scope:
-                'Inicia con la presentación de la denuncia y termina con la imposición de la medida de protección.',
-              definitions: [
-                'Violencia intrafamiliar: Es aquella que se manifiesta entre cónyuges o compañeros permanentes, ascendientes o descendientes, incluidos hijos adoptivos, y demás personas que integran la unidad doméstica.',
-                'Daño o sufrimiento físico: Consecuencias que provienen de una acción u omisión que afecta la integridad corporal de una persona.',
-                'Daño o sufrimiento psicológico: Consecuencia proveniente de la acción u omisión destinada a afectar acciones, comportamientos, creencias o decisiones de otra persona.',
-                'Daño o sufrimiento sexual: Consecuencias que provienen de acciones que vulneran la libertad e integridad sexual de una persona.',
-                'Medidas de protección: Medidas que adoptan las autoridades competentes de manera inmediata para prevenir, mitigar o detener una situación de riesgo.',
-                'Medidas de sensibilización y prevención: Medidas dirigidas a formular e implementar políticas públicas para reconocer diferencias y desigualdades sociales, biológicas y de género.',
-                'Medidas de atención: Medidas adoptadas para la atención integral de la víctima de manera oportuna y efectiva.',
-              ],
-              generalDispositions: [
-                'Competencia: Las Comisarías de Familia solo tienen competencia para aplicar medidas que mitiguen situaciones de violencia intrafamiliar cuando exista o haya existido vínculo familiar o unidad doméstica entre las partes.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: procesoViolenciaIntrafamiliarSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GJC-PRD-10',
-              'Restablecimiento de Derechos',
-              'Comisaría de Familia',
-              undefined,
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Atender y orientar a los niños, niñas, adolescentes y demás miembros del grupo familiar en el ejercicio y restablecimiento de sus derechos.',
-              scope:
-                'Inicia con la solicitud de parte o de oficio y finaliza con la resolución o fallo debidamente ejecutoriado, que deberá contener las medidas de restablecimiento de derechos de los niños, niñas y adolescentes.',
-              definitions: [
-                'Proceso administrativo de restablecimiento de derechos: Conjunto de actuaciones administrativas que la autoridad competente debe desarrollar para la restauración de la dignidad e integridad de niños, niñas y adolescentes como sujetos de derechos.',
-                'Interés superior: Imperativo que obliga a todas las personas a garantizar la satisfacción integral y simultánea de todos los derechos humanos de niños, niñas y adolescentes.',
-                'Inobservancia del derecho: Incumplimiento, omisión o negación de acceso a un servicio, o de los deberes y responsabilidades ineludibles de autoridades, sociedad y familia.',
-                'Amenaza: Situación de inminente peligro o riesgo para el ejercicio de derechos de niños, niñas o adolescentes.',
-                'Vulneración: Situación de daño, lesión o perjuicio que impide el ejercicio pleno de derechos de niños, niñas y adolescentes.',
-                'Medidas de restablecimiento de derechos: Decisiones de naturaleza administrativa que decreta la autoridad competente para garantizar y restablecer el ejercicio de derechos.',
-                'Estado adoptable: Situación en la cual se declara que un niño, niña o adolescente puede ser adoptado.',
-              ],
-              generalDispositions: [
-                'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para el proceso de restablecimiento de derechos.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: restablecimientoDerechosSteps,
-            },
-          },
-        ] },
-        { id: 'pm-ac', code: 'PM-AC', name: 'Atención al Ciudadano', procedures: [
-          {
-            ...procedure(
-              'PA-AC-PQR-01',
-              'Peticiones, Quejas, Reclamos y Sugerencias',
-              'Secretaría de Gobierno',
-              undefined,
-              [
-                'PA-AC-FR-01 Formato PQRS',
-                'PA-AC-FR-02 Encuesta de Satisfacción',
-                'PA-AC-FR-03 Acta Apertura de Buzón de PQRS',
-                'PA-AC-FR-04 Formato de Petición Verbal',
-                'PA-AC-FR-05 Certificación para Derechos de Petición, Quejas, Reclamos y Sugerencias',
-              ],
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Ofrecer soluciones y respuestas oportunas a los usuarios que presentan una petición, queja o reclamo.',
-              scope:
-                'Este proceso permite corregir situaciones que se pueden presentar en la toma o registro de las lecturas.',
-              definitions: [
-                'Peticiones, quejas y reclamos PQRS: Son las actividades básicas del proceso de servicio al cliente, desarrolladas en las oficinas comerciales que responden a las necesidades de los clientes.',
-                'Anónimo: Escrito presentado por un usuario, ciudadano o peticionario que no registra los datos de autoría o identidad personal.',
-                'Consulta: Se refiere a la orientación solicitada por el peticionario o ciudadano a la entidad, sobre diferentes temas propios de la entidad u otra entidad pública o privada.',
-                'Criterios de calidad del servicio: Son aspectos que determinan la calidad en la prestación de los servicios ofrecidos por la entidad. Se definen como oportunidad, pertinencia y otros criterios asociados al servicio.',
-                'Oportunidad: Tiempo que transcurre entre la solicitud del servicio y la prestación del mismo, debe ser adecuado y dentro de los tiempos establecidos para satisfacción del usuario.',
-                'Pertinencia: En el servicio se refiere a que la acción resultante de la petición del usuario sea la necesaria y adecuada para orientar su requerimiento.',
-              ],
-              generalDispositions: [
-                'Se debe tener en cuenta la toma adecuada de las lecturas.',
-                'En la medida en que el cargue de lectura sea manual en el módulo de facturación, se presenta especial atención a este proceso.',
-              ],
-              documents: [],
-              formats: [
-                'PA-AC-FR-01 Formato PQRS',
-                'PA-AC-FR-02 Encuesta de Satisfacción',
-                'PA-AC-FR-03 Acta Apertura de Buzón de PQRS',
-                'PA-AC-FR-04 Formato de Petición Verbal',
-                'PA-AC-FR-05 Certificación para Derechos de Petición, Quejas, Reclamos y Sugerencias',
-              ],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: peticionesQuejasReclamosSugerenciasSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PA-AC-AP-02',
-              'Atención al Público',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Establecer el procedimiento y directrices generales que regirán el procedimiento por medio del cual se prestará atención al público en la Secretaría de Gobierno, de conformidad con lo establecido en las normas que regulan la materia.',
-              scope:
-                'El procedimiento inicia con la recepción de solicitudes de los usuarios y finaliza con el registro del requerimiento solicitado.',
-              definitions: [
-                'Servicio al Ciudadano: Es el punto principal de interacción virtual entre la comunidad y la Alcaldía Municipal de Gachetá, el cual permite a los ciudadanos radicar y consultar sus requerimientos en línea asociados con el municipio y sus habitantes, al igual que los servicios que presta la entidad.',
-                'La Política de Servicio al Ciudadano se define como una política pública transversal cuyo objetivo general es garantizar el acceso efectivo, oportuno y de calidad de los ciudadanos a sus derechos en todos los escenarios de relacionamiento con el Estado.',
-              ],
-              generalDispositions: [
-                'La entidad debe garantizar estándares de excelencia en el servicio y facilitar que los ciudadanos accedan a sus derechos cuando consultan información pública.',
-                'La entidad debe garantizar estándares de excelencia cuando hace trámites o accede a la oferta institucional.',
-                'La entidad debe garantizar estándares de excelencia cuando hace denuncias, interpone quejas, reclamos o exige cuentas.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: atencionPublicoSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PA-AC-RAP-03',
-              'Respuesta a Acciones de Tutela, Populares, Cumplimiento y de Grupo',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se atenderán las acciones constitucionales que sean competencia de la Secretaría de Gobierno, de conformidad con lo establecido en la Constitución Política, artículos 86, 87 y 88, Ley 472 de 1998, Ley 393 de 1997 y Decreto 2591 de 1991.',
-              scope:
-                'El procedimiento inicia con la recepción de documento y finaliza con la respuesta al despacho judicial.',
-              definitions: [
-                'Acción de tutela: Mecanismo establecido en el artículo 86 de la Constitución Política y reglamentado por el Decreto 2591 de 1991, mediante el cual se reclaman derechos constitucionales fundamentales.',
-                'Acción popular: Mecanismo establecido en el artículo 88 de la Constitución Política, reglamentado por la Ley 472 de 1998, por medio del cual se protegen derechos e intereses colectivos.',
-                'Acción de grupo: Acciones interpuestas por un número plural o conjunto de personas que reúnen condiciones uniformes respecto de una misma causa que originó perjuicios individuales.',
-                'Acción de cumplimiento: Mecanismo establecido en el artículo 87 de la Constitución Política, reglamentado por la Ley 393 de 1997, mediante el cual se puede acudir ante autoridad judicial para hacer efectivo el cumplimiento de una ley o acto administrativo.',
-              ],
-              generalDispositions: [
-                'Se definen las políticas o criterios de desarrollo del procedimiento o documento, que condiciones se deben tener en cuenta antes de iniciar a desarrollar las actividades de gestión del procedimiento.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Constitución Política de Colombia, artículos 86, 87 y 88.',
-                'Ley 472 de 1998.',
-                'Ley 393 de 1997.',
-                'Decreto 2591 de 1991.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: respuestaAccionesTutelaPopularesCumplimientoGrupoSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PA-AC-VUC-04',
-              'Ventanilla Única y Correspondencia',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-              undefined,
-              ['PA-AC-FR-06 Planilla para Recuperación de Correspondencia'],
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Atender, recepcionar, radicar, direccionar y distribuir las solicitudes que llegan a la ventanilla única de correspondencia de la Alcaldía de Gachetá y se asientan o externan, dejando registro de la información o documentación despachada y entregada.',
-              scope:
-                'Inicia cuando llega la solicitud a la ventanilla única de correspondencia de la Alcaldía de Gachetá y termina cuando se entrega en la dependencia o área a la cual va dirigida.',
-              definitions: [
-                'Correspondencia interna: Comunicación que cursa entre las mismas dependencias o servidores de la institución y que corresponden al desarrollo de sus funciones asignadas.',
-                'Comunicaciones oficiales: Comunicaciones recibidas o producidas en desarrollo de las funciones asignadas legalmente a una entidad, independientemente del medio utilizado.',
-                'Comunicaciones oficiales recibidas externas: Comunicaciones que ingresan a través de la ventanilla única de correspondencia, dirigidas a la Alcaldía Municipal de Gachetá, como entidad, y a las personas que prestan sus servicios en la entidad.',
-                'Comunicaciones oficiales enviadas externas: Comunicaciones que se producen en cualquier área o dependencia de la Alcaldía, dirigidas a otras entidades públicas o privadas o a personas naturales o jurídicas.',
-                'Radicación de comunicaciones oficiales: Actividad por medio de la cual las entidades asignan un número consecutivo a las comunicaciones recibidas o producidas, dejando constancia de fecha y hora de recibo o envío.',
-                'Solicitud: Documento en el que se solicita formalmente algo.',
-              ],
-              generalDispositions: [],
-              documents: [],
-              formats: ['PA-AC-FR-06 Planilla para Recuperación de Correspondencia'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: ventanillaUnicaCorrespondenciaSteps,
-            },
-          },
-        ] },
-        { id: 'pm-gpsp', code: 'PM-GPSP', name: 'Gestión Prestación de Servicios Públicos', procedures: [
-          {
-            ...procedure(
-              'PM-GPSP-MP-01',
-              'Mantenimiento de Planta',
-              'Secretaría de Medio Ambiente y Desarrollo Económico',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Realizar acciones correspondientes a la operación del acueducto y el alcantarillado en el municipio, teniendo en cuenta lo establecido en la normatividad para el manejo de agua potable y el saneamiento básico.',
-              scope:
-                'Inicia con la designación del personal e insumos necesarios para la operación de la planta de tratamiento de agua potable y aguas residuales.',
-              definitions: [
-                'Planta de Potabilización: Conjunto de obras, equipos y materiales necesarios para efectuar los procesos que permitan cumplir con las normas de calidad del agua potable.',
-              ],
-              generalDispositions: [
-                'Para el desarrollo de este procedimiento se requiere establecer un programa de mantenimiento preventivo, el cual debe contener los periodos de intervención, personal responsable e insumos necesarios para su cumplimiento.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: mantenimientoPlantaSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-MFS-02',
-              'Mantenimiento Floculadores y Sedimentadores',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Garantizar el correcto funcionamiento de los floculadores mediante un adecuado mantenimiento de estos.',
-              scope:
-                'Inicia con el mantenimiento de óptimas condiciones de los tanques floculadores, con el fin de garantizar el correcto funcionamiento de la planta.',
-              definitions: [
-                'Floculación: Proceso que hace referencia a la aglutinación de partículas inducida por una agitación lenta de la suspensión coagulada.',
-                'Sedimentación: Proceso en el que se depositan materiales transportados por distintos agentes como producto de la erosión de las rocas o el suelo, en el fondo del tanque.',
-              ],
-              generalDispositions: [
-                'Este procedimiento se realiza cada quince (15) días con el fin de presentar mejor calidad en la prestación del servicio.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: mantenimientoFloculadoresSedimentadoresSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-LF-03',
-              'Lavado de Filtros',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Garantizar que los filtros funcionen en óptimas condiciones, con el fin de dar continuidad del servicio.',
-              scope:
-                'Inicia con la verificación del correcto funcionamiento de los filtros.',
-              definitions: [
-                'Lavado de Filtro: Proceso mediante el cual se hace pasar por un filtro agua en dirección contraria a la operación de filtración, expandiendo el lecho y arrastrando los depósitos existentes en él.',
-              ],
-              generalDispositions: [
-                'El proceso se realiza todos los días, utilizando el agua de los otros módulos de filtración, aprovechando la carga hidráulica.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: lavadoFiltrosSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-UN-04',
-              'Nuevos Usuarios',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Establecer los pasos lógicos a seguir para darle trámite a una solicitud nueva del servicio.',
-              scope:
-                'El procedimiento inicia con la presentación de la solicitud verbal o escrita a la Secretaría de Medio Ambiente y Desarrollo Económico, y finaliza con la elaboración del formato de prestación.',
-              definitions: [
-                'Servicio Público: Actividades y prestaciones permitidas, reservadas o exigidas a las administraciones públicas por la legislación en cada Estado, y que tienen como finalidad responder a diferentes imperativos del funcionamiento social y, en última instancia, favorecer la realización efectiva de la igualdad y del bienestar social desarrollado por una institución pública o privada con el fin de satisfacer una necesidad social determinada.',
-              ],
-              generalDispositions: [
-                'Los servicios públicos deben garantizarse según la Ley 142 de 1994.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 142 de 1994.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: nuevosUsuariosSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-ICD-05',
-              'Instalación Conexión Domiciliaria',
-              'Secretaría de Medio Ambiente y Desarrollo Económico',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Establecer los pasos lógicos a seguir para darle trámite a una solicitud nueva del servicio.',
-              scope:
-                'Inicia con la presentación de la solicitud verbal o escrita ante la Secretaría de Medio Ambiente, que permita vincularse como usuario de los servicios, y finaliza con la elaboración del formato de prestación.',
-              definitions: [
-                'Servicio Público: Actividades y prestaciones permitidas, reservadas o exigidas a las administraciones públicas por la legislación en cada Estado, y que tienen como finalidad responder a diferentes imperativos del funcionamiento social y, en última instancia, favorecer la realización efectiva de la igualdad y del bienestar social desarrollado por una institución pública o privada con el fin de satisfacer una necesidad social determinada.',
-              ],
-              generalDispositions: [
-                'Los servicios públicos deben garantizarse según la Ley 142 de 1994.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 142 de 1994.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: instalacionConexionDomiciliariaSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-FSP-06',
-              'Facturación de Servicios Públicos',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Detallar el proceso a seguir por medio del cual se realiza la facturación de los servicios públicos domiciliarios.',
-              scope:
-                'El procedimiento inicia con el ingreso al módulo del sistema SINFA y finaliza con la entrega al operador de las facturas para distribuirse puerta a puerta.',
-              definitions: [
-                'Backup: Es una copia de los datos originales que se realiza con el fin de disponer de un medio para recuperarlos en caso de su pérdida.',
-              ],
-              generalDispositions: [
-                'Se debe tener en cuenta la toma adecuada de las lecturas.',
-                'En la medida en que el cargue de lecturas sea manual en el módulo de facturación se presenta especial atención a este proceso.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: facturacionServiciosPublicosSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-MF-07',
-              'Modificaciones a la Facturación',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Detallar el proceso a seguir por medio del cual se realiza la modificación a la facturación de los servicios públicos domiciliarios.',
-              scope:
-                'Este proceso inicia por corregir situaciones que se presentan al momento de registrar las lecturas en el aplicativo, una vez se detecta la inconsistencia se procede a aplicar el procedimiento correspondiente.',
-              definitions: [
-                'Servicio público: Actividades y prestaciones permitidas, reservadas o exigidas a las administraciones públicas por la legislación en cada Estado, y que tienen como finalidad responder a diferentes imperativos del funcionamiento social y, en última instancia, favorecer la realización efectiva de la igualdad y del bienestar social desarrollado por una institución pública o privada con el fin de satisfacer una necesidad social determinada.',
-              ],
-              generalDispositions: [
-                'Se debe tener en cuenta la toma adecuada de las lecturas.',
-                'En la medida en que el cargue de lecturas sea manual en el módulo de facturación se presenta especial atención a este proceso.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: modificacionesFacturacionSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-RSP-08',
-              'Recaudo Servicios Públicos',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Registrar en el aplicativo de servicios públicos de una manera razonable el recaudo cumpliendo los principios de contabilidad generalmente aceptados en Colombia.',
-              scope:
-                'Este procedimiento permite el proceso de registro de los pagos realizados por los usuarios; sin embargo, estos deben ser reportados a Contabilidad y Presupuesto, haciendo la interfaz automáticamente.',
-              definitions: [
-                'Interfaz: En informática se utiliza para nombrar a la conexión física y funcional entre dos sistemas o dispositivos de cualquier tipo, dando una comunicación entre distintos niveles.',
-              ],
-              generalDispositions: [
-                'Verificar que el proceso de interface desde el aplicativo de servicios públicos corresponda al período contable al cual se está trabajando.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: recaudoServiciosPublicosSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-RSSP-09',
-              'Reporte Subsidio Servicios Públicos',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Presentar de manera lógica y ordenada el procedimiento para la elaboración del reporte de los subsidios públicos domiciliarios.',
-              scope:
-                'Inicia con la recepción de la información con el fin de elaborar el reporte de los subsidios públicos a la Secretaría de Hacienda.',
-              definitions: [
-                'Subsidio: Es una ayuda que organismos oficiales otorgan a determinados ciudadanos o entidades, principalmente, con el fin de brindar acceso a los bienes y servicios básicos y satisfacer necesidades.',
-              ],
-              generalDispositions: [
-                'Se debe tener en cuenta la facturación definitiva del período, así como las modificaciones realizadas a la misma.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: reporteSubsidioServiciosPublicosSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PM-GPSP-AP-10',
-              'Acuerdo de Pago',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Brindar facilidades de pago de los servicios públicos a los contribuyentes que soliciten este beneficio legal.',
-              scope:
-                'Por medio de este procedimiento se presentan los pasos lógicos a seguir para la elaboración de un acuerdo de pago por concepto de servicios públicos armonizado a la normatividad legal vigente establecida para este tema.',
-              definitions: [
-                'Acuerdo de pago: Es la facilidad que se otorga a los contribuyentes para pagar en cuotas parciales las deudas que mantengan con la Administración.',
-              ],
-              generalDispositions: [
-                'Evaluar la aplicación de acuerdos de pago dependiendo el estado de la obligación.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: acuerdoPagoSteps,
-            },
-          },
-        ] },
-        { id: 'pm-gi', code: 'PM-GI', name: 'Gestión de Infraestructura', procedures: [
-          {
-            ...procedure(
-              'PM-GI-OI-05',
-              'Obras de Infraestructura',
-              'Secretaría de Planeación y Seguimiento a la Infraestructura',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective:
-                'Elaborar los estudios, diseños, construcción y mantenimiento de las obras de infraestructura, que requiere el Municipio acorde con las necesidades de desarrollo físico, optimizando la utilización de los recursos conforme a los planes, programas y proyectos municipales.',
-              scope:
-                'Inicia con la elaboración de los estudios de infraestructura física hasta la entrega de las obras a satisfacción de la comunidad de acuerdo a las metas establecidas en los planes de desarrollo.',
-              definitions: [
-                'Alcantarillas: Son obras de drenaje, cuya finalidad es evacuar el agua de las cunetas longitudinales de un lado del camino; o bien, lo posibilita alejarlas de ese lado y requiere ser trasladada al lado contrario.',
-                'Área protegida: Área establecida por el Estado para la protección de ecosistemas, especies y bienes ambientales.',
-                'Estudio ambiental: Apartado orientado a la apreciación de los impactos del proyecto sobre el medio ambiente y a la identificación de medidas de manejo.',
-                'Estudio de factibilidad: Etapa en la que se adquieren mayores conocimientos y se reduce la incertidumbre, analizando la alternativa recomendada.',
-                'Estudio legal: Determina la viabilidad jurídica del proyecto a la luz de las normas que lo rigen.',
-                'Estudio técnico: Busca optimizar la utilización de los recursos disponibles para la producción del bien o servicio en cada una de las alternativas propuestas.',
-                'Gaviones: Estructuras construidas a base de malla metálica galvanizada, llenas de piedra, muy resistentes a deslizamientos y erosión.',
-                'Interventoría: Seguimiento técnico que se realiza para asegurar el cumplimiento del contrato.',
-                'Mantenimiento rutinario: Se realiza de manera periódica con el fin de contrarrestar o aminorar el deterioro normal de las obras y mantener las vías con buen nivel de servicio.',
-                'Mantenimiento preventivo: Programa estratégico de conservación vial, proyectado para detener deterioros leves y reducir necesidades futuras de rehabilitación y reconstrucción.',
-                'Obra pública: Trabajos de construcción, adecuación, ampliación o mantenimiento de bienes inmuebles de uso público o al servicio de la comunidad.',
-                'Plan de desarrollo: Instrumento que establece compromisos y metas para orientar la gestión pública.',
-                'Proyecto de ingeniería: Conjunto de documentos técnicos definitivos que determinan las características y dimensiones de una obra.',
-                'Proyecto de inversión pública: Propuesta que genera capacidad productiva o beneficios sociales mediante el uso de recursos públicos.',
-                'Vía urbana: Faja acondicionada para circulación de vehículos y personas dentro del perímetro urbano.',
-              ],
-              generalDispositions: [
-                'Las obras de infraestructura se establecen en el Plan de Acción de la Anualidad.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: obrasInfraestructuraSteps,
-            },
-          },
-        ] },
+        {
+          id: 'pm-gds', code: 'PM-GDS', name: 'Gestión del Desarrollo Social', procedures: [
+            {
+              ...procedure('PM-GDS-CJT-01', 'Comité de Justicia Transicional y Subcomités', 'Secretaría de Gobierno y Desarrollo Institucional', 42),
+              source: { pageStart: 42, pageEnd: 42, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Elaborar planes de acción en el marco de los planes de desarrollo a fin de lograr la atención, asistencia y reparación integral a las víctimas, coordinar acciones con las entidades del Sistema Nacional de Atención y Reparación a las Víctimas y articular la oferta institucional.',
+                scope: 'El proceso inicia con la invitación realizada por la Secretaría Técnica de cada subcomité y comité, informando lugar, fecha, hora y orden del día, y finaliza con el acta de reunión y registro de asistencia.',
+                definitions: [
+                  'Plan de acción: herramienta de planificación empleada para la gestión y control de tareas o proyectos.',
+                  'Inclusión social: proceso que asegura oportunidades y recursos para participar en la vida económica, social y cultural.',
+                  'Desmovilización: proceso por el cual una tropa deja de ejercer su actividad militar.',
+                  'Reintegración: oferta institucional para personas desmovilizadas que buscan reintegrarse a la vida social y económica.',
+                  'Subcomité técnico: instancia de coordinación encargada de diseñar e implementar la política pública de prevención, asistencia, atención y reparación integral a las víctimas.',
+                ],
+                generalDispositions: ['Realizar convocatoria con los términos establecidos en el reglamento del comité y subcomités.'],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: comiteJusticiaTransicionalSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-PP-02', 'Proyectos Productivos', 'Secretaría Desarrollo Económico', 43),
+              source: { pageStart: 43, pageEnd: 43, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Obtener las medidas de reparación que propendan por la indemnización, rehabilitación, satisfacción y garantías de no repetición en sus dimensiones individual, colectiva, material, moral y simbólica.',
+                scope: 'El proceso inicia por medio del subcomité de reparación integral, donde se presentan requisitos, líneas de unidades productivas, cantidad de personas beneficiarias y monto por unidad; culmina con la entrega de unidades productivas a cargo del operador.',
+                definitions: [
+                  'Indemnización: acción que se otorga al acreedor o a la víctima para exigir compensación por un daño.',
+                  'Rehabilitación: conjunto de estrategias, planes, programas y acciones jurídicas, médicas, psicológicas y sociales dirigidas al restablecimiento de las víctimas.',
+                ],
+                generalDispositions: ['Estar registrado como incluido en el Registro Único de Víctimas.'],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: proyectosProductivosSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-SAA-03', 'Subsidio por un Auxilio de Arrendamiento Temporal', 'Secretaría de Gobierno y Desarrollo Institucional', 44),
+              source: { pageStart: 44, pageEnd: 45, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Contribuir a la implementación de la política nacional de atención y reparación integral de víctimas del conflicto armado para la superación definitiva de sus condiciones de vulnerabilidad y la garantía de goce efectivo de derechos.',
+                scope: 'El trámite inicia con la solicitud radicada en Ventanilla Única y correspondencia por parte de la víctima, y finaliza con el reconocimiento del pago mediante acto administrativo.',
+                definitions: [
+                  'Conflicto armado: periodo caracterizado por confrontación armada en el territorio colombiano.',
+                  'Condiciones de vulnerabilidad: capacidad disminuida de una persona o grupo para anticiparse, resistir y recuperarse de los efectos de un peligro.',
+                ],
+                generalDispositions: [
+                  'Estar registrado como incluido en el Registro Único de Víctimas.',
+                  'Ser residente del Municipio.',
+                  'Contrato de arrendamiento.',
+                  'Certificado de libertad y tradición.',
+                  'Acta de subcomité de atención, asistencia y medidas de rehabilitación donde se aprueba solicitud.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: subsidioArrendamientoTemporalSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-AF-04', 'Asistencia Funeraria', 'Secretaría de Gobierno y Desarrollo Institucional', 46),
+              source: { pageStart: 46, pageEnd: 46, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Garantizar la asistencia funeraria contemplada en el Artículo 50 de la Ley 1448 de 2011 a las personas que no cuentan con recursos para sufragar gastos fúnebres.',
+                scope: 'El trámite inicia con la solicitud radicada por parte de la familia de la víctima fallecida y finaliza con el reconocimiento del pago por medio de acto administrativo.',
+                definitions: [
+                  'Víctima: persona que sufre un daño provocado por un sujeto.',
+                  'Post-Conflicto: periodo posterior a la superación total o parcial de conflictos armados.',
+                  'Derechos Humanos: condiciones instrumentales que permiten a la persona su realización.',
+                  'Acto administrativo: manifestación de un poder público en ejercicio de potestades administrativas.',
+                ],
+                generalDispositions: [
+                  'Estar registrado como incluido en el Registro Único de Víctimas.',
+                  'No contar con plan exequial.',
+                  'Ser residente del Municipio.',
+                  'Expedición de acto administrativo.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: asistenciaFunerariaSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-AHI-05', 'Ayuda Humanitaria Inmediata', 'Secretaría de Gobierno y Desarrollo Institucional', 47),
+              source: { pageStart: 47, pageEnd: 47, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Socorrer, asistir, proteger y atender necesidades de alimentación, aseo personal, manejo de abastecimientos, utensilios de cocina, atención médica y psicológica de emergencia, transporte y alojamiento transitorio en condiciones dignas.',
+                scope: 'El trámite inicia con la declaración realizada en el Ministerio Público y radicada en correspondencia por parte de la víctima, y finaliza con la entrega de las ayudas a la población afectada.',
+                definitions: [
+                  'Ministerio Público: entidad que representa a la sociedad ante órganos jurisdiccionales del Estado, con autonomía funcional y administrativa.',
+                ],
+                generalDispositions: [
+                  'Declaración realizada en el Ministerio Público.',
+                  'La declaración no debe exceder tres meses desde la ocurrencia del hecho victimizante.',
+                  'Haber declarado bajo el hecho victimizante de desplazamiento forzado y encontrarse en situación de vulnerabilidad acentuada.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: ayudaHumanitariaInmediataSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-AOP-06', 'Atención y Orientación a Población Víctima', 'Secretaría de Gobierno y Desarrollo Institucional', 48, ['PM-GDS-FR-01 Acta de Visita']),
+              source: { pageStart: 48, pageEnd: 48, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Dar información, orientación y acompañamiento jurídico y psicosocial a la víctima, facilitando el acceso y goce efectivo de derechos a la verdad, justicia y reparación.',
+                scope: 'Inicia con la presencia o remisión de la víctima a la oficina correspondiente y finaliza con el seguimiento a la respuesta oportuna por parte de las dependencias o entidades implicadas.',
+                definitions: [
+                  'Derechos Humanos: condiciones instrumentales que permiten a la persona su realización.',
+                  'Víctimas: persona física que sufre un daño provocado por un sujeto.',
+                  'Post-Conflicto: periodo posterior a la superación total o parcial de conflictos armados.',
+                ],
+                generalDispositions: ['Estar registrado como incluido en el Registro Único de Víctimas.'],
+                documents: [],
+                formats: ['PM-GDS-FR-01 Acta de Visita'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: atencionOrientacionPoblacionVictimaSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-CE-07', 'Comité de Empleo', 'Secretaría de Gobierno y Desarrollo Institucional', 49),
+              source: { pageStart: 49, pageEnd: 49, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Estimular las políticas y programas de empleo en el municipio, generar ingresos en la población y reducir brechas de acceso al empleo.',
+                scope: 'El procedimiento comienza con el envío de invitaciones a cada miembro del Comité y termina con la asignación de tareas y cierre por parte de la secretaría técnica.',
+                definitions: [
+                  'Comité: grupo de personas encargadas de un asunto.',
+                  'Cajas de Compensación: entidades privadas encargadas de administrar prestaciones de seguridad social y otros beneficios.',
+                ],
+                generalDispositions: [
+                  'Enviar invitaciones a los miembros del comité.',
+                  'Confirmar asistencia a la reunión.',
+                  'Verificación del quórum.',
+                  'Lectura del orden del día.',
+                  'Deliberación del Comité.',
+                  'Compromisos.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: comiteEmpleoSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-RP-08', 'Ruta de la Productividad', 'Secretaría de Desarrollo Social', 50),
+              source: { pageStart: 50, pageEnd: 51, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Dinamizar el emprendimiento y fortalecimiento empresarial en los sectores económicos para aumentar productividad y competitividad del Municipio de Gachetá.',
+                scope: 'Inicia con la caracterización del sector productivo del Municipio y culmina con el seguimiento a la entrega de maquinaria, insumos y/o créditos al empresario o emprendedor.',
+                definitions: [
+                  'Emprendimiento: iniciativa de una persona que asume un riesgo económico para aprovechar una oportunidad.',
+                  'Productividad: relación entre productos obtenidos y recursos utilizados.',
+                  'Competitividad: capacidad de obtener rentabilidad frente a competidores.',
+                  'Empresario: persona que crea o adquiere un negocio o empresa y trabaja en su crecimiento.',
+                ],
+                generalDispositions: [
+                  'Para acceder a créditos se requiere tener negocio en funcionamiento, no estar reportado en datacrédito y aportar documentos del deudor o codeudor según corresponda.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: rutaProductividadSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-CP-09', 'Caracterización de la Población Minoritaria', 'Secretaría de Desarrollo Social', 52),
+              source: { pageStart: 52, pageEnd: 52, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Realizar la caracterización de la población perteneciente a minorías afrodescendiente, ROM, indígena, LGBTI y habitantes de calle para conocer ubicación, condiciones y mantener comunicación.',
+                scope: 'Inicia con la identificación de la población y finaliza con su inclusión en las bases de datos creadas para tal fin.',
+                definitions: [
+                  'Caracterización: determinar las características particulares de alguien.',
+                  'ROM: pueblo étnico gitano.',
+                  'LGBTI: población lesbiana, gay, bisexual, transexual e intersexuada.',
+                  'Afrodescendiente: personas con antepasados africanos.',
+                  'Afrocolombiano: personas de raza afro que habitan en Colombia.',
+                ],
+                generalDispositions: [
+                  'Utilizar los formatos indicados de acuerdo con la minoría.',
+                  'Pertenecer a alguna población minoritaria: afrodescendiente, ROM, indígena, LGBTI o habitante de calle.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: caracterizacionPoblacionMinoritariaSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-AC-10', 'Atención a la Comunidad', 'Secretaría de Desarrollo Social', 53),
+              source: { pageStart: 53, pageEnd: 53, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Brindar atención a la población que hace parte de minorías para satisfacer y dar cumplimiento al goce efectivo de derechos humanos.',
+                scope: 'Inicia con la necesidad de la persona perteneciente a población minoritaria y finaliza con la posible solución a su necesidad.',
+                definitions: [
+                  'Oferta institucional: conjunto de planes, programas, proyectos y acciones específicas a disposición de la población.',
+                  'Minoría: grupo numéricamente menor frente al grupo mayoritario.',
+                  'Enfoque diferencial de género y Derechos Humanos: análisis de relaciones sociales desde necesidades específicas.',
+                  'Atención diferencial: atención dirigida a poblaciones con condiciones particulares.',
+                ],
+                generalDispositions: [
+                  'Obedece a la necesidad o falta de información de personas pertenecientes a minorías.',
+                  'La comunidad atendida debe pertenecer a una minoría: afrodescendiente, indígena, ROM, LGBTIQ o habitante de calle.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: atencionComunidadSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-EC-11', 'Eventos Comunitarios', 'Secretaría de Gobierno y Desarrollo Institucional', 54, ['PM-GDS-FR-02 Permiso Provisional Eventos']),
+              source: { pageStart: 54, pageEnd: 55, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Realizar eventos de apoyo comunitario dirigidos a población minoritaria para generar espacios de participación, inclusión y reconocimiento cultural.',
+                scope: 'Inicia con la convocatoria a la población beneficiaria del evento y termina con su ejecución y finalización.',
+                definitions: [
+                  'Eventos comunitarios: actividades de construcción social con repercusión positiva.',
+                  'Convocatoria: anuncio por medio del cual se convoca a un evento.',
+                  'Población humana: grupo de seres humanos que viven en un espacio geográfico.',
+                  'Minoría: parte menor de personas dentro de un cuerpo, nación o comunidad.',
+                  'Logística: técnica para reunir medios necesarios para organizar un evento.',
+                ],
+                generalDispositions: [
+                  'Toda la población del municipio puede hacer parte de convocatorias ofertadas por la Secretaría de Desarrollo Social.',
+                  'Según la naturaleza del evento, las actividades podrán dirigirse a un grupo poblacional específico.',
+                ],
+                documents: [],
+                formats: ['PM-GDS-FR-02 Permiso Provisional Eventos'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: eventosComunitariosSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-SPP-12', 'Seguimiento a la Política Pública de Jóvenes', 'Secretaría de Desarrollo Social', 56),
+              source: { pageStart: 56, pageEnd: 57, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Implementar la política pública de juventudes en el municipio de Gachetá, dando cumplimiento a la Ley Estatutaria de Juventudes y mejorando la calidad de vida de jóvenes entre 14 y 28 años.',
+                scope: 'Inicia con la creación de la hoja de ruta por diez años sobre prioridades de jóvenes y finaliza con la divulgación en lugares donde se aglomere la juventud.',
+                definitions: [
+                  'Política pública de juventudes: herramienta con orientaciones a corto, mediano y largo plazo para transformar condiciones sociales y ampliar oportunidades.',
+                  'Ley de juventudes: marco orientado a garantizar continuidad de derechos de adolescentes y jóvenes.',
+                ],
+                generalDispositions: ['Los beneficiados serán jóvenes entre 14 y 28 años según la Ley 1622 de 2013.'],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: seguimientoPoliticaPublicaJovenesSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-VJ-13', 'Voluntariado Juvenil', 'Secretaría de Desarrollo Social', 58, ['PM-GDS-FR-03 Certificaciones Prácticas Empresariales']),
+              source: { pageStart: 58, pageEnd: 59, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Crear una estrategia de voluntariado juvenil mediante convocatoria a jóvenes para realizar actividades y estrategias de labor social, ambiental, recreativa y cultural.',
+                scope: 'Inicia con la convocatoria a jóvenes entre 18 y 35 años que deseen apoyar el voluntariado juvenil y finaliza con actividades encaminadas al trabajo social, medio ambiente y mejora de calidad de vida.',
+                definitions: ['Voluntariado: conjunto de personas que se unen libre y desinteresadamente para trabajar con fines benéficos o altruistas.'],
+                generalDispositions: [
+                  'Los voluntarios deben ser mayores de edad entre 18 y 35 años.',
+                  'Firmar formato de consentimiento para uso de datos e imágenes por parte de la administración municipal.',
+                ],
+                documents: [],
+                formats: ['PM-GDS-FR-03 Certificaciones Prácticas Empresariales'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: voluntariadoJuvenilSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-FCS-14', 'Realización de Foros, Congresos, Seminarios', 'Secretaría de Desarrollo Social', 60),
+              source: { pageStart: 60, pageEnd: 61, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Realizar foros, seminarios, congresos y talleres para jóvenes del municipio de Gachetá sobre temas de importancia nacional y carácter general.',
+                scope: 'Inicia con la programación de temas, ponentes y parámetros de cada proceso; termina con la evaluación del impacto sobre los jóvenes.',
+                definitions: [
+                  'Foro: técnica de comunicación grupal sobre un tema de interés común.',
+                  'Seminario: actividades comunes de profesores y alumnos orientadas a práctica e investigación.',
+                  'Congreso: reunión periódica para presentar conferencias o exposiciones sobre temas relacionados.',
+                  'Taller: curso breve donde se enseña una actividad práctica o artística.',
+                ],
+                generalDispositions: ['Se realizarán periódicamente, mediante inscripción previa de jóvenes y con temas avalados por la plataforma de juventudes o entes juveniles.'],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: forosCongresosSeminariosSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-DEJ-15', 'Desarrollo de Encuentros Juveniles', 'Secretaría de Desarrollo Social', 62),
+              source: { pageStart: 62, pageEnd: 62, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Desarrollar encuentros juveniles en el municipio de Gachetá con grupos, redes, organizaciones y movimientos juveniles, con el fin de impulsar el talento juvenil.',
+                scope: 'Inicia con la convocatoria a grupos de jóvenes del municipio pertenecientes a redes, organizaciones y movimientos juveniles, y finaliza con premiación y/o entrega de incentivos.',
+                definitions: ['Encuentros de juventudes: espacios didácticos, recreativos y diversos para ejercer participación activa y unir objetivos y talentos de la juventud.'],
+                generalDispositions: [
+                  'Se desarrollará mínimo una vez al año con un grupo plural de jóvenes.',
+                  'Jóvenes inscritos dentro de la plataforma de juventudes de la personería municipal y/o base de datos de la Dirección de Juventudes.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: encuentrosJuvenilesSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-ICP-16', 'Inscripción a Cursos y Programas de Formación', 'Secretaría de Desarrollo Social', 63),
+              source: { pageStart: 63, pageEnd: 64, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Inscribir a la población juvenil del municipio de Gachetá en cursos complementarios y programas de educación para mejorar el nivel educativo y capacidades laborales.',
+                scope: 'Inicia con la apertura de la convocatoria de cursos complementarios y programas de formación a jóvenes de 14 años en adelante, y finaliza con la participación del personal inscrito.',
+                definitions: [
+                  'Inscripción: acción y efecto de inscribir o registrar a alguien o algo.',
+                  'SENA: Servicio Nacional de Aprendizaje.',
+                ],
+                generalDispositions: [
+                  'El joven debe tener 14 años o más.',
+                  'Debe estar inscrito en la plataforma de la entidad a estudiar.',
+                  'Debe traer copia del documento de identidad o conocer sus datos personales.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: inscripcionCursosProgramasSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-SIFA-17', 'Novedades SIFA Familias en Acción', 'Secretaría de Desarrollo Social', 65),
+              source: { pageStart: 65, pageEnd: 66, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Mantener actualizada la base de datos en la plataforma nacional SIFA, elaborando novedades realizadas por titulares del programa.',
+                scope: 'Inicia con la solicitud de documentos de identidad para actualización de la plataforma SIFA y culmina con revisión y aprobación por parte de la regional Cundinamarca de Familias en Acción.',
+                definitions: [
+                  'Familias en Acción: programa nacional que permite otorgar incentivo monetario a familias inscritas.',
+                  'SIFA: sistema de información Familias en Acción.',
+                  'Caracterización: identificación de la población a la que pertenece cada usuario.',
+                  'Novedades: compromisos o actualizaciones que deben cumplir los usuarios del programa.',
+                ],
+                generalDispositions: [
+                  'Cada titular debe actualizar documentos.',
+                  'El titular debe allegar fotocopia del documento de identidad al 150% y registro civil legible.',
+                  'El usuario debe acercarse personalmente para realizar novedades con soportes legibles.',
+                  'Si el titular no puede realizar el trámite, debe enviar apoderado con copia de cédula y trámite firmado.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: novedadesSifaSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-RPF-18', 'Retirados Programa Familias en Acción', 'Secretaría de Desarrollo Social', 67),
+              source: { pageStart: 67, pageEnd: 67, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Registrar el retiro del usuario por no cumplimiento de variables del programa, a partir de suspensión del beneficiario o núcleo familiar dentro de un plazo de dos meses.',
+                scope: 'Inicia con el listado de beneficiarios suspendidos en SIFA y finaliza con la pérdida del beneficio y retiro del sistema por no subsanar novedades.',
+                definitions: [
+                  'No cobro: el titular no reclama el incentivo durante cuatro meses consecutivos.',
+                  'Graduado: terminación del ciclo escolar.',
+                  'Requisito de edad: actualización de documento cuando el beneficiario cambia de registro civil a tarjeta de identidad.',
+                ],
+                generalDispositions: ['Los beneficiarios deben cumplir requisitos de escolaridad, edad y cobro de incentivos en tiempos reglamentados por el DPS.'],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: retiradosFamiliasAccionSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-BCF-19', 'Bienestar Comunitario, Familias en Acción', 'Secretaría de Desarrollo Social', 68),
+              source: { pageStart: 68, pageEnd: 68, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Realizar encuentros de cuidado del programa Familias en Acción, buscando participación de titulares y articulación con profesionales de la institución.',
+                scope: 'Inicia con la citación de madres líderes de cada sector y finaliza con el desarrollo de actividades de compartir por parte de participantes y profesionales líderes.',
+                definitions: [
+                  'DPS: Departamento para la Prosperidad Social.',
+                  'Citación: llamado a lista de usuarios de Familias en Acción.',
+                  'Encuentro pedagógico: agrupación de madres titulares del programa.',
+                  'Capacitación: inducción a procesos articulados con profesionales.',
+                  'Lúdicas: actividades de integración.',
+                ],
+                generalDispositions: ['Los usuarios deben cumplir los requerimientos del DPS, incluida la asistencia a encuentros de cuidado.'],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: bienestarComunitarioFamiliasAccionSteps,
+              },
+            },
+            {
+              ...procedure('PM-GDS-RCC-20', 'Revisión de Cuentas de Contratistas', 'Secretaría de Hacienda', 69),
+              source: { pageStart: 69, pageEnd: 69, validationMode: 'visual_validated' },
+              detail: {
+                objective: 'Revisar las cuentas de cobro de los contratistas que supervisa la Secretaría de Desarrollo y verificar que las actas cumplan con el objeto y funciones de cada contratista.',
+                scope: 'Inicia con la recepción de la cuenta de cobro del contratista por parte de la Secretaría de Gobierno para revisión y termina con aprobación y visto bueno por parte de la Secretaría de Hacienda.',
+                definitions: [
+                  'Contratista: persona que presta un servicio tras recibir el encargo correspondiente.',
+                  'Cuenta de cobro: comprobante de la realización de un pago o cobro por prestación de un servicio.',
+                ],
+                generalDispositions: [
+                  'Para la firma de las actas, el contratista debe adjuntar todos los documentos exigidos por la Secretaría de Hacienda para revisión por el secretario de gobierno.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: revisionCuentasContratistasSocialSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GDS-RAR-21',
+                'Revisión, Aprobación y Respuesta a Requerimientos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+                70,
+              ),
+              source: {
+                pageStart: 70,
+                pageEnd: 70,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Responder oportunamente a las solicitudes y requerimientos allegadas a la Alcaldía de Gachetá.',
+                scope:
+                  'Inicia con la recepción de la documentación proveniente de las diferentes secretarías que conforman la Alcaldía y la ciudadanía que requieran revisión, aprobación o respuesta.',
+                definitions: [
+                  'Solicitud: Documento en el que se solicita formalmente algo.',
+                  'Seguimiento: Realizar seguimiento a los recibidos de las respuestas de los peticionarios. En caso de devolución, se hace la respectiva publicación.',
+                ],
+                generalDispositions: [
+                  'Documentos para revisión, aprobación o respuesta.',
+                  'Las solicitudes recepcionadas por parte de la ciudadanía deben estar dirigidas al despacho de la Secretaría de Gobierno y tener los datos básicos del peticionario: nombre, cédula y dirección.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: revisionAprobacionRespuestaRequerimientosSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GDS-AU-22',
+                'Atención a Usuarios',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+            },
+          ]
+        },
+        {
+          id: 'pm-gde', code: 'PM-GDE', name: 'Gestión del Desarrollo Económico', procedures: [
+            {
+              ...procedure(
+                'PM-GDE-ATA-01',
+                'Asistencia Técnica Agropecuaria',
+                'Gestión de Desarrollo Económico, Sostenible y de Turismo',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Prestar los servicios de asistencia técnica y extensión agropecuaria y rural a proyectos relacionados con el desarrollo rural y proyectos productivos agrícolas, pecuarios y forestales, para incrementar la producción agropecuaria y garantizar la competitividad y la sostenibilidad ambiental y social.',
+                scope:
+                  'Este procedimiento inicia cuando se identifica la necesidad de asistencia técnica o se recibe la solicitud de usuarios en el área rural; realiza la visita, asesoría o capacitación y finaliza con el seguimiento y evaluación de la actividad.',
+                definitions: [
+                  'Asistencia técnica: Conjunto de actividades que tienen como propósito la transferencia de conocimiento, tecnología, métodos o cualquier otro factor que incida positivamente en la capacidad de los procesos del cliente respecto a una temática específica; se desarrolla mediante actividades de capacitación, asesoría y acompañamiento.',
+                  'Capacitación: Proporciona conocimientos que le permiten a las entidades fortalecer la capacidad para la innovación y afrontar el cambio, percibir los requerimientos del entorno, tomar decisiones acertadas en situaciones complejas, generar compromisos, trabajar en equipo y valorar lo público.',
+                  'Asesoría: Proporciona ayuda en el proceso de toma de decisiones, identifica problemas, señala oportunidades de mejora, aconseja y recomienda aplicar lineamientos y correctivos a seguir.',
+                  'Acompañamiento: Apoyo directo, orientado a la construcción conjunta de soluciones a los temas definidos en el Plan de Asistencia Técnica.',
+                  'Asistencia Técnica Directa: Se refiere a la asistencia que brindan los funcionarios de las dependencias del Departamento.',
+                  'Asistencia Técnica Indirecta: Cuando la realiza una persona natural o jurídica contratada.',
+                ],
+                generalDispositions: [
+                  'Seguimiento y acompañamiento continuo de todos los pequeños y medianos productores del municipio de Gachetá.',
+                  'Se prestará asistencia técnica agropecuaria en los siguientes ámbitos: aptitud de los suelos, selección del tipo de actividad, aplicación y usos de tecnologías, uso de recursos adecuados al tipo de actividad productiva y manejo ambiental, sanitario de los agro-ecosistemas.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: asistenciaTecnicaAgropecuariaSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GDE-EA-02',
+                'Estadísticas Agropecuarias',
+                'Gestión de Desarrollo Económico, Sostenible y de Turismo',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Recolectar, sistematizar, analizar, complementar y publicar la información estadística del sector agropecuario del municipio de Gachetá, mediante la realización de Evaluación Agropecuaria Municipal EVA, siguiendo lineamientos del Ministerio de Agricultura y Desarrollo Rural.',
+                scope:
+                  'El procedimiento inicia con la preparación logística, programación, capacitación, recolección, sistematización y análisis de la información; y culmina con el informe de los resultados estadísticos.',
+                definitions: [
+                  'Estadísticas Agropecuarias: Es una herramienta para el manejo de información agropecuaria de los municipios con el fin de apoyar la toma de decisiones, la orientación de recursos, la implementación de proyectos y programas y la unificación de criterios.',
+                  'Evaluación Agropecuaria EVA: Las Evaluaciones Agropecuarias, como mecanismo subjetivo de recolección de información sobre área, producción y rendimiento de la agricultura, desarrollada por el Ministerio de Agricultura y Desarrollo Rural desde 1972, surge como alternativa a la debilidad gremial para operar sistemas de información adecuados y como alternativa al vacío general de información que caracteriza el sector agropecuario.',
+                  'Cultivos Transitorios: Cultivos cuyo ciclo de crecimiento es, en general, menor de un año y tiene como característica fundamental que después de la cosecha deben volver a sembrarse para seguir produciendo.',
+                  'Cultivos Permanentes: Son aquellos que su periodo de vida vegetativo se puede extender incluso hasta más allá de 25 años continuos como: el aguacate, el mango, las manzanas; los que regularmente una vez realizada la siembra, pueden obtenerse varias cosechas. Estas pueden ser cíclicas, además de continuas, dependiendo del tipo de plantación.',
+                  'Cultivos Anuales: Cultivos cuyo ciclo de crecimiento es por lo general entre un año y dieciocho meses y tienen como característica fundamental que después de la cosecha deben volver a sembrarse para seguir produciendo.',
+                ],
+                generalDispositions: [
+                  'Todas aquellas personas e instituciones públicas y privadas que posean información de las actividades agrícolas, pecuarias y acuícolas de la región, dentro de las cuales están universidades, gremios, productores, entre otros.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: estadisticasAgropecuariasSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GDE-PIE-03',
+                'Adquisición de Predios de Importancia Estratégica',
+                'Gestión de Desarrollo Económico, Sostenible y de Turismo',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer el procedimiento para la adquisición de predios de importancia estratégica para la preservación, conservación y restauración de cuencas del Municipio de Gachetá.',
+                scope:
+                  'El procedimiento inicia con la identificación de predios; continúa con la recepción de propuestas de venta, la verificación de la propuesta y la validación de documentos; y finaliza con el concepto de viabilidad, la suscripción del contrato, el registro legal del predio y el desembolso de los recursos por parte del Municipio.',
+                definitions: [
+                  'Predio de Importancia: Área destinada para la conservación, preservación y restauración de los recursos hídricos que surten de agua los acueductos municipales.',
+                  'Conservación: Es la conservación in situ de los ecosistemas y los hábitats naturales, mantenimiento y recuperación de poblaciones viables de especies en su entorno natural y, en el caso de las especies domesticadas y cultivadas en los entornos en que hayan desarrollado sus propiedades específicas. La conservación in situ hace referencia a la preservación, restauración, uso sostenible y conocimiento de la biodiversidad.',
+                  'Preservación: Mantener la composición, estructura y función de la biodiversidad, conforme su dinámica natural y evitando al máximo la intervención humana y sus efectos.',
+                  'Restauración: Restablecer parcial o totalmente la composición, estructura y función de la biodiversidad que haya sido alterada o degradada.',
+                ],
+                generalDispositions: [
+                  'Para la adquisición de predios de importancia hídrica, se tendrá en cuenta que estos se encuentren identificados, delimitados y priorizados dentro de las áreas de importancia estratégica establecidas por las autoridades ambientales.',
+                  'Para su selección, se tendrán en cuenta los criterios definidos por el Decreto 1076 de 2015, entre los cuales se enuncian a continuación: 1. Población abastecida por los acueductos beneficiados con la conservación del área estratégica dentro de la cual está ubicada el predio. 2. Presencia en el predio de corrientes hídricas, manantiales, afloramientos y humedales.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: adquisicionPrediosImportanciaEstrategicaSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GDE-PIE-04',
+                'Mantenimiento de Predios de Importancia Estratégica',
+                'Gestión de Desarrollo Económico, Sostenible y de Turismo',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer las actividades para identificar y atender las solicitudes de mantenimiento de predios de importancia estratégica.',
+                scope:
+                  'El procedimiento inicia con la identificación de predios de importancia estratégica que hayan sido adquiridos con los recursos provenientes de la Ley 99 de 1993 y finaliza con la visita técnica, priorización y programación de mantenimientos.',
+                definitions: [
+                  'Mantenimiento de áreas de importancia estratégica: Aquellas actividades directamente desarrolladas en los predios adquiridos por la entidad territorial para la conservación y recuperación de los ecosistemas presentes en los mismos; el mantenimiento comprende actividades de reforestación, cercado y mantenimiento a plantaciones efectuadas anteriormente.',
+                  'Predio de Importancia: Área destinada para la conservación, preservación y restauración de los recursos hídricos que surten de agua los acueductos municipales.',
+                  'Conservación: Son actividades que existen para regular, minimizar o impedir el daño que las actividades de índole industrial, en el caso de las especies domesticadas y cultivadas, en los entornos en que hayan desarrollado sus propiedades específicas. La conservación hace referencia a la preservación, restauración, uso sostenible y conocimiento de la biodiversidad.',
+                  'Preservación: Mantener la composición, estructura y función de la biodiversidad, conforme su dinámica natural y evitando al máximo la intervención humana y sus efectos.',
+                  'Restauración: Restablecer parcial o totalmente la composición, estructura y función de la biodiversidad, que haya sido alterada o degradada.',
+                ],
+                generalDispositions: [
+                  'Los predios priorizados para mantenimiento deben cumplir el artículo 111 de la Ley 99 de 1993 parágrafo 2.',
+                  'El Ministerio de Ambiente, Vivienda y Desarrollo Territorial, institutos de investigación científica adscritos y vinculados, las corporaciones autónomas regionales y de desarrollo sostenible, las autoridades ambientales de los grandes centros urbanos y los establecimientos ambientales a que se refiere el artículo 13 de la Ley 768 de 2002, podrán en el marco de sus competencias efectuar los aportes técnicos, financieros y operativos requeridos para la consolidación del instrumento de pago por servicios ambientales y el desarrollo de proyectos derivados de este instrumento.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: mantenimientoPrediosImportanciaEstrategicaSteps,
+              },
+            },
+          ]
+        },
+        {
+          id: 'pm-gjc', code: 'PM-GJC', name: 'Gestión de Gobierno, Justicia y Convivencia Ciudadana', procedures: [
+            {
+              ...procedure(
+                'PM-GJC-PBI-05',
+                'Verbal Abreviado Protección de Bienes Inmuebles',
+                'Inspección de Policía',
+                undefined,
+                [
+                  'PM-GJC-FR-03 Querella Inspección de Policía',
+                  'PM-GJC-FR-04 Citación',
+                  'PM-GJC-FR-18 Boletas de Notificación',
+                  'PM-GJC-FR-25 Auto',
+                ],
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Propiciar en la comunidad comportamientos que favorezcan la convivencia en el espacio público, áreas comunes, lugares abiertos al público o que, siendo privados, trascienden a lo público; promoviendo el respeto, el ejercicio responsable de la libertad, la dignidad, los deberes y los derechos correlativos a la persona humana.',
+                scope:
+                  'Inicia con la recepción de la petición o la denuncia por parte de la persona que tenga interés en la aplicación del régimen de policía y termina con el registro de las actuaciones y decisiones tomadas frente a los comparendos que se expiden, en el Sistema de Registro Nacional de Medidas Correctivas de la Policía y la aplicación de acciones de mejoramiento.',
+                definitions: [
+                  'Restablecimiento del Statu Quo: Devolución a la situación de hecho existente antes del acto o hecho de vulneración.',
+                  'Posesión: Según el artículo 762 del Código Civil, es la tenencia de una cosa determinada con ánimo de señor o dueño.',
+                  'Mera Tenencia: Según el artículo 775 del Código Civil, es la que se ejerce sobre una cosa, no como dueño, sino en lugar o a nombre del dueño.',
+                  'Servidumbre: Según el artículo 879 del Código Civil, es un gravamen impuesto sobre un predio en utilidad de otro predio de distinto dueño.',
+                ],
+                generalDispositions: [
+                  'Las actividades relacionadas con este procedimiento hacen referencia al trámite del proceso verbal abreviado, de conformidad con lo dispuesto en el artículo 79 de la Ley 1801 de 2016.',
+                  'La caducidad frente a bienes inmuebles particulares procede dentro de los cuatro (4) meses siguientes a la perturbación por ocupación legal.',
+                  'Cuando se trate de hechos de perturbación de bienes de uso público, bienes fiscales, zonas de reserva forestal, bienes de propiedad privada afectados al espacio público, bienes de empresas de servicios públicos, bienes declarados de utilidad pública o de interés social, cultural, arquitectónico o histórico, no existe caducidad de la acción policiva.',
+                  'La comunicación al personero procede cuando se trate de hechos de perturbación de bienes de uso público, bienes fiscales, zonas de reserva forestal, bienes de propiedad privada afectados al espacio público, bienes de empresas de servicios públicos, bienes declarados de utilidad pública o de interés social, cultural, arquitectónico o histórico.',
+                  'El factor de competencia corresponde a la competencia del despacho o autoridad de policía para conocer sobre los comportamientos contrarios a la convivencia.',
+                ],
+                documents: [],
+                formats: [
+                  'PM-GJC-FR-03 Querella Inspección de Policía',
+                  'PM-GJC-FR-04 Citación',
+                  'PM-GJC-FR-18 Boletas de Notificación',
+                  'PM-GJC-FR-25 Auto',
+                ],
+                legalRequirements: [
+                  'Ley 1801 de 2016, artículos 79 y 80.',
+                  'Código Civil, artículos 762, 775 y 879.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: verbalAbreviadoProteccionBienesInmueblesSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GJC-SIP-06',
+                'Apelación del Proceso Verbal Inmediato Ley 1801 del 2016',
+                'Inspección de Policía',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Proferir un fallo de segunda instancia con respecto a decisiones proferidas por el personal uniformado de la Policía Nacional como resultado de la aplicación del Procedimiento establecido en el Código Nacional de Policía y Convivencia, para garantizar el cumplimiento de los deberes y obligaciones de las personas naturales y jurídicas.',
+                scope:
+                  'Aplica para decisiones proferidas por el personal uniformado de la Policía Nacional que sean apeladas por el ciudadano que sea objeto de las mismas, dentro de lo dispuesto por la Ley 1801 de 2016.',
+                definitions: [
+                  'Convivencia: Interacción pacífica, respetuosa y armónica entre las personas, con los bienes y con el ambiente en el marco del ordenamiento jurídico.',
+                  'De oficio: Actualización iniciada por parte de la autoridad competente sin necesidad de queja o requerimiento de un tercero.',
+                  'Estrados: Forma de notificar las decisiones dentro de la audiencia pública.',
+                  'Medios de prueba: Aquellos que llevan al funcionario a obtener la certeza sobre la realización o no de las conductas investigadas, para llegar a la toma de una decisión en derecho.',
+                ],
+                generalDispositions: [
+                  'En contra de la orden de policía o la medida correctiva procederá el recurso de apelación, el cual se concederá en el efecto devolutivo y se remitirá al Inspector de Policía dentro de las veinticuatro (24) horas siguientes.',
+                  'El recurso de apelación se resolverá dentro de los tres (3) días hábiles siguientes al recibo de la actualización y será notificado por medio más eficaz y expedito.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 1801 de 2016.',
+                  'Código Nacional de Policía y Convivencia.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: apelacionProcesoVerbalInmediatoSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GJC-CCC-07',
+                'Verbal Abreviado Comportamientos Contrarios a la Convivencia Ciudadana',
+                'Inspección de Policía',
+                undefined,
+                [
+                  'PM-GJC-FR-04 Citación',
+                  'PM-GJC-FR-18 Boletas de Notificación',
+                  'PM-GJC-FR-25 Auto',
+                ],
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Restablecer las condiciones al punto en que se encontraban antes de la ocurrencia de comportamientos contrarios a la convivencia y propiciar el cumplimiento de los deberes y obligaciones de las personas naturales y jurídicas.',
+                scope:
+                  'Aplica a los comportamientos contrarios a la convivencia en relación con las normas urbanísticas, ambientales, sanitarias, uso del espacio público, ejercicio de la actividad económica, libertad de circulación, interacciones entre las personas y los animales, uso efectivo de los derechos de niños, niñas y adolescentes del ejercicio de la prostitución, derecho de reunión y relaciones entre personas y autoridades.',
+                definitions: [
+                  'Contravencional: Conducta punible que, por no afectar bienes jurídicos de mayor envergadura, no reviste la categoría de delito y su sanción es menos rígida.',
+                  'Control: Comprobación, inspección, fiscalización o intervención sobre hechos y deberes legales establecidos a los ciudadanos.',
+                  'Cobro persuasivo: Acciones realizadas por la administración en la etapa anterior al proceso de jurisdicción coactiva encaminadas a obtener el pago de obligaciones reconocidas mediante acto administrativo debidamente ejecutoriado.',
+                  'Comparendo: Orden de comparecencia que recibe el presunto infractor por parte de la Policía Nacional, para presentarse ante la autoridad correspondiente por la violación de una norma establecida en la Ley 1801 de 2016.',
+                  'De oficio: Actuación iniciada por parte de la autoridad competente sin necesidad de queja o requerimiento de un tercero.',
+                  'Estrado: Forma de notificar las decisiones dentro de la audiencia pública.',
+                  'Medios de prueba: Aquellos que llevan al funcionario a obtener la certeza sobre la realización o no de las conductas investigadas, para llegar a la toma de una decisión en derecho.',
+                  'Multa: Imposición del pago de una suma de dinero en moneda colombiana, cuya graduación depende del comportamiento realizado.',
+                ],
+                generalDispositions: [
+                  'Para la aplicación de medidas correctivas en asuntos relativos a infracciones, el recurso de apelación se concederá en el efecto suspensivo.',
+                  'Los recursos solo procederán contra las decisiones definitivas de las autoridades de Policía.',
+                  'Cumplimiento o ejecución de la orden de Policía o medida correctiva: una vez ejecutoriada la decisión que contenga una orden de Policía o una medida correctiva, esta se cumplirá en un término máximo de cinco (5) días.',
+                  'Si el presunto infractor no se presenta a la audiencia sin comprobar la ocurrencia de caso fortuito o fuerza mayor, la autoridad tendrá por ciertos los hechos que dieron lugar al comportamiento contrario a la convivencia y entrará a resolver de fondo.',
+                  'Con base en las pruebas allegadas y los informes de las autoridades, salvo que la autoridad de Policía considere indispensable decretar prueba de una prueba adicional.',
+                ],
+                documents: [],
+                formats: [
+                  'PM-GJC-FR-04 Citación',
+                  'PM-GJC-FR-18 Boletas de Notificación',
+                  'PM-GJC-FR-25 Auto',
+                ],
+                legalRequirements: [
+                  'Ley 1801 de 2016, artículos 79 y 80.',
+                  'Código Nacional de Policía y Convivencia.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: verbalAbreviadoConvivenciaCiudadanaSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GJC-CAR-08',
+                'Control y Autorización de Rifas, Juegos y Espectáculos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+                undefined,
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Control y autorización para la realización de rifas, juegos y espectáculos públicos.',
+                scope:
+                  'Inicia con la solicitud de autorización para la realización de rifas, juegos y espectáculos públicos y finaliza con la resolución de autorización.',
+                definitions: [
+                  'Rifa: Modalidad de juego de suerte y azar mediante la cual se sortean premios en especie entre quienes hubieren adquirido o fueren poseedores de una o varias boletas, emitidas en serie continua, distinguidas con un número de no más de cuatro dígitos y puestas en venta en el mercado a precio fijo para una fecha determinada por un operador, previa y debidamente autorizado.',
+                  'Rifas menores: Aquellas cuyo plan de premios tiene un valor comercial inferior a doscientos cincuenta (250) salarios mínimos legales mensuales, circulan o se ofrecen al público exclusivamente en el territorio de un municipio o distrito y no son de carácter permanente.',
+                  'Espectáculos públicos: Actividades que congregan al público con fines de recreación colectiva, que se llevan a cabo como consecuencia de una invitación pública, general e indiferenciada, donde los asistentes disfrutan y comparten expresiones artísticas, tales como conciertos, recitales, presentaciones de música, obras de teatro, actuaciones de compañías teatrales, stand up comedies, presentaciones circenses, magia e ilusionismo, desfiles de modas, exhibiciones cinematográficas, óperas, operetas o zarzuela, presentaciones humorísticas, danza, ballet y baile.',
+                ],
+                generalDispositions: [
+                  'Rifas de competencia municipal: El Alcalde o quien este delegue será el competente para autorizar exclusivamente las rifas menores dentro de la jurisdicción del Municipio.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Decreto 1660 de 1994, artículo 9.',
+                  'RCCDB, artículo 128.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: controlAutorizacionRifasJuegosEspectaculosSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GJC-PVI-09',
+                'Proceso Violencia Intrafamiliar',
+                'Comisaría de Familia',
+                undefined,
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Adelantar el proceso de medida de protección en casos de violencia intrafamiliar, para la garantía de los derechos de los miembros que conforman la unidad doméstica.',
+                scope:
+                  'Inicia con la presentación de la denuncia y termina con la imposición de la medida de protección.',
+                definitions: [
+                  'Violencia intrafamiliar: Es aquella que se manifiesta entre cónyuges o compañeros permanentes, ascendientes o descendientes, incluidos hijos adoptivos, y demás personas que integran la unidad doméstica.',
+                  'Daño o sufrimiento físico: Consecuencias que provienen de una acción u omisión que afecta la integridad corporal de una persona.',
+                  'Daño o sufrimiento psicológico: Consecuencia proveniente de la acción u omisión destinada a afectar acciones, comportamientos, creencias o decisiones de otra persona.',
+                  'Daño o sufrimiento sexual: Consecuencias que provienen de acciones que vulneran la libertad e integridad sexual de una persona.',
+                  'Medidas de protección: Medidas que adoptan las autoridades competentes de manera inmediata para prevenir, mitigar o detener una situación de riesgo.',
+                  'Medidas de sensibilización y prevención: Medidas dirigidas a formular e implementar políticas públicas para reconocer diferencias y desigualdades sociales, biológicas y de género.',
+                  'Medidas de atención: Medidas adoptadas para la atención integral de la víctima de manera oportuna y efectiva.',
+                ],
+                generalDispositions: [
+                  'Competencia: Las Comisarías de Familia solo tienen competencia para aplicar medidas que mitiguen situaciones de violencia intrafamiliar cuando exista o haya existido vínculo familiar o unidad doméstica entre las partes.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: procesoViolenciaIntrafamiliarSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GJC-PRD-10',
+                'Restablecimiento de Derechos',
+                'Comisaría de Familia',
+                undefined,
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Atender y orientar a los niños, niñas, adolescentes y demás miembros del grupo familiar en el ejercicio y restablecimiento de sus derechos.',
+                scope:
+                  'Inicia con la solicitud de parte o de oficio y finaliza con la resolución o fallo debidamente ejecutoriado, que deberá contener las medidas de restablecimiento de derechos de los niños, niñas y adolescentes.',
+                definitions: [
+                  'Proceso administrativo de restablecimiento de derechos: Conjunto de actuaciones administrativas que la autoridad competente debe desarrollar para la restauración de la dignidad e integridad de niños, niñas y adolescentes como sujetos de derechos.',
+                  'Interés superior: Imperativo que obliga a todas las personas a garantizar la satisfacción integral y simultánea de todos los derechos humanos de niños, niñas y adolescentes.',
+                  'Inobservancia del derecho: Incumplimiento, omisión o negación de acceso a un servicio, o de los deberes y responsabilidades ineludibles de autoridades, sociedad y familia.',
+                  'Amenaza: Situación de inminente peligro o riesgo para el ejercicio de derechos de niños, niñas o adolescentes.',
+                  'Vulneración: Situación de daño, lesión o perjuicio que impide el ejercicio pleno de derechos de niños, niñas y adolescentes.',
+                  'Medidas de restablecimiento de derechos: Decisiones de naturaleza administrativa que decreta la autoridad competente para garantizar y restablecer el ejercicio de derechos.',
+                  'Estado adoptable: Situación en la cual se declara que un niño, niña o adolescente puede ser adoptado.',
+                ],
+                generalDispositions: [
+                  'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para el proceso de restablecimiento de derechos.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: restablecimientoDerechosSteps,
+              },
+            },
+          ]
+        },
+        {
+          id: 'pm-ac', code: 'PM-AC', name: 'Atención al Ciudadano', procedures: [
+            {
+              ...procedure(
+                'PA-AC-PQR-01',
+                'Peticiones, Quejas, Reclamos y Sugerencias',
+                'Secretaría de Gobierno',
+                undefined,
+                [
+                  'PA-AC-FR-01 Formato PQRS',
+                  'PA-AC-FR-02 Encuesta de Satisfacción',
+                  'PA-AC-FR-03 Acta Apertura de Buzón de PQRS',
+                  'PA-AC-FR-04 Formato de Petición Verbal',
+                  'PA-AC-FR-05 Certificación para Derechos de Petición, Quejas, Reclamos y Sugerencias',
+                ],
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Ofrecer soluciones y respuestas oportunas a los usuarios que presentan una petición, queja o reclamo.',
+                scope:
+                  'Este proceso permite corregir situaciones que se pueden presentar en la toma o registro de las lecturas.',
+                definitions: [
+                  'Peticiones, quejas y reclamos PQRS: Son las actividades básicas del proceso de servicio al cliente, desarrolladas en las oficinas comerciales que responden a las necesidades de los clientes.',
+                  'Anónimo: Escrito presentado por un usuario, ciudadano o peticionario que no registra los datos de autoría o identidad personal.',
+                  'Consulta: Se refiere a la orientación solicitada por el peticionario o ciudadano a la entidad, sobre diferentes temas propios de la entidad u otra entidad pública o privada.',
+                  'Criterios de calidad del servicio: Son aspectos que determinan la calidad en la prestación de los servicios ofrecidos por la entidad. Se definen como oportunidad, pertinencia y otros criterios asociados al servicio.',
+                  'Oportunidad: Tiempo que transcurre entre la solicitud del servicio y la prestación del mismo, debe ser adecuado y dentro de los tiempos establecidos para satisfacción del usuario.',
+                  'Pertinencia: En el servicio se refiere a que la acción resultante de la petición del usuario sea la necesaria y adecuada para orientar su requerimiento.',
+                ],
+                generalDispositions: [
+                  'Se debe tener en cuenta la toma adecuada de las lecturas.',
+                  'En la medida en que el cargue de lectura sea manual en el módulo de facturación, se presenta especial atención a este proceso.',
+                ],
+                documents: [],
+                formats: [
+                  'PA-AC-FR-01 Formato PQRS',
+                  'PA-AC-FR-02 Encuesta de Satisfacción',
+                  'PA-AC-FR-03 Acta Apertura de Buzón de PQRS',
+                  'PA-AC-FR-04 Formato de Petición Verbal',
+                  'PA-AC-FR-05 Certificación para Derechos de Petición, Quejas, Reclamos y Sugerencias',
+                ],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: peticionesQuejasReclamosSugerenciasSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PA-AC-AP-02',
+                'Atención al Público',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer el procedimiento y directrices generales que regirán el procedimiento por medio del cual se prestará atención al público en la Secretaría de Gobierno, de conformidad con lo establecido en las normas que regulan la materia.',
+                scope:
+                  'El procedimiento inicia con la recepción de solicitudes de los usuarios y finaliza con el registro del requerimiento solicitado.',
+                definitions: [
+                  'Servicio al Ciudadano: Es el punto principal de interacción virtual entre la comunidad y la Alcaldía Municipal de Gachetá, el cual permite a los ciudadanos radicar y consultar sus requerimientos en línea asociados con el municipio y sus habitantes, al igual que los servicios que presta la entidad.',
+                  'La Política de Servicio al Ciudadano se define como una política pública transversal cuyo objetivo general es garantizar el acceso efectivo, oportuno y de calidad de los ciudadanos a sus derechos en todos los escenarios de relacionamiento con el Estado.',
+                ],
+                generalDispositions: [
+                  'La entidad debe garantizar estándares de excelencia en el servicio y facilitar que los ciudadanos accedan a sus derechos cuando consultan información pública.',
+                  'La entidad debe garantizar estándares de excelencia cuando hace trámites o accede a la oferta institucional.',
+                  'La entidad debe garantizar estándares de excelencia cuando hace denuncias, interpone quejas, reclamos o exige cuentas.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: atencionPublicoSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PA-AC-RAP-03',
+                'Respuesta a Acciones de Tutela, Populares, Cumplimiento y de Grupo',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se atenderán las acciones constitucionales que sean competencia de la Secretaría de Gobierno, de conformidad con lo establecido en la Constitución Política, artículos 86, 87 y 88, Ley 472 de 1998, Ley 393 de 1997 y Decreto 2591 de 1991.',
+                scope:
+                  'El procedimiento inicia con la recepción de documento y finaliza con la respuesta al despacho judicial.',
+                definitions: [
+                  'Acción de tutela: Mecanismo establecido en el artículo 86 de la Constitución Política y reglamentado por el Decreto 2591 de 1991, mediante el cual se reclaman derechos constitucionales fundamentales.',
+                  'Acción popular: Mecanismo establecido en el artículo 88 de la Constitución Política, reglamentado por la Ley 472 de 1998, por medio del cual se protegen derechos e intereses colectivos.',
+                  'Acción de grupo: Acciones interpuestas por un número plural o conjunto de personas que reúnen condiciones uniformes respecto de una misma causa que originó perjuicios individuales.',
+                  'Acción de cumplimiento: Mecanismo establecido en el artículo 87 de la Constitución Política, reglamentado por la Ley 393 de 1997, mediante el cual se puede acudir ante autoridad judicial para hacer efectivo el cumplimiento de una ley o acto administrativo.',
+                ],
+                generalDispositions: [
+                  'Se definen las políticas o criterios de desarrollo del procedimiento o documento, que condiciones se deben tener en cuenta antes de iniciar a desarrollar las actividades de gestión del procedimiento.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Constitución Política de Colombia, artículos 86, 87 y 88.',
+                  'Ley 472 de 1998.',
+                  'Ley 393 de 1997.',
+                  'Decreto 2591 de 1991.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: respuestaAccionesTutelaPopularesCumplimientoGrupoSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PA-AC-VUC-04',
+                'Ventanilla Única y Correspondencia',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+                undefined,
+                ['PA-AC-FR-06 Planilla para Recuperación de Correspondencia'],
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Atender, recepcionar, radicar, direccionar y distribuir las solicitudes que llegan a la ventanilla única de correspondencia de la Alcaldía de Gachetá y se asientan o externan, dejando registro de la información o documentación despachada y entregada.',
+                scope:
+                  'Inicia cuando llega la solicitud a la ventanilla única de correspondencia de la Alcaldía de Gachetá y termina cuando se entrega en la dependencia o área a la cual va dirigida.',
+                definitions: [
+                  'Correspondencia interna: Comunicación que cursa entre las mismas dependencias o servidores de la institución y que corresponden al desarrollo de sus funciones asignadas.',
+                  'Comunicaciones oficiales: Comunicaciones recibidas o producidas en desarrollo de las funciones asignadas legalmente a una entidad, independientemente del medio utilizado.',
+                  'Comunicaciones oficiales recibidas externas: Comunicaciones que ingresan a través de la ventanilla única de correspondencia, dirigidas a la Alcaldía Municipal de Gachetá, como entidad, y a las personas que prestan sus servicios en la entidad.',
+                  'Comunicaciones oficiales enviadas externas: Comunicaciones que se producen en cualquier área o dependencia de la Alcaldía, dirigidas a otras entidades públicas o privadas o a personas naturales o jurídicas.',
+                  'Radicación de comunicaciones oficiales: Actividad por medio de la cual las entidades asignan un número consecutivo a las comunicaciones recibidas o producidas, dejando constancia de fecha y hora de recibo o envío.',
+                  'Solicitud: Documento en el que se solicita formalmente algo.',
+                ],
+                generalDispositions: [],
+                documents: [],
+                formats: ['PA-AC-FR-06 Planilla para Recuperación de Correspondencia'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: ventanillaUnicaCorrespondenciaSteps,
+              },
+            },
+          ]
+        },
+        {
+          id: 'pm-gpsp', code: 'PM-GPSP', name: 'Gestión Prestación de Servicios Públicos', procedures: [
+            {
+              ...procedure(
+                'PM-GPSP-MP-01',
+                'Mantenimiento de Planta',
+                'Secretaría de Medio Ambiente y Desarrollo Económico',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Realizar acciones correspondientes a la operación del acueducto y el alcantarillado en el municipio, teniendo en cuenta lo establecido en la normatividad para el manejo de agua potable y el saneamiento básico.',
+                scope:
+                  'Inicia con la designación del personal e insumos necesarios para la operación de la planta de tratamiento de agua potable y aguas residuales.',
+                definitions: [
+                  'Planta de Potabilización: Conjunto de obras, equipos y materiales necesarios para efectuar los procesos que permitan cumplir con las normas de calidad del agua potable.',
+                ],
+                generalDispositions: [
+                  'Para el desarrollo de este procedimiento se requiere establecer un programa de mantenimiento preventivo, el cual debe contener los periodos de intervención, personal responsable e insumos necesarios para su cumplimiento.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: mantenimientoPlantaSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-MFS-02',
+                'Mantenimiento Floculadores y Sedimentadores',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Garantizar el correcto funcionamiento de los floculadores mediante un adecuado mantenimiento de estos.',
+                scope:
+                  'Inicia con el mantenimiento de óptimas condiciones de los tanques floculadores, con el fin de garantizar el correcto funcionamiento de la planta.',
+                definitions: [
+                  'Floculación: Proceso que hace referencia a la aglutinación de partículas inducida por una agitación lenta de la suspensión coagulada.',
+                  'Sedimentación: Proceso en el que se depositan materiales transportados por distintos agentes como producto de la erosión de las rocas o el suelo, en el fondo del tanque.',
+                ],
+                generalDispositions: [
+                  'Este procedimiento se realiza cada quince (15) días con el fin de presentar mejor calidad en la prestación del servicio.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: mantenimientoFloculadoresSedimentadoresSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-LF-03',
+                'Lavado de Filtros',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Garantizar que los filtros funcionen en óptimas condiciones, con el fin de dar continuidad del servicio.',
+                scope:
+                  'Inicia con la verificación del correcto funcionamiento de los filtros.',
+                definitions: [
+                  'Lavado de Filtro: Proceso mediante el cual se hace pasar por un filtro agua en dirección contraria a la operación de filtración, expandiendo el lecho y arrastrando los depósitos existentes en él.',
+                ],
+                generalDispositions: [
+                  'El proceso se realiza todos los días, utilizando el agua de los otros módulos de filtración, aprovechando la carga hidráulica.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: lavadoFiltrosSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-UN-04',
+                'Nuevos Usuarios',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer los pasos lógicos a seguir para darle trámite a una solicitud nueva del servicio.',
+                scope:
+                  'El procedimiento inicia con la presentación de la solicitud verbal o escrita a la Secretaría de Medio Ambiente y Desarrollo Económico, y finaliza con la elaboración del formato de prestación.',
+                definitions: [
+                  'Servicio Público: Actividades y prestaciones permitidas, reservadas o exigidas a las administraciones públicas por la legislación en cada Estado, y que tienen como finalidad responder a diferentes imperativos del funcionamiento social y, en última instancia, favorecer la realización efectiva de la igualdad y del bienestar social desarrollado por una institución pública o privada con el fin de satisfacer una necesidad social determinada.',
+                ],
+                generalDispositions: [
+                  'Los servicios públicos deben garantizarse según la Ley 142 de 1994.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 142 de 1994.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: nuevosUsuariosSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-ICD-05',
+                'Instalación Conexión Domiciliaria',
+                'Secretaría de Medio Ambiente y Desarrollo Económico',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer los pasos lógicos a seguir para darle trámite a una solicitud nueva del servicio.',
+                scope:
+                  'Inicia con la presentación de la solicitud verbal o escrita ante la Secretaría de Medio Ambiente, que permita vincularse como usuario de los servicios, y finaliza con la elaboración del formato de prestación.',
+                definitions: [
+                  'Servicio Público: Actividades y prestaciones permitidas, reservadas o exigidas a las administraciones públicas por la legislación en cada Estado, y que tienen como finalidad responder a diferentes imperativos del funcionamiento social y, en última instancia, favorecer la realización efectiva de la igualdad y del bienestar social desarrollado por una institución pública o privada con el fin de satisfacer una necesidad social determinada.',
+                ],
+                generalDispositions: [
+                  'Los servicios públicos deben garantizarse según la Ley 142 de 1994.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 142 de 1994.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: instalacionConexionDomiciliariaSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-FSP-06',
+                'Facturación de Servicios Públicos',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Detallar el proceso a seguir por medio del cual se realiza la facturación de los servicios públicos domiciliarios.',
+                scope:
+                  'El procedimiento inicia con el ingreso al módulo del sistema SINFA y finaliza con la entrega al operador de las facturas para distribuirse puerta a puerta.',
+                definitions: [
+                  'Backup: Es una copia de los datos originales que se realiza con el fin de disponer de un medio para recuperarlos en caso de su pérdida.',
+                ],
+                generalDispositions: [
+                  'Se debe tener en cuenta la toma adecuada de las lecturas.',
+                  'En la medida en que el cargue de lecturas sea manual en el módulo de facturación se presenta especial atención a este proceso.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: facturacionServiciosPublicosSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-MF-07',
+                'Modificaciones a la Facturación',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Detallar el proceso a seguir por medio del cual se realiza la modificación a la facturación de los servicios públicos domiciliarios.',
+                scope:
+                  'Este proceso inicia por corregir situaciones que se presentan al momento de registrar las lecturas en el aplicativo, una vez se detecta la inconsistencia se procede a aplicar el procedimiento correspondiente.',
+                definitions: [
+                  'Servicio público: Actividades y prestaciones permitidas, reservadas o exigidas a las administraciones públicas por la legislación en cada Estado, y que tienen como finalidad responder a diferentes imperativos del funcionamiento social y, en última instancia, favorecer la realización efectiva de la igualdad y del bienestar social desarrollado por una institución pública o privada con el fin de satisfacer una necesidad social determinada.',
+                ],
+                generalDispositions: [
+                  'Se debe tener en cuenta la toma adecuada de las lecturas.',
+                  'En la medida en que el cargue de lecturas sea manual en el módulo de facturación se presenta especial atención a este proceso.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: modificacionesFacturacionSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-RSP-08',
+                'Recaudo Servicios Públicos',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Registrar en el aplicativo de servicios públicos de una manera razonable el recaudo cumpliendo los principios de contabilidad generalmente aceptados en Colombia.',
+                scope:
+                  'Este procedimiento permite el proceso de registro de los pagos realizados por los usuarios; sin embargo, estos deben ser reportados a Contabilidad y Presupuesto, haciendo la interfaz automáticamente.',
+                definitions: [
+                  'Interfaz: En informática se utiliza para nombrar a la conexión física y funcional entre dos sistemas o dispositivos de cualquier tipo, dando una comunicación entre distintos niveles.',
+                ],
+                generalDispositions: [
+                  'Verificar que el proceso de interface desde el aplicativo de servicios públicos corresponda al período contable al cual se está trabajando.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: recaudoServiciosPublicosSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-RSSP-09',
+                'Reporte Subsidio Servicios Públicos',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Presentar de manera lógica y ordenada el procedimiento para la elaboración del reporte de los subsidios públicos domiciliarios.',
+                scope:
+                  'Inicia con la recepción de la información con el fin de elaborar el reporte de los subsidios públicos a la Secretaría de Hacienda.',
+                definitions: [
+                  'Subsidio: Es una ayuda que organismos oficiales otorgan a determinados ciudadanos o entidades, principalmente, con el fin de brindar acceso a los bienes y servicios básicos y satisfacer necesidades.',
+                ],
+                generalDispositions: [
+                  'Se debe tener en cuenta la facturación definitiva del período, así como las modificaciones realizadas a la misma.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: reporteSubsidioServiciosPublicosSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PM-GPSP-AP-10',
+                'Acuerdo de Pago',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Brindar facilidades de pago de los servicios públicos a los contribuyentes que soliciten este beneficio legal.',
+                scope:
+                  'Por medio de este procedimiento se presentan los pasos lógicos a seguir para la elaboración de un acuerdo de pago por concepto de servicios públicos armonizado a la normatividad legal vigente establecida para este tema.',
+                definitions: [
+                  'Acuerdo de pago: Es la facilidad que se otorga a los contribuyentes para pagar en cuotas parciales las deudas que mantengan con la Administración.',
+                ],
+                generalDispositions: [
+                  'Evaluar la aplicación de acuerdos de pago dependiendo el estado de la obligación.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: acuerdoPagoSteps,
+              },
+            },
+          ]
+        },
+        {
+          id: 'pm-gi', code: 'PM-GI', name: 'Gestión de Infraestructura', procedures: [
+            {
+              ...procedure(
+                'PM-GI-OI-05',
+                'Obras de Infraestructura',
+                'Secretaría de Planeación y Seguimiento a la Infraestructura',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Elaborar los estudios, diseños, construcción y mantenimiento de las obras de infraestructura, que requiere el Municipio acorde con las necesidades de desarrollo físico, optimizando la utilización de los recursos conforme a los planes, programas y proyectos municipales.',
+                scope:
+                  'Inicia con la elaboración de los estudios de infraestructura física hasta la entrega de las obras a satisfacción de la comunidad de acuerdo a las metas establecidas en los planes de desarrollo.',
+                definitions: [
+                  'Alcantarillas: Son obras de drenaje, cuya finalidad es evacuar el agua de las cunetas longitudinales de un lado del camino; o bien, lo posibilita alejarlas de ese lado y requiere ser trasladada al lado contrario.',
+                  'Área protegida: Área establecida por el Estado para la protección de ecosistemas, especies y bienes ambientales.',
+                  'Estudio ambiental: Apartado orientado a la apreciación de los impactos del proyecto sobre el medio ambiente y a la identificación de medidas de manejo.',
+                  'Estudio de factibilidad: Etapa en la que se adquieren mayores conocimientos y se reduce la incertidumbre, analizando la alternativa recomendada.',
+                  'Estudio legal: Determina la viabilidad jurídica del proyecto a la luz de las normas que lo rigen.',
+                  'Estudio técnico: Busca optimizar la utilización de los recursos disponibles para la producción del bien o servicio en cada una de las alternativas propuestas.',
+                  'Gaviones: Estructuras construidas a base de malla metálica galvanizada, llenas de piedra, muy resistentes a deslizamientos y erosión.',
+                  'Interventoría: Seguimiento técnico que se realiza para asegurar el cumplimiento del contrato.',
+                  'Mantenimiento rutinario: Se realiza de manera periódica con el fin de contrarrestar o aminorar el deterioro normal de las obras y mantener las vías con buen nivel de servicio.',
+                  'Mantenimiento preventivo: Programa estratégico de conservación vial, proyectado para detener deterioros leves y reducir necesidades futuras de rehabilitación y reconstrucción.',
+                  'Obra pública: Trabajos de construcción, adecuación, ampliación o mantenimiento de bienes inmuebles de uso público o al servicio de la comunidad.',
+                  'Plan de desarrollo: Instrumento que establece compromisos y metas para orientar la gestión pública.',
+                  'Proyecto de ingeniería: Conjunto de documentos técnicos definitivos que determinan las características y dimensiones de una obra.',
+                  'Proyecto de inversión pública: Propuesta que genera capacidad productiva o beneficios sociales mediante el uso de recursos públicos.',
+                  'Vía urbana: Faja acondicionada para circulación de vehículos y personas dentro del perímetro urbano.',
+                ],
+                generalDispositions: [
+                  'Las obras de infraestructura se establecen en el Plan de Acción de la Anualidad.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: obrasInfraestructuraSteps,
+              },
+            },
+          ]
+        },
       ],
     },
     {
       id: 'pa', code: 'PA', name: 'Procesos de Apoyo', type: 'apoyo',
       processes: [
-        { id: 'pa-gth', code: 'PA-GTH', name: 'Gestión del Talento Humano', procedures: [
-          {
-            ...procedure(
-              'PA-GTH-CS-01',
-              'Comisión de Servicios',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+        {
+          id: 'pa-gth', code: 'PA-GTH', name: 'Gestión del Talento Humano', procedures: [
+            {
+              ...procedure(
+                'PA-GTH-CS-01',
+                'Comisión de Servicios',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Disponer que un funcionario de la Entidad ejerza las funciones propias del empleo en un lugar diferente al de la sede del cargo, cumplir misiones especiales, asistir a conferencias o seminarios o realizar visitas de observación que interesen a la entidad y que se relacionen con la naturaleza del cargo del comisionado.',
+                scope:
+                  'El procedimiento inicia con la solicitud del interesado ante el señor Alcalde Municipal, con el fin de tramitar la comisión y finaliza con el reintegro del comisionado al finalizar el periodo de la comisión.',
+                definitions: [
+                  'Comisión de Servicios: Es aquella situación en que el empleado, por disposición de la autoridad competente, ejerce temporalmente las funciones propias de su cargo en lugares diferentes a los de su sede habitual de trabajo, o cuando atiende transitoriamente actividades oficiales distintas de las del cargo que desempeña como titular.',
+                ],
+                generalDispositions: [
+                  'Establecer lo contemplado en la normatividad legal vigente relacionado con la comisión de servicios de personal.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: comisionServiciosSteps,
+              },
             },
-            detail: {
-              objective:
-                'Disponer que un funcionario de la Entidad ejerza las funciones propias del empleo en un lugar diferente al de la sede del cargo, cumplir misiones especiales, asistir a conferencias o seminarios o realizar visitas de observación que interesen a la entidad y que se relacionen con la naturaleza del cargo del comisionado.',
-              scope:
-                'El procedimiento inicia con la solicitud del interesado ante el señor Alcalde Municipal, con el fin de tramitar la comisión y finaliza con el reintegro del comisionado al finalizar el periodo de la comisión.',
-              definitions: [
-                'Comisión de Servicios: Es aquella situación en que el empleado, por disposición de la autoridad competente, ejerce temporalmente las funciones propias de su cargo en lugares diferentes a los de su sede habitual de trabajo, o cuando atiende transitoriamente actividades oficiales distintas de las del cargo que desempeña como titular.',
-              ],
-              generalDispositions: [
-                'Establecer lo contemplado en la normatividad legal vigente relacionado con la comisión de servicios de personal.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: comisionServiciosSteps,
+            {
+              ...procedure(
+                'PA-GTH-CS-02',
+                'Expedición de las Certificaciones Laborales',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Tramitar y dar respuesta oportuna a las solicitudes de expedición de certificación laboral allegadas al responsable de Gestión Humana.',
+                scope:
+                  'Este procedimiento inicia con la solicitud de un usuario y continúa con la verificación de la información archivada en la hoja de vida del funcionario o exfuncionario, o fuente del caso, finalizando con la entrega a satisfacción de la respuesta, bien sea expidiendo un certificado o una comunicación informando la situación encontrada, en un plazo máximo de quince días.',
+                definitions: [
+                  'Bono pensional: Título valor que emite la Alcaldía Municipal, previa confirmación de las historias laborales certificadas por las distintas entidades donde ha laborado el tramitador de la pensión y por los fondos de pensiones a donde se han efectuado los aportes correspondientes.',
+                  'Certificación laboral: Es un documento que se emite por una entidad y sirve para certificar lo que existió entre una persona con una entidad, especificando tiempo de servicio, salarios devengados y, cuando se requiera, funciones desempeñadas.',
+                  'Pensión: Beneficio que tienen derecho los afiliados al sistema de pensiones una vez cumplidos los requisitos exigidos.',
+                  'Nómina: Concepto mediante el cual se agrupan los pagos mensuales o quincenales que las empresas o empleadores deben realizar a los trabajadores vinculados mediante contrato de trabajo.',
+                  'Soporte: Documento que sirve como testimonio material de un hecho o acto realizado en funciones por instituciones o personas físicas, jurídicas, públicas o privadas.',
+                ],
+                generalDispositions: [
+                  'Serán expedidas a quien las solicite por parte de los funcionarios de la Alcaldía de Gachetá investidos de autoridad o por quienes tengan asignada esta función.',
+                  'El interesado presenta estampillas si se requieren para la expedición del certificado.',
+                ],
+                documents: [],
+                formats: [
+                  'PA-GTH-FR-01 Certificaciones Laborales Contratistas',
+                  'PA-GTH-FR-02 Certificaciones Laborales Funcionarios y Exfuncionarios',
+                ],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: certificacionesLaboralesSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-CS-02',
-              'Expedición de las Certificaciones Laborales',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GTH-CV-03',
+                'Concesión de Vacaciones',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Reconocer el derecho a los funcionarios de disfrutar de quince días hábiles de descanso remunerado por cada año de servicio, de conformidad con las disposiciones legales vigentes.',
+                scope:
+                  'Este procedimiento inicia con la radicación de la solicitud en el primer mes del año y finaliza con la verificación de integración a las labores al terminar el periodo vacacional.',
+                definitions: [
+                  'Vacaciones: Son el descanso de quince días hábiles al que tiene derecho el empleado después de haber laborado durante un año en la respectiva entidad, teniendo en cuenta que cuando se trabaja de lunes a viernes, los días sábados no se cuentan como hábiles para el disfrute.',
+                  'Las vacaciones solo se pueden aplazar o acumular por necesidades del servicio, sin que dicha acumulación sobrepase dos años, siempre que obedezca a aplazamiento por necesidades del servicio.',
+                ],
+                generalDispositions: [
+                  'Para el otorgamiento de esta prestación legal se debe considerar el tiempo de servicio y planear el reemplazo por la ausencia del funcionario durante el tiempo de disfrute de sus vacaciones.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: concesionVacacionesSteps,
+              },
             },
-            detail: {
-              objective:
-                'Tramitar y dar respuesta oportuna a las solicitudes de expedición de certificación laboral allegadas al responsable de Gestión Humana.',
-              scope:
-                'Este procedimiento inicia con la solicitud de un usuario y continúa con la verificación de la información archivada en la hoja de vida del funcionario o exfuncionario, o fuente del caso, finalizando con la entrega a satisfacción de la respuesta, bien sea expidiendo un certificado o una comunicación informando la situación encontrada, en un plazo máximo de quince días.',
-              definitions: [
-                'Bono pensional: Título valor que emite la Alcaldía Municipal, previa confirmación de las historias laborales certificadas por las distintas entidades donde ha laborado el tramitador de la pensión y por los fondos de pensiones a donde se han efectuado los aportes correspondientes.',
-                'Certificación laboral: Es un documento que se emite por una entidad y sirve para certificar lo que existió entre una persona con una entidad, especificando tiempo de servicio, salarios devengados y, cuando se requiera, funciones desempeñadas.',
-                'Pensión: Beneficio que tienen derecho los afiliados al sistema de pensiones una vez cumplidos los requisitos exigidos.',
-                'Nómina: Concepto mediante el cual se agrupan los pagos mensuales o quincenales que las empresas o empleadores deben realizar a los trabajadores vinculados mediante contrato de trabajo.',
-                'Soporte: Documento que sirve como testimonio material de un hecho o acto realizado en funciones por instituciones o personas físicas, jurídicas, públicas o privadas.',
-              ],
-              generalDispositions: [
-                'Serán expedidas a quien las solicite por parte de los funcionarios de la Alcaldía de Gachetá investidos de autoridad o por quienes tengan asignada esta función.',
-                'El interesado presenta estampillas si se requieren para la expedición del certificado.',
-              ],
-              documents: [],
-              formats: [
-                'PA-GTH-FR-01 Certificaciones Laborales Contratistas',
-                'PA-GTH-FR-02 Certificaciones Laborales Funcionarios y Exfuncionarios',
-              ],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: certificacionesLaboralesSteps,
+            {
+              ...procedure(
+                'PA-GTH-EPIC-04',
+                'Elaboración Plan Institucional de Capacitación',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Promover, mantener e incrementar la idoneidad de los empleados y trabajadores del Municipio, mediante el desarrollo de planes, programas y actividades de capacitación.',
+                scope:
+                  'Este procedimiento inicia con el establecimiento de políticas para la actualización de personal respecto a capacitaciones y finaliza con la ejecución del Plan Institucional de Capacitación.',
+                definitions: [
+                  'Capacitación: Se entiende por capacitación el conjunto de procesos organizados, relativos tanto a la educación no formal como a la informal, de acuerdo con lo establecido por la ley general de educación, dirigidos a prolongar y complementar la educación inicial mediante la generación de conocimientos, el desarrollo de habilidades y el cambio de actitudes, con el fin de incrementar la capacidad individual y colectiva para contribuir al cumplimiento de la misión institucional, a la mejor prestación de servicios a la comunidad, al eficaz desempeño del cargo y al desarrollo personal integral.',
+                ],
+                generalDispositions: [
+                  'El plan institucional de capacitaciones debe necesariamente estar armonizado al componente presupuestal de la entidad, con el fin de garantizar su desarrollo y cumplimiento.',
+                ],
+                documents: [],
+                formats: [
+                  'PA-GTH-FR-05 Evaluación de la Capacitación',
+                  'PA-GTH-FR-06 Planilla Asistencia Capacitación',
+                  'PA-GTH-FR-07 Detección de Necesidades Capacitación Funciones',
+                  'PA-GTH-FR-08 Detección Necesidades Capacitación Dependencia',
+                  'PA-GTH-FR-09 Evaluación Capacitación',
+                  'PA-GTH-FR-10 Registro de Asistencia Capacitaciones a Instituciones Educativas',
+                ],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: planInstitucionalCapacitacionSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-CV-03',
-              'Concesión de Vacaciones',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GTH-ED-05',
+                'Evaluación del Desempeño',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Realizar evaluación de acuerdo al formato de evaluación de la Comisión Nacional del Servicio Civil CNSC.',
+                scope:
+                  'El procedimiento inicia con la revisión de la hoja de vida del funcionario a evaluar y finaliza con la posible capacitación al procedimiento correspondiente.',
+                definitions: [
+                  'Evaluación: Es el proceso mediante el cual se verifican, valoran y califican las realizaciones de una persona y el cumplimiento de los requisitos establecidos, en el ejercicio de las funciones y responsabilidades inherentes a un empleo, como aporte al logro de las metas institucionales y del valor agregado que deben generar las instituciones.',
+                ],
+                generalDispositions: [
+                  'El evaluador debe estar capacitado en el conocimiento y principios de la metodología establecida por la CNSC para el desarrollo del proceso.',
+                  'Previamente el jefe inmediato debe concertar objetivos con los funcionarios a evaluar, los cuales van a hacer la base fundamental de los seguimientos y evaluaciones producto del proceso.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: evaluacionDesempenoSteps,
+              },
             },
-            detail: {
-              objective:
-                'Reconocer el derecho a los funcionarios de disfrutar de quince días hábiles de descanso remunerado por cada año de servicio, de conformidad con las disposiciones legales vigentes.',
-              scope:
-                'Este procedimiento inicia con la radicación de la solicitud en el primer mes del año y finaliza con la verificación de integración a las labores al terminar el periodo vacacional.',
-              definitions: [
-                'Vacaciones: Son el descanso de quince días hábiles al que tiene derecho el empleado después de haber laborado durante un año en la respectiva entidad, teniendo en cuenta que cuando se trabaja de lunes a viernes, los días sábados no se cuentan como hábiles para el disfrute.',
-                'Las vacaciones solo se pueden aplazar o acumular por necesidades del servicio, sin que dicha acumulación sobrepase dos años, siempre que obedezca a aplazamiento por necesidades del servicio.',
-              ],
-              generalDispositions: [
-                'Para el otorgamiento de esta prestación legal se debe considerar el tiempo de servicio y planear el reemplazo por la ausencia del funcionario durante el tiempo de disfrute de sus vacaciones.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: concesionVacacionesSteps,
+            {
+              ...procedure(
+                'PA-GTH-LME-06',
+                'Licencia de Maternidad o Enfermedad',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Reconocer al funcionario el tiempo para recuperarse en caso de enfermedad o el tiempo de empatía madre-hijo en caso de maternidad.',
+                scope:
+                  'El procedimiento inicia con la recepción del certificado de la EPS a que se encuentra afiliado el funcionario y finaliza con los trámites para la declaración de invalidez del mismo.',
+                definitions: [
+                  'Licencia de maternidad: Es el derecho de toda trabajadora en estado de embarazo, que consiste en el descanso de dieciocho semanas remuneradas.',
+                  'Licencia de enfermedad: Corresponde al tiempo otorgado por la EPS cuando el funcionario se encuentra incapacitado para desempeñar sus funciones.',
+                ],
+                generalDispositions: [
+                  'Se debe tener especial atención en los pagos de seguridad social de los funcionarios por parte de la Secretaría de Hacienda Municipal, requisito indispensable para que la entidad pueda recuperar los recursos por conceptos de licencia.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: licenciaMaternidadEnfermedadSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-EPIC-04',
-              'Elaboración Plan Institucional de Capacitación',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GTH-LFD-07',
+                'Licencia Ordinaria para Funcionarios Diferentes al Alcalde',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Garantizar a los funcionarios el derecho de ausentarse del trabajo hasta por sesenta días al año, prorrogables treinta días más, cuando medie justa causa, sin percibir salario correspondiente durante este periodo.',
+                scope:
+                  'El procedimiento inicia con la solicitud de licencia dirigida al Alcalde y finaliza con la verificación de la integración del funcionario a sus labores.',
+                definitions: [
+                  'Licencia ordinaria: Los empleados tienen derecho a licencias renunciables sin sueldo hasta por sesenta días al año, continuos o divididos. Si concurre justa causa, a juicio de la autoridad nominadora, la licencia puede prorrogarse hasta por treinta días más.',
+                ],
+                generalDispositions: [
+                  'Para la realización de este procedimiento el funcionario interesado debe realizar una solicitud expresa, justificada y debidamente motivada con el fin de proceder a su análisis por parte del jefe inmediato.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: licenciaOrdinariaFuncionariosSteps,
+              },
             },
-            detail: {
-              objective:
-                'Promover, mantener e incrementar la idoneidad de los empleados y trabajadores del Municipio, mediante el desarrollo de planes, programas y actividades de capacitación.',
-              scope:
-                'Este procedimiento inicia con el establecimiento de políticas para la actualización de personal respecto a capacitaciones y finaliza con la ejecución del Plan Institucional de Capacitación.',
-              definitions: [
-                'Capacitación: Se entiende por capacitación el conjunto de procesos organizados, relativos tanto a la educación no formal como a la informal, de acuerdo con lo establecido por la ley general de educación, dirigidos a prolongar y complementar la educación inicial mediante la generación de conocimientos, el desarrollo de habilidades y el cambio de actitudes, con el fin de incrementar la capacidad individual y colectiva para contribuir al cumplimiento de la misión institucional, a la mejor prestación de servicios a la comunidad, al eficaz desempeño del cargo y al desarrollo personal integral.',
-              ],
-              generalDispositions: [
-                'El plan institucional de capacitaciones debe necesariamente estar armonizado al componente presupuestal de la entidad, con el fin de garantizar su desarrollo y cumplimiento.',
-              ],
-              documents: [],
-              formats: [
-                'PA-GTH-FR-05 Evaluación de la Capacitación',
-                'PA-GTH-FR-06 Planilla Asistencia Capacitación',
-                'PA-GTH-FR-07 Detección de Necesidades Capacitación Funciones',
-                'PA-GTH-FR-08 Detección Necesidades Capacitación Dependencia',
-                'PA-GTH-FR-09 Evaluación Capacitación',
-                'PA-GTH-FR-10 Registro de Asistencia Capacitaciones a Instituciones Educativas',
-              ],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: planInstitucionalCapacitacionSteps,
+            {
+              ...procedure(
+                'PA-GTH-NO-08',
+                'Nombramiento Ordinario',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Proveer empleos públicos de libre nombramiento y remoción con vacancia definitiva.',
+                scope:
+                  'El procedimiento inicia con la verificación de las vacancias que se puedan nombrar por libre nombramiento y remoción, y finaliza con la verificación del cumplimiento de los requisitos establecidos en la normatividad vigente.',
+                definitions: [
+                  'Nombramiento ordinario: Se utiliza para proveer un empleo de libre nombramiento y remoción.',
+                  'Nombramiento provisional: Se utiliza para proveer transitoriamente empleos de carrera mientras se surte el proceso de selección correspondiente.',
+                ],
+                generalDispositions: [
+                  'Para realizar este procedimiento se debe tener en cuenta que el cargo se encuentre disponible en la planta de personal de la entidad, así como los requisitos que deben cumplirse para proveer dicho cargo.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: nombramientoOrdinarioSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-ED-05',
-              'Evaluación del Desempeño',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GTH-RE-09',
+                'Realización de Encargos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Proveer temporalmente vacante definitiva o temporal con un funcionario vinculado a la entidad como titular de otro empleo.',
+                scope:
+                  'Inicia con la solicitud de licencia al señor Alcalde y finaliza con la verificación del funcionario para retomar las funciones del cargo, una vez vencido el término del encargo.',
+                definitions: [
+                  'Encargo laboral: Situación administrativa en la que se designa temporalmente a un servidor para asumir total o parcialmente las funciones de otro empleo vacante, conservando los derechos propios de su cargo.',
+                ],
+                generalDispositions: [
+                  'Para realizar este procedimiento se debe tener en cuenta que el cargo se encuentre disponible en la planta de personal de la entidad, así como los requisitos que deben cumplirse para proveer dicho cargo.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: realizacionEncargosSteps,
+              },
             },
-            detail: {
-              objective:
-                'Realizar evaluación de acuerdo al formato de evaluación de la Comisión Nacional del Servicio Civil CNSC.',
-              scope:
-                'El procedimiento inicia con la revisión de la hoja de vida del funcionario a evaluar y finaliza con la posible capacitación al procedimiento correspondiente.',
-              definitions: [
-                'Evaluación: Es el proceso mediante el cual se verifican, valoran y califican las realizaciones de una persona y el cumplimiento de los requisitos establecidos, en el ejercicio de las funciones y responsabilidades inherentes a un empleo, como aporte al logro de las metas institucionales y del valor agregado que deben generar las instituciones.',
-              ],
-              generalDispositions: [
-                'El evaluador debe estar capacitado en el conocimiento y principios de la metodología establecida por la CNSC para el desarrollo del proceso.',
-                'Previamente el jefe inmediato debe concertar objetivos con los funcionarios a evaluar, los cuales van a hacer la base fundamental de los seguimientos y evaluaciones producto del proceso.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: evaluacionDesempenoSteps,
+            {
+              ...procedure(
+                'PA-GTH-RT-10',
+                'Realización de Traslados',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Suplir vacantes definitivas de la planta de funcionarios de la entidad.',
+                scope:
+                  'El procedimiento inicia con la detección de posibles rotaciones de personal y finaliza con la inducción en el cargo al funcionario trasladado.',
+                definitions: [
+                  'Control interno: Sistema integrado por planes, métodos, principios, normas, procedimientos y mecanismos de verificación y evaluación adoptados por una entidad, orientados a que todas sus actividades se realicen de acuerdo con las normas constitucionales y legales vigentes.',
+                ],
+                generalDispositions: [
+                  'Para realizar este procedimiento se debe tener en cuenta que el cargo se encuentre disponible en la planta de personal de la entidad, así como los requisitos que deben cumplirse para proveer dicho cargo.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: realizacionTrasladosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-LME-06',
-              'Licencia de Maternidad o Enfermedad',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Reconocer al funcionario el tiempo para recuperarse en caso de enfermedad o el tiempo de empatía madre-hijo en caso de maternidad.',
-              scope:
-                'El procedimiento inicia con la recepción del certificado de la EPS a que se encuentra afiliado el funcionario y finaliza con los trámites para la declaración de invalidez del mismo.',
-              definitions: [
-                'Licencia de maternidad: Es el derecho de toda trabajadora en estado de embarazo, que consiste en el descanso de dieciocho semanas remuneradas.',
-                'Licencia de enfermedad: Corresponde al tiempo otorgado por la EPS cuando el funcionario se encuentra incapacitado para desempeñar sus funciones.',
-              ],
-              generalDispositions: [
-                'Se debe tener especial atención en los pagos de seguridad social de los funcionarios por parte de la Secretaría de Hacienda Municipal, requisito indispensable para que la entidad pueda recuperar los recursos por conceptos de licencia.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: licenciaMaternidadEnfermedadSteps,
+            {
+              ...procedure(
+                'PA-GTH-RSE-11',
+                'Retiro del Servicio de Empleados Públicos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Protocolizar el retiro del servicio de empleados públicos de libre nombramiento y remoción, teniendo en cuenta las causales establecidas en las normas legales vigentes sobre la materia.',
+                scope:
+                  'El procedimiento inicia con la determinación de las causales de retiro del servicio y finaliza con la desafiliación de salud.',
+                definitions: [
+                  'Abandono del cargo: Abandono del cargo debidamente comprobado. Es una de las formas de cesación de funciones o retiro del servicio y puede ser objeto de sanción cuando se dan los supuestos para que se produzca la falta gravísima.',
+                ],
+                generalDispositions: [
+                  'El acto administrativo por medio del cual se retira un empleado del servicio debe estar debidamente justificado y motivado por las razones expuestas en la ley.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: retiroServicioEmpleadosPublicosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-LFD-07',
-              'Licencia Ordinaria para Funcionarios Diferentes al Alcalde',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Garantizar a los funcionarios el derecho de ausentarse del trabajo hasta por sesenta días al año, prorrogables treinta días más, cuando medie justa causa, sin percibir salario correspondiente durante este periodo.',
-              scope:
-                'El procedimiento inicia con la solicitud de licencia dirigida al Alcalde y finaliza con la verificación de la integración del funcionario a sus labores.',
-              definitions: [
-                'Licencia ordinaria: Los empleados tienen derecho a licencias renunciables sin sueldo hasta por sesenta días al año, continuos o divididos. Si concurre justa causa, a juicio de la autoridad nominadora, la licencia puede prorrogarse hasta por treinta días más.',
-              ],
-              generalDispositions: [
-                'Para la realización de este procedimiento el funcionario interesado debe realizar una solicitud expresa, justificada y debidamente motivada con el fin de proceder a su análisis por parte del jefe inmediato.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: licenciaOrdinariaFuncionariosSteps,
+            {
+              ...procedure(
+                'PA-GTH-PE-12',
+                'Plan de Estímulos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer las actividades para la formulación, ejecución y evaluación de los programas del Plan Institucional de Estímulos, Bienestar e Incentivos, de la Administración Central del Municipio de Gachetá.',
+                scope:
+                  'El procedimiento inicia con la identificación de necesidades de bienestar e incentivos, continúa con la definición de programas y actividades a desarrollar y culmina con la ejecución y evaluación del plan.',
+                definitions: [
+                  'Sistema de Estímulos para Empleados del Estado: Conjunto interrelacionado y coherente de políticas, planes, entidades, disposiciones legales y programas de bienestar e incentivos que interactúan para elevar los niveles de eficiencia, satisfacción, desarrollo y bienestar de los empleados del Estado.',
+                ],
+                generalDispositions: [
+                  'Tiene por objeto otorgar reconocimientos por el buen desempeño, propiciando una cultura de trabajo orientada a la calidad y productividad.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: planEstimulosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-NO-08',
-              'Nombramiento Ordinario',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Proveer empleos públicos de libre nombramiento y remoción con vacancia definitiva.',
-              scope:
-                'El procedimiento inicia con la verificación de las vacancias que se puedan nombrar por libre nombramiento y remoción, y finaliza con la verificación del cumplimiento de los requisitos establecidos en la normatividad vigente.',
-              definitions: [
-                'Nombramiento ordinario: Se utiliza para proveer un empleo de libre nombramiento y remoción.',
-                'Nombramiento provisional: Se utiliza para proveer transitoriamente empleos de carrera mientras se surte el proceso de selección correspondiente.',
-              ],
-              generalDispositions: [
-                'Para realizar este procedimiento se debe tener en cuenta que el cargo se encuentre disponible en la planta de personal de la entidad, así como los requisitos que deben cumplirse para proveer dicho cargo.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: nombramientoOrdinarioSteps,
+            {
+              ...procedure(
+                'PA-GTH-MSA-13',
+                'Manual de Situaciones Administrativas',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-RE-09',
-              'Realización de Encargos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Proveer temporalmente vacante definitiva o temporal con un funcionario vinculado a la entidad como titular de otro empleo.',
-              scope:
-                'Inicia con la solicitud de licencia al señor Alcalde y finaliza con la verificación del funcionario para retomar las funciones del cargo, una vez vencido el término del encargo.',
-              definitions: [
-                'Encargo laboral: Situación administrativa en la que se designa temporalmente a un servidor para asumir total o parcialmente las funciones de otro empleo vacante, conservando los derechos propios de su cargo.',
-              ],
-              generalDispositions: [
-                'Para realizar este procedimiento se debe tener en cuenta que el cargo se encuentre disponible en la planta de personal de la entidad, así como los requisitos que deben cumplirse para proveer dicho cargo.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: realizacionEncargosSteps,
+            {
+              ...procedure(
+                'PA-GTH-RC-14',
+                'Retiro de Cesantías',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Dar trámite a las solicitudes que presenten los funcionarios del sector central dirigidas al retiro de las cesantías del régimen retroactivo y anualizado.',
+                scope:
+                  'Inicia con la revisión de la documentación requerida para el trámite de retiro de cesantías, mediante acto administrativo para los de régimen retroactivo y carta de autorización para los de régimen anualizado, terminando con el archivo de la documentación en el expediente.',
+                definitions: [
+                  'Cesantía: Prestación social que está obligado a pagar el empleador a sus trabajadores, equivalente a un mes de salario por cada año de servicios y proporcionalmente por fracción de año.',
+                ],
+                generalDispositions: [
+                  'Se liquidan anualmente al 31 de diciembre y se consignan en un fondo de cesantías antes del 15 de febrero del siguiente año.',
+                  'El trabajador tiene derecho a elegir antes del 31 de diciembre el fondo de cesantías correspondiente.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: retiroCesantiasSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-RT-10',
-              'Realización de Traslados',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Suplir vacantes definitivas de la planta de funcionarios de la entidad.',
-              scope:
-                'El procedimiento inicia con la detección de posibles rotaciones de personal y finaliza con la inducción en el cargo al funcionario trasladado.',
-              definitions: [
-                'Control interno: Sistema integrado por planes, métodos, principios, normas, procedimientos y mecanismos de verificación y evaluación adoptados por una entidad, orientados a que todas sus actividades se realicen de acuerdo con las normas constitucionales y legales vigentes.',
-              ],
-              generalDispositions: [
-                'Para realizar este procedimiento se debe tener en cuenta que el cargo se encuentre disponible en la planta de personal de la entidad, así como los requisitos que deben cumplirse para proveer dicho cargo.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: realizacionTrasladosSteps,
+            {
+              ...procedure(
+                'PA-GTH-IR-15',
+                'Inducción y Reinducción',
+                'Secretaría de Gobierno',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer directrices, políticas, requerimientos y pasos a cumplir para la realización de la inducción, entrenamiento, reinducción al igual que por capacitación que le complementen los conocimientos y competencias de los funcionarios de la Alcaldía Municipal de Gachetá.',
+                scope:
+                  'El procedimiento inicia con la determinación de una causal de retiro del servicio y finaliza con la introducción de la novedad de nómina para el respectivo mes, tramitando la desafiliación de salud.',
+                definitions: [
+                  'DAFP: Departamento Administrativo de la Función Pública.',
+                  'PIC: Plan Institucional de Capacitación.',
+                  'STTH: Subdirección Técnica de Recursos Humanos.',
+                  'Inducción: Proceso dirigido a iniciar al empleado en su integración a la cultura organizacional.',
+                  'Reinducción: Proceso orientado a reorientar la integración del empleado a la cultura organizacional por cambios producidos en la entidad.',
+                ],
+                generalDispositions: [
+                  'El programa de inducción y reinducción debe estar contenido en el Plan Institucional de Capacitación de cada vigencia.',
+                  'Se debe realizar a los funcionarios que entran a la entidad en carrera administrativa, provisionalidad y libre nombramiento.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: induccionReinduccionSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-RSE-11',
-              'Retiro del Servicio de Empleados Públicos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Protocolizar el retiro del servicio de empleados públicos de libre nombramiento y remoción, teniendo en cuenta las causales establecidas en las normas legales vigentes sobre la materia.',
-              scope:
-                'El procedimiento inicia con la determinación de las causales de retiro del servicio y finaliza con la desafiliación de salud.',
-              definitions: [
-                'Abandono del cargo: Abandono del cargo debidamente comprobado. Es una de las formas de cesación de funciones o retiro del servicio y puede ser objeto de sanción cuando se dan los supuestos para que se produzca la falta gravísima.',
-              ],
-              generalDispositions: [
-                'El acto administrativo por medio del cual se retira un empleado del servicio debe estar debidamente justificado y motivado por las razones expuestas en la ley.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: retiroServicioEmpleadosPublicosSteps,
+          ]
+        },
+        {
+          id: 'pa-gj', code: 'PA-GJ', name: 'Gestión Jurídica', procedures: [
+            {
+              ...procedure(
+                'PA-GJ-CARV-01',
+                'Conciliación-Fijación Custodia, Cuota Alimentaria y Régimen de Visitas',
+                'Comisaría de Familia',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Gestionar jurídicamente y asesorar el proceso de conciliación, fijación de custodia, cuota alimentaria y régimen de visitas.',
+                scope:
+                  'Inicia desde el establecimiento de la solicitud ante la Comisaría de Familia y finaliza con la suscripción del acta de conciliación de partes.',
+                definitions: [
+                  'Cuota alimentaria: Tiene como objeto garantizar el derecho a los alimentos de los niños, niñas y adolescentes.',
+                  'Defensor de Familia y Comisario de Familia aplican criterios de equidad y justicia para que no se vean afectados los intereses del alimentante ni de quien recibe los alimentos.',
+                ],
+                generalDispositions: [
+                  'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para conciliación, fijación de custodia, cuota alimentaria y régimen de visitas.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: conciliacionCustodiaCuotaVisitasSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-PE-12',
-              'Plan de Estímulos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer las actividades para la formulación, ejecución y evaluación de los programas del Plan Institucional de Estímulos, Bienestar e Incentivos, de la Administración Central del Municipio de Gachetá.',
-              scope:
-                'El procedimiento inicia con la identificación de necesidades de bienestar e incentivos, continúa con la definición de programas y actividades a desarrollar y culmina con la ejecución y evaluación del plan.',
-              definitions: [
-                'Sistema de Estímulos para Empleados del Estado: Conjunto interrelacionado y coherente de políticas, planes, entidades, disposiciones legales y programas de bienestar e incentivos que interactúan para elevar los niveles de eficiencia, satisfacción, desarrollo y bienestar de los empleados del Estado.',
-              ],
-              generalDispositions: [
-                'Tiene por objeto otorgar reconocimientos por el buen desempeño, propiciando una cultura de trabajo orientada a la calidad y productividad.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: planEstimulosSteps,
+            {
+              ...procedure(
+                'PA-GJ-MP-02',
+                'Medidas de Protección',
+                'Comisaría de Familia',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Asesorar jurídicamente el proceso a seguir para realizar una medida de protección en los casos de violencia.',
+                scope:
+                  'El procedimiento inicia desde el recuento de los hechos por parte del usuario y finaliza con la resolución proferida.',
+                definitions: [
+                  'Violencia intrafamiliar: Las definiciones de ambos conceptos, familia y violencia, permiten acercarse a la noción de violencia intrafamiliar, que es el ejercicio de la violencia en el seno de una familia.',
+                  'Violencia intrafamiliar también puede entenderse como toda acción u omisión que un integrante de una familia ejerce contra otro integrante y que produce un daño físico o psíquico.',
+                ],
+                generalDispositions: [
+                  'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para el proceso de medida de protección en los casos de violencia.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 575 de 2000.',
+                  'Ley 1257 de 2008.',
+                  'Artículo 12 de la Ley 294 de 1996.',
+                  'Artículo 17 de la Ley 575 de 2000.',
+                  'Artículo 7 de la Ley 1257 de 2008.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: medidasProteccionSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-RC-14',
-              'Retiro de Cesantías',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Dar trámite a las solicitudes que presenten los funcionarios del sector central dirigidas al retiro de las cesantías del régimen retroactivo y anualizado.',
-              scope:
-                'Inicia con la revisión de la documentación requerida para el trámite de retiro de cesantías, mediante acto administrativo para los de régimen retroactivo y carta de autorización para los de régimen anualizado, terminando con el archivo de la documentación en el expediente.',
-              definitions: [
-                'Cesantía: Prestación social que está obligado a pagar el empleador a sus trabajadores, equivalente a un mes de salario por cada año de servicios y proporcionalmente por fracción de año.',
-              ],
-              generalDispositions: [
-                'Se liquidan anualmente al 31 de diciembre y se consignan en un fondo de cesantías antes del 15 de febrero del siguiente año.',
-                'El trabajador tiene derecho a elegir antes del 31 de diciembre el fondo de cesantías correspondiente.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: retiroCesantiasSteps,
+            {
+              ...procedure(
+                'PA-GJ-RDD-03',
+                'Restablecimiento de los Derechos',
+                'Comisaría de Familia',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Aplicar la Ley 1098 de 2006, Código de la Infancia y la Adolescencia, en cumplimiento del restablecimiento de derechos PARD, para que la Inspección de Policía cumpla con las funciones que correspondan al comisario de familia o, en ausencia de este, al defensor de familia.',
+                scope:
+                  'El procedimiento inicia con la recepción de la denuncia de vulneración de derechos y finaliza con la verificación del restablecimiento de los derechos y cierre del PARD, enviándose a archivo.',
+                definitions: [
+                  'Proceso Administrativo de Restablecimiento de Derechos PARD: Es la restauración de la dignidad e integridad como sujetos y de la capacidad para hacer un ejercicio efectivo de los derechos que le han sido vulnerados.',
+                  'Responsabilidad del Estado: A través de sus autoridades debe informar, oficiar o conducir ante la Policía, defensorías de familia, comisarías de familia o, en su defecto, ante inspectores de policía, las personas implicadas o distraídas, y todos los niños, niñas y adolescentes que se encuentren en condiciones de riesgo o vulnerabilidad.',
+                ],
+                generalDispositions: [
+                  'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para el proceso de restablecimiento de derechos.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 1098 de 2006.',
+                  'Ley 1878 de 2018.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: restablecimientoDerechosRddSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GTH-IR-15',
-              'Inducción y Reinducción',
-              'Secretaría de Gobierno',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer directrices, políticas, requerimientos y pasos a cumplir para la realización de la inducción, entrenamiento, reinducción al igual que por capacitación que le complementen los conocimientos y competencias de los funcionarios de la Alcaldía Municipal de Gachetá.',
-              scope:
-                'El procedimiento inicia con la determinación de una causal de retiro del servicio y finaliza con la introducción de la novedad de nómina para el respectivo mes, tramitando la desafiliación de salud.',
-              definitions: [
-                'DAFP: Departamento Administrativo de la Función Pública.',
-                'PIC: Plan Institucional de Capacitación.',
-                'STTH: Subdirección Técnica de Recursos Humanos.',
-                'Inducción: Proceso dirigido a iniciar al empleado en su integración a la cultura organizacional.',
-                'Reinducción: Proceso orientado a reorientar la integración del empleado a la cultura organizacional por cambios producidos en la entidad.',
-              ],
-              generalDispositions: [
-                'El programa de inducción y reinducción debe estar contenido en el Plan Institucional de Capacitación de cada vigencia.',
-                'Se debe realizar a los funcionarios que entran a la entidad en carrera administrativa, provisionalidad y libre nombramiento.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: induccionReinduccionSteps,
+            {
+              ...procedure(
+                'PA-GJ-EAA-04',
+                'Elaboración Actos Administrativos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer los lineamientos generales para el trámite de emisión de los actos administrativos proferidos por el Municipio de Gachetá.',
+                scope:
+                  'Los lineamientos generales de este procedimiento aplican a todos los actos administrativos emitidos por el Municipio de Gachetá. Inicia con la elaboración del acto administrativo y termina con la notificación, comunicación o publicación del mismo.',
+                definitions: [
+                  'Acto administrativo: Manifestación de la voluntad de la administración, tendiente a producir efectos jurídicos, ya sea creando, modificando o extinguiendo derechos para los administrados o en contra de estos.',
+                  'Acto con presupuesto esencial: Acto sujeto al orden jurídico y al respeto por las garantías y derechos de los administrados.',
+                ],
+                generalDispositions: [
+                  'Cuando aplique, el acto administrativo deberá informar si contra este proceden los recursos de ley.',
+                  'Por regla general, contra los actos definitivos procederá el recurso de reposición, ante quien expidió la decisión, para que la aclare, modifique, adicione o revoque.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Código de Procedimiento Administrativo y de lo Contencioso Administrativo.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: elaboracionActosAdministrativosSteps,
+              },
             },
-          },
-        ] },
-        { id: 'pa-gj', code: 'PA-GJ', name: 'Gestión Jurídica', procedures: [
-          {
-            ...procedure(
-              'PA-GJ-CARV-01',
-              'Conciliación-Fijación Custodia, Cuota Alimentaria y Régimen de Visitas',
-              'Comisaría de Familia',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GJ-EVCJ-05',
+                'Emisión y Viabilización de Conceptos Jurídicos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Prestar el servicio de asesoría jurídica a las diferentes dependencias de la Alcaldía que así lo requieran, garantizando seguridad y certeza jurídica.',
+                scope:
+                  'El procedimiento inicia con la solicitud de la elaboración de concepto y finaliza con la entrega a la Secretaría de Gobierno para archivar.',
+                definitions: [
+                  'Concepto: Se trata de un pensamiento jurídico que es expresado mediante palabras y ajustado a la normatividad legal vigente.',
+                ],
+                generalDispositions: [
+                  'Para la realización de este procedimiento se requiere de un alto nivel de experiencia y componente técnico, especializado a la gestión pública municipal.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: emisionConceptosJuridicosSteps,
+              },
             },
-            detail: {
-              objective:
-                'Gestionar jurídicamente y asesorar el proceso de conciliación, fijación de custodia, cuota alimentaria y régimen de visitas.',
-              scope:
-                'Inicia desde el establecimiento de la solicitud ante la Comisaría de Familia y finaliza con la suscripción del acta de conciliación de partes.',
-              definitions: [
-                'Cuota alimentaria: Tiene como objeto garantizar el derecho a los alimentos de los niños, niñas y adolescentes.',
-                'Defensor de Familia y Comisario de Familia aplican criterios de equidad y justicia para que no se vean afectados los intereses del alimentante ni de quien recibe los alimentos.',
-              ],
-              generalDispositions: [
-                'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para conciliación, fijación de custodia, cuota alimentaria y régimen de visitas.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: conciliacionCustodiaCuotaVisitasSteps,
+            {
+              ...procedure(
+                'PA-GJ-AD-06',
+                'Amparo Domicilio',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GJ-MP-02',
-              'Medidas de Protección',
-              'Comisaría de Familia',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GJ-AL-07',
+                'Tutela',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
             },
-            detail: {
-              objective:
-                'Asesorar jurídicamente el proceso a seguir para realizar una medida de protección en los casos de violencia.',
-              scope:
-                'El procedimiento inicia desde el recuento de los hechos por parte del usuario y finaliza con la resolución proferida.',
-              definitions: [
-                'Violencia intrafamiliar: Las definiciones de ambos conceptos, familia y violencia, permiten acercarse a la noción de violencia intrafamiliar, que es el ejercicio de la violencia en el seno de una familia.',
-                'Violencia intrafamiliar también puede entenderse como toda acción u omisión que un integrante de una familia ejerce contra otro integrante y que produce un daño físico o psíquico.',
-              ],
-              generalDispositions: [
-                'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para el proceso de medida de protección en los casos de violencia.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 575 de 2000.',
-                'Ley 1257 de 2008.',
-                'Artículo 12 de la Ley 294 de 1996.',
-                'Artículo 17 de la Ley 575 de 2000.',
-                'Artículo 7 de la Ley 1257 de 2008.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: medidasProteccionSteps,
+            {
+              ...procedure(
+                'PA-GJ-EGMG-08',
+                'Expedición Guías de Movilización de Ganado',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GJ-RDD-03',
-              'Restablecimiento de los Derechos',
-              'Comisaría de Familia',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GJ-RBUP-09',
+                'Restitución del Bien de Uso Público',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
             },
-            detail: {
-              objective:
-                'Aplicar la Ley 1098 de 2006, Código de la Infancia y la Adolescencia, en cumplimiento del restablecimiento de derechos PARD, para que la Inspección de Policía cumpla con las funciones que correspondan al comisario de familia o, en ausencia de este, al defensor de familia.',
-              scope:
-                'El procedimiento inicia con la recepción de la denuncia de vulneración de derechos y finaliza con la verificación del restablecimiento de los derechos y cierre del PARD, enviándose a archivo.',
-              definitions: [
-                'Proceso Administrativo de Restablecimiento de Derechos PARD: Es la restauración de la dignidad e integridad como sujetos y de la capacidad para hacer un ejercicio efectivo de los derechos que le han sido vulnerados.',
-                'Responsabilidad del Estado: A través de sus autoridades debe informar, oficiar o conducir ante la Policía, defensorías de familia, comisarías de familia o, en su defecto, ante inspectores de policía, las personas implicadas o distraídas, y todos los niños, niñas y adolescentes que se encuentren en condiciones de riesgo o vulnerabilidad.',
-              ],
-              generalDispositions: [
-                'Para la realización de este procedimiento se debe tener en cuenta la normatividad legal vigente aplicable para el proceso de restablecimiento de derechos.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 1098 de 2006.',
-                'Ley 1878 de 2018.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: restablecimientoDerechosRddSteps,
+          ]
+        },
+        {
+          id: 'pa-gc', code: 'PA-GC', name: 'Gestión Contractual', procedures: [
+            {
+              ...procedure(
+                'PA-GC-LP-01',
+                'Licitación Pública',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer la metodología prevista en la ley para la gestión contractual, con el fin de dirigir la celebración de licitaciones del Municipio de Gachetá y asegurar eficiencia, eficacia y transparencia en los procesos de contratación.',
+                scope:
+                  'Inicia con la elaboración de los estudios y documentos previos y termina con la ejecución del procedimiento de supervisión e interventoría.',
+                definitions: [
+                  'Licitación pública: Proceso de contratación general que tiene como finalidad obtener la oferta más beneficiosa para la Alcaldía Municipal.',
+                  'Contratista: Persona natural o jurídica que se obliga a una determinada prestación.',
+                  'Gestión contractual: Conjunto de actividades de planeación, coordinación, organización, control, ejecución y supervisión de los procesos de contratación.',
+                ],
+                generalDispositions: [
+                  'La licitación pública es la regla general de la contratación y las demás modalidades constituyen la excepción.',
+                  'Se utiliza cuando el objeto del contrato sea complejo o de mayor cuantía, cuando el contrato sea de obra y de mayor cuantía, o cuando el objeto contractual incluya consultoría, obra u otras prestaciones según corresponda.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 1150 de 2007.',
+                  'Decreto 1082 de 2015.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: licitacionPublicaSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GJ-EAA-04',
-              'Elaboración Actos Administrativos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GC-CD-02',
+                'Contratación Directa',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer la metodología prevista en la ley para la gestión contractual por parte de los diferentes actores de la administración municipal.',
+                scope:
+                  'El procedimiento inicia con la elaboración de estudios previos y termina con la suscripción del contrato y el cumplimiento de los requisitos de ejecución.',
+                definitions: [
+                  'Contratista: Persona natural o jurídica que se obliga a una prestación contractual.',
+                  'Acta de inicio: Documento en el cual se deja constancia del inicio de la ejecución del objeto contratado.',
+                  'Registro Presupuestal: Documento que certifica la operación mediante la cual se afecta de forma definitiva la apropiación presupuestal.',
+                ],
+                generalDispositions: [
+                  'Los bienes o servicios que se deban adquirir mediante contratación directa deben estar incluidos en el Plan Anual de Adquisiciones de la respectiva vigencia.',
+                  'El funcionario designado del área de origen deberá elaborar el documento de estudios previos con los requisitos contemplados en el Decreto 1082 de 2015.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Decreto 1082 de 2015.',
+                  'Ley 1474 de 2011.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: contratacionDirectaSteps,
+              },
             },
-            detail: {
-              objective:
-                'Establecer los lineamientos generales para el trámite de emisión de los actos administrativos proferidos por el Municipio de Gachetá.',
-              scope:
-                'Los lineamientos generales de este procedimiento aplican a todos los actos administrativos emitidos por el Municipio de Gachetá. Inicia con la elaboración del acto administrativo y termina con la notificación, comunicación o publicación del mismo.',
-              definitions: [
-                'Acto administrativo: Manifestación de la voluntad de la administración, tendiente a producir efectos jurídicos, ya sea creando, modificando o extinguiendo derechos para los administrados o en contra de estos.',
-                'Acto con presupuesto esencial: Acto sujeto al orden jurídico y al respeto por las garantías y derechos de los administrados.',
-              ],
-              generalDispositions: [
-                'Cuando aplique, el acto administrativo deberá informar si contra este proceden los recursos de ley.',
-                'Por regla general, contra los actos definitivos procederá el recurso de reposición, ante quien expidió la decisión, para que la aclare, modifique, adicione o revoque.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Código de Procedimiento Administrativo y de lo Contencioso Administrativo.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: elaboracionActosAdministrativosSteps,
+            {
+              ...procedure(
+                'PA-GC-CM-03',
+                'Concurso de Méritos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer la metodología prevista en la ley para la gestión contractual municipal y asegurar eficiencia, eficacia y transparencia en los procesos que adelanten las dependencias.',
+                scope:
+                  'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
+                definitions: [
+                  'Concurso de méritos: Modalidad de selección utilizada para contratar consultorías, estudios, diseños, interventorías y otros servicios especializados.',
+                  'Contratista: Persona natural o jurídica que se obliga a una prestación contractual.',
+                  'Informe de evaluación: Documento donde se consolida la evaluación de las propuestas presentadas.',
+                ],
+                generalDispositions: [
+                  'Aplica para contratos de consultoría y demás objetos contractuales que requieran evaluación técnica especializada.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 1150 de 2007.',
+                  'Decreto 1082 de 2015.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: concursoMeritosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GJ-EVCJ-05',
-              'Emisión y Viabilización de Conceptos Jurídicos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PA-GC-SA-04',
+                'Selección Abreviada',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer la metodología prevista en la ley para la gestión contractual municipal, bajo la modalidad de selección abreviada.',
+                scope:
+                  'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
+                definitions: [
+                  'Selección abreviada: Modalidad de contratación aplicable a objetos contractuales definidos por la ley, según sus características y cuantía.',
+                  'Contrato: Acuerdo celebrado entre la entidad y el proponente favorecido.',
+                ],
+                generalDispositions: [
+                  'Aplica en los eventos definidos por la normativa contractual para selección abreviada.',
+                  'Debe garantizarse la publicidad, la transparencia, la igualdad de oferentes y la correcta evaluación de las propuestas.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 1150 de 2007.',
+                  'Decreto 1082 de 2015.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: seleccionAbreviadaSteps,
+              },
             },
-            detail: {
-              objective:
-                'Prestar el servicio de asesoría jurídica a las diferentes dependencias de la Alcaldía que así lo requieran, garantizando seguridad y certeza jurídica.',
-              scope:
-                'El procedimiento inicia con la solicitud de la elaboración de concepto y finaliza con la entrega a la Secretaría de Gobierno para archivar.',
-              definitions: [
-                'Concepto: Se trata de un pensamiento jurídico que es expresado mediante palabras y ajustado a la normatividad legal vigente.',
-              ],
-              generalDispositions: [
-                'Para la realización de este procedimiento se requiere de un alto nivel de experiencia y componente técnico, especializado a la gestión pública municipal.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: emisionConceptosJuridicosSteps,
+            {
+              ...procedure(
+                'PA-GC-MC-05',
+                'Mínima Cuantía',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer la metodología prevista en la ley para la gestión contractual de mínima cuantía, garantizando eficiencia y transparencia en el proceso.',
+                scope:
+                  'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
+                definitions: [
+                  'Mínima cuantía: Modalidad aplicable cuando el valor de la adquisición no excede el porcentaje definido legalmente para la menor cuantía de la entidad.',
+                  'Invitación pública: Documento mediante el cual se convoca a los interesados a presentar oferta.',
+                ],
+                generalDispositions: [
+                  'Será procedente contratar por mínima cuantía cuando el valor de la adquisición de bienes, servicios u obras sea igual o inferior al porcentaje establecido legalmente.',
+                  'Las reglas del procedimiento bajo mínima cuantía se regulan conforme a la normatividad contractual vigente.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 1474 de 2011.',
+                  'Decreto 1082 de 2015.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: minimaCuantiaSteps,
+              },
             },
-          },
-        ] },
-        { id: 'pa-gc', code: 'PA-GC', name: 'Gestión Contractual', procedures: [
-          {
-            ...procedure(
-              'PA-GC-LP-01',
-              'Licitación Pública',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer la metodología prevista en la ley para la gestión contractual, con el fin de dirigir la celebración de licitaciones del Municipio de Gachetá y asegurar eficiencia, eficacia y transparencia en los procesos de contratación.',
-              scope:
-                'Inicia con la elaboración de los estudios y documentos previos y termina con la ejecución del procedimiento de supervisión e interventoría.',
-              definitions: [
-                'Licitación pública: Proceso de contratación general que tiene como finalidad obtener la oferta más beneficiosa para la Alcaldía Municipal.',
-                'Contratista: Persona natural o jurídica que se obliga a una determinada prestación.',
-                'Gestión contractual: Conjunto de actividades de planeación, coordinación, organización, control, ejecución y supervisión de los procesos de contratación.',
-              ],
-              generalDispositions: [
-                'La licitación pública es la regla general de la contratación y las demás modalidades constituyen la excepción.',
-                'Se utiliza cuando el objeto del contrato sea complejo o de mayor cuantía, cuando el contrato sea de obra y de mayor cuantía, o cuando el objeto contractual incluya consultoría, obra u otras prestaciones según corresponda.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 1150 de 2007.',
-                'Decreto 1082 de 2015.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: licitacionPublicaSteps,
+            {
+              ...procedure(
+                'PA-GC-PA-06',
+                'Plan de Adquisiciones',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-CD-02',
-              'Contratación Directa',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer la metodología prevista en la ley para la gestión contractual por parte de los diferentes actores de la administración municipal.',
-              scope:
-                'El procedimiento inicia con la elaboración de estudios previos y termina con la suscripción del contrato y el cumplimiento de los requisitos de ejecución.',
-              definitions: [
-                'Contratista: Persona natural o jurídica que se obliga a una prestación contractual.',
-                'Acta de inicio: Documento en el cual se deja constancia del inicio de la ejecución del objeto contratado.',
-                'Registro Presupuestal: Documento que certifica la operación mediante la cual se afecta de forma definitiva la apropiación presupuestal.',
-              ],
-              generalDispositions: [
-                'Los bienes o servicios que se deban adquirir mediante contratación directa deben estar incluidos en el Plan Anual de Adquisiciones de la respectiva vigencia.',
-                'El funcionario designado del área de origen deberá elaborar el documento de estudios previos con los requisitos contemplados en el Decreto 1082 de 2015.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Decreto 1082 de 2015.',
-                'Ley 1474 de 2011.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: contratacionDirectaSteps,
+            {
+              ...procedure(
+                'PA-GC-RCC-07',
+                'Revisión Cuentas de Cobro',
+                'Alcaldía Municipal',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Dar a conocer el trámite y documentación necesaria para el proceso de pago de las cuentas presentadas virtualmente por los contratistas vinculados a la Alcaldía Municipal de Gachetá.',
+                scope:
+                  'Este procedimiento aplica para la recepción, causación de facturas, cuentas de cobro o documento equivalente y generación de órdenes de pago.',
+                definitions: [
+                  'SIAFI: Sistema de Información Administrativa y Financiera.',
+                  'SAF: Subdirección Administrativa y Financiera.',
+                ],
+                generalDispositions: [
+                  'Para el recibo de facturas o cuentas de cobro se deben tener los documentos completos.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: revisionCuentasCobroContractualSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-CM-03',
-              'Concurso de Méritos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer la metodología prevista en la ley para la gestión contractual municipal y asegurar eficiencia, eficacia y transparencia en los procesos que adelanten las dependencias.',
-              scope:
-                'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
-              definitions: [
-                'Concurso de méritos: Modalidad de selección utilizada para contratar consultorías, estudios, diseños, interventorías y otros servicios especializados.',
-                'Contratista: Persona natural o jurídica que se obliga a una prestación contractual.',
-                'Informe de evaluación: Documento donde se consolida la evaluación de las propuestas presentadas.',
-              ],
-              generalDispositions: [
-                'Aplica para contratos de consultoría y demás objetos contractuales que requieran evaluación técnica especializada.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 1150 de 2007.',
-                'Decreto 1082 de 2015.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: concursoMeritosSteps,
+            {
+              ...procedure(
+                'PA-GC-EP-08',
+                'Estudio Previo',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Documentar la elaboración de los estudios y documentos previos por cada dependencia, de acuerdo con lo establecido en el Estatuto General de la Contratación Pública y sus decretos reglamentarios.',
+                scope:
+                  'El procedimiento inicia con la identificación de necesidades y finaliza con el cargue de documentos en el SECOP.',
+                definitions: [
+                  'Contrato: Acuerdo de voluntades entre dos o más personas con el objeto de crear obligaciones.',
+                  'Certificado de disponibilidad presupuestal CDP: Documento que garantiza la existencia de apropiación presupuestal disponible.',
+                  'Estudios y documentos previos: Documentos que sirven de soporte para la elaboración del contrato.',
+                ],
+                generalDispositions: [
+                  'El Estado, al contratar bienes y servicios, debe garantizar el cumplimiento de los fines institucionales e invertir recursos públicos de manera adecuada.',
+                  'El bien o servicio debe estar incluido en el Plan Anual de Adquisiciones.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Estatuto General de Contratación Pública.',
+                  'Decreto 1082 de 2015.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: estudioPrevioSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-SA-04',
-              'Selección Abreviada',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer la metodología prevista en la ley para la gestión contractual municipal, bajo la modalidad de selección abreviada.',
-              scope:
-                'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
-              definitions: [
-                'Selección abreviada: Modalidad de contratación aplicable a objetos contractuales definidos por la ley, según sus características y cuantía.',
-                'Contrato: Acuerdo celebrado entre la entidad y el proponente favorecido.',
-              ],
-              generalDispositions: [
-                'Aplica en los eventos definidos por la normativa contractual para selección abreviada.',
-                'Debe garantizarse la publicidad, la transparencia, la igualdad de oferentes y la correcta evaluación de las propuestas.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 1150 de 2007.',
-                'Decreto 1082 de 2015.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: seleccionAbreviadaSteps,
+            {
+              ...procedure(
+                'PA-GC-SI-09',
+                'Selección Abreviada por Subasta Inversa',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer la metodología prevista en la ley para la gestión contractual mediante selección abreviada por subasta inversa.',
+                scope:
+                  'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
+                definitions: [
+                  'Subasta inversa: Procedimiento de selección en el que los oferentes compiten mediante la disminución sucesiva de precios o mejora de condiciones económicas.',
+                  'Contrato: Acuerdo celebrado entre la Alcaldía Municipal y el proponente favorecido.',
+                ],
+                generalDispositions: [
+                  'Aplica para la contratación de bienes y servicios de características técnicas uniformes y de común utilización.',
+                  'Debe realizarse conforme a las reglas de publicidad, selección objetiva y transparencia contractual.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [
+                  'Ley 1150 de 2007.',
+                  'Decreto 1082 de 2015.',
+                ],
+                variablesToMeasure: [],
+                flowSteps: subastaInversaSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-MC-05',
-              'Mínima Cuantía',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer la metodología prevista en la ley para la gestión contractual de mínima cuantía, garantizando eficiencia y transparencia en el proceso.',
-              scope:
-                'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
-              definitions: [
-                'Mínima cuantía: Modalidad aplicable cuando el valor de la adquisición no excede el porcentaje definido legalmente para la menor cuantía de la entidad.',
-                'Invitación pública: Documento mediante el cual se convoca a los interesados a presentar oferta.',
-              ],
-              generalDispositions: [
-                'Será procedente contratar por mínima cuantía cuando el valor de la adquisición de bienes, servicios u obras sea igual o inferior al porcentaje establecido legalmente.',
-                'Las reglas del procedimiento bajo mínima cuantía se regulan conforme a la normatividad contractual vigente.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 1474 de 2011.',
-                'Decreto 1082 de 2015.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: minimaCuantiaSteps,
+            {
+              ...procedure(
+                'PA-GC-PCC-10',
+                'Presentación de Cuentas de Cobro',
+                'Alcaldía Municipal',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer los parámetros para la elaboración de los documentos adjuntos a las cuentas de cobro de los contratos celebrados por la Administración Municipal.',
+                scope:
+                  'Este procedimiento aplica para la elaboración y entrega de cuentas de cobro.',
+                definitions: [
+                  'Contrato: Acto jurídico generador de obligaciones entre las partes.',
+                  'Acta de inicio: Documento en el cual se deja constancia del inicio de ejecución contractual.',
+                  'Planilla y soporte de pago de seguridad social: Documento requerido para acreditar el cumplimiento de aportes.',
+                ],
+                generalDispositions: [
+                  'Es necesario seguir los lineamientos que presenta cada dependencia con el fin de presentar la menor cantidad de errores posibles.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: presentacionCuentasCobroSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-RCC-07',
-              'Revisión Cuentas de Cobro',
-              'Alcaldía Municipal',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Dar a conocer el trámite y documentación necesaria para el proceso de pago de las cuentas presentadas virtualmente por los contratistas vinculados a la Alcaldía Municipal de Gachetá.',
-              scope:
-                'Este procedimiento aplica para la recepción, causación de facturas, cuentas de cobro o documento equivalente y generación de órdenes de pago.',
-              definitions: [
-                'SIAFI: Sistema de Información Administrativa y Financiera.',
-                'SAF: Subdirección Administrativa y Financiera.',
-              ],
-              generalDispositions: [
-                'Para el recibo de facturas o cuentas de cobro se deben tener los documentos completos.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: revisionCuentasCobroContractualSteps,
+          ]
+        },
+        {
+          id: 'pa-gd', code: 'PA-GD', name: 'Gestión Documental', procedures: [
+            {
+              ...procedure(
+                'PA-GD-OAG-01',
+                'Organización Archivos de Gestión',
+                'Secretaría de Gobierno',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Definir las actividades que deben realizar los servidores públicos y contratistas en la Administración de la Alcaldía Municipal de Gachetá para organizar el archivo de gestión bajo su responsabilidad, aplicando las Tablas de Retención Documental.',
+                scope:
+                  'El procedimiento inicia con la clasificación de documentos conforme a lo establecido en las Tablas de Retención Documental y finaliza con el diligenciamiento del Formato Único de Inventario Documental.',
+                definitions: [
+                  'Archivo: Conjunto de documentos acumulados en un proceso natural por una persona o entidad pública o privada.',
+                  'Archivo de gestión: Archivo de la oficina productora que reúne la documentación en trámite y consulta permanente.',
+                  'Tabla de Retención Documental TRD: Listado de series y subseries documentales con sus tiempos de permanencia y disposición final.',
+                  'Foliación: Acción de numerar hojas de documentos registrados.',
+                ],
+                generalDispositions: [
+                  'Los documentos de los archivos de gestión son parte integral del patrimonio documental de la Alcaldía Municipal de Gachetá.',
+                  'Los servidores públicos y contratistas responsables deben organizar y mantener en buen estado los documentos aplicando las Tablas de Retención Documental.',
+                ],
+                documents: [],
+                formats: ['Formato Único de Inventario Documental'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: organizacionArchivosGestionSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-EP-08',
-              'Estudio Previo',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Documentar la elaboración de los estudios y documentos previos por cada dependencia, de acuerdo con lo establecido en el Estatuto General de la Contratación Pública y sus decretos reglamentarios.',
-              scope:
-                'El procedimiento inicia con la identificación de necesidades y finaliza con el cargue de documentos en el SECOP.',
-              definitions: [
-                'Contrato: Acuerdo de voluntades entre dos o más personas con el objeto de crear obligaciones.',
-                'Certificado de disponibilidad presupuestal CDP: Documento que garantiza la existencia de apropiación presupuestal disponible.',
-                'Estudios y documentos previos: Documentos que sirven de soporte para la elaboración del contrato.',
-              ],
-              generalDispositions: [
-                'El Estado, al contratar bienes y servicios, debe garantizar el cumplimiento de los fines institucionales e invertir recursos públicos de manera adecuada.',
-                'El bien o servicio debe estar incluido en el Plan Anual de Adquisiciones.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Estatuto General de Contratación Pública.',
-                'Decreto 1082 de 2015.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: estudioPrevioSteps,
+            {
+              ...procedure(
+                'PA-GD-OAC-02',
+                'Organización Archivo Central',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Definir las actividades que deben realizar los servidores públicos y contratistas para organizar el archivo de gestión bajo su responsabilidad y aplicar las Tablas de Retención Documental.',
+                scope:
+                  'El procedimiento inicia con la clasificación de documentos según la TRD y finaliza con el diligenciamiento del Formato Único de Inventario Documental.',
+                definitions: [
+                  'Archivo central: Archivo que agrupa documentos transferidos por los archivos de gestión de la entidad.',
+                  'Archivo de gestión: Documentación sometida a continua utilización y consulta administrativa por las oficinas productoras.',
+                  'Organización documental: Proceso archivístico orientado a la clasificación, ordenación y descripción de documentos.',
+                  'Inventario único de documentos: Relación de expedientes que se entregan con datos de identificación y contenido.',
+                ],
+                generalDispositions: [
+                  'Los documentos de los archivos de gestión son parte integral del patrimonio documental de la Alcaldía Municipal de Gachetá.',
+                  'Los responsables de su manejo deben aplicar las Tablas de Retención Documental para conservarlos y organizarlos correctamente.',
+                ],
+                documents: [],
+                formats: ['Formato Único de Inventario Documental'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: organizacionArchivoCentralSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-SI-09',
-              'Selección Abreviada por Subasta Inversa',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer la metodología prevista en la ley para la gestión contractual mediante selección abreviada por subasta inversa.',
-              scope:
-                'Inicia con la identificación de la necesidad y finaliza con la liquidación del contrato por mutuo acuerdo.',
-              definitions: [
-                'Subasta inversa: Procedimiento de selección en el que los oferentes compiten mediante la disminución sucesiva de precios o mejora de condiciones económicas.',
-                'Contrato: Acuerdo celebrado entre la Alcaldía Municipal y el proponente favorecido.',
-              ],
-              generalDispositions: [
-                'Aplica para la contratación de bienes y servicios de características técnicas uniformes y de común utilización.',
-                'Debe realizarse conforme a las reglas de publicidad, selección objetiva y transparencia contractual.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [
-                'Ley 1150 de 2007.',
-                'Decreto 1082 de 2015.',
-              ],
-              variablesToMeasure: [],
-              flowSteps: subastaInversaSteps,
+            {
+              ...procedure(
+                'PA-GD-CPD-03',
+                'Consulta y Préstamo de Documentos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer la metodología necesaria para la consulta y préstamo de documentos en el Archivo Central de la Alcaldía Municipal de Gachetá.',
+                scope:
+                  'Inicia con la solicitud de consulta o préstamo de documentos por parte de las secretarías u oficinas de la Alcaldía Municipal de Gachetá o comunidad, y termina con la devolución y ubicación de los documentos al Archivo Central.',
+                definitions: [
+                  'Archivo: Conjunto de documentos acumulados por una persona o entidad en desarrollo de sus funciones.',
+                  'Archivo de gestión: Documentación sometida a continua utilización y consulta administrativa.',
+                  'Archivo central: Archivo donde se agrupan documentos transferidos por los archivos de gestión.',
+                  'Consulta de documentos: Derecho de acceso a documentos por parte de usuarios autorizados.',
+                  'Reprografía: Reproducción de documentos por medios físicos o digitales.',
+                ],
+                generalDispositions: [
+                  'Toda consulta debe ser registrada por el funcionario encargado del Archivo Central del Municipio de Gachetá.',
+                  'No se permite el acceso directo a los documentos al personal ajeno al Archivo de Gestión, Central, sin autorización.',
+                  'El préstamo de documentos es temporal y la dependencia solicitante debe reintegrarlos al Archivo Central en el plazo definido.',
+                ],
+                documents: [],
+                formats: ['Formato de Solicitud de Documentos'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: consultaPrestamoDocumentosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GC-PCC-10',
-              'Presentación de Cuentas de Cobro',
-              'Alcaldía Municipal',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer los parámetros para la elaboración de los documentos adjuntos a las cuentas de cobro de los contratos celebrados por la Administración Municipal.',
-              scope:
-                'Este procedimiento aplica para la elaboración y entrega de cuentas de cobro.',
-              definitions: [
-                'Contrato: Acto jurídico generador de obligaciones entre las partes.',
-                'Acta de inicio: Documento en el cual se deja constancia del inicio de ejecución contractual.',
-                'Planilla y soporte de pago de seguridad social: Documento requerido para acreditar el cumplimiento de aportes.',
-              ],
-              generalDispositions: [
-                'Es necesario seguir los lineamientos que presenta cada dependencia con el fin de presentar la menor cantidad de errores posibles.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: presentacionCuentasCobroSteps,
+            {
+              ...procedure(
+                'PA-GD-TD-04',
+                'Transferencias Documentales',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Remitir los documentos del archivo de gestión de cada dependencia al Archivo Central de la entidad, de forma histórica y organizada, conforme a los plazos establecidos en las Tablas de Retención Documental.',
+                scope:
+                  'Inicia con la elaboración del Plan Anual de Transferencias y finaliza con la elaboración del Acta de Transferencia Documental.',
+                definitions: [
+                  'Transferencia documental: Remisión de documentos del archivo de gestión al archivo central o histórico, de conformidad con las tablas de retención y valoración documental.',
+                  'Transferencia primaria: Traslado de documentos del archivo de gestión al central sin alteración de sus propiedades.',
+                  'Transferencia secundaria: Traslado de documentos del archivo central al histórico para conservación permanente.',
+                  'Tiempo de retención: Ciclo de vida de los documentos en las diferentes fases del archivo.',
+                ],
+                generalDispositions: [
+                  'La Oficina de Archivo Central brinda asesoría para la organización de los archivos de gestión en las dependencias que lo soliciten.',
+                  'Las transferencias documentales se deben realizar conforme a los lineamientos de la Ley de Archivo Central.',
+                ],
+                documents: [],
+                formats: ['Acta de Transferencia Documental'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: transferenciasDocumentalesSteps,
+              },
             },
-          },
-        ] },
-        { id: 'pa-gd', code: 'PA-GD', name: 'Gestión Documental', procedures: [
-          {
-            ...procedure(
-              'PA-GD-OAG-01',
-              'Organización Archivos de Gestión',
-              'Secretaría de Gobierno',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Definir las actividades que deben realizar los servidores públicos y contratistas en la Administración de la Alcaldía Municipal de Gachetá para organizar el archivo de gestión bajo su responsabilidad, aplicando las Tablas de Retención Documental.',
-              scope:
-                'El procedimiento inicia con la clasificación de documentos conforme a lo establecido en las Tablas de Retención Documental y finaliza con el diligenciamiento del Formato Único de Inventario Documental.',
-              definitions: [
-                'Archivo: Conjunto de documentos acumulados en un proceso natural por una persona o entidad pública o privada.',
-                'Archivo de gestión: Archivo de la oficina productora que reúne la documentación en trámite y consulta permanente.',
-                'Tabla de Retención Documental TRD: Listado de series y subseries documentales con sus tiempos de permanencia y disposición final.',
-                'Foliación: Acción de numerar hojas de documentos registrados.',
-              ],
-              generalDispositions: [
-                'Los documentos de los archivos de gestión son parte integral del patrimonio documental de la Alcaldía Municipal de Gachetá.',
-                'Los servidores públicos y contratistas responsables deben organizar y mantener en buen estado los documentos aplicando las Tablas de Retención Documental.',
-              ],
-              documents: [],
-              formats: ['Formato Único de Inventario Documental'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: organizacionArchivosGestionSteps,
+            {
+              ...procedure(
+                'PA-GD-ED-05',
+                'Eliminación Documental',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Definir los lineamientos para aplicar la eliminación técnicamente de los documentos de la Alcaldía Municipal de Gachetá, según lo indicado en las Tablas de Retención Documental o Tablas de Valoración Documental.',
+                scope:
+                  'El procedimiento inicia con la aplicación a los documentos del Archivo Central o de las oficinas productoras que deben ser eliminados y finaliza con la destrucción del archivo.',
+                definitions: [
+                  'Depuración documental: Fase del proceso de organización documental en la que se retiran documentos sin valores primarios ni secundarios.',
+                  'Disposición final de documentos: Decisión resultante de la valoración documental.',
+                  'Eliminación documental: Procedimiento mediante el cual se destruyen documentos que han perdido su valor administrativo, legal, fiscal o histórico.',
+                ],
+                generalDispositions: [
+                  'Toda documentación que se requiera y pueda eliminar debe solicitarse al Comité de Archivo.',
+                  'Ninguna serie o subserie documental podrá destruirse sin estar previamente registrada en la Tabla de Retención Documental o en las Tablas de Valoración Documental.',
+                  'Toda destrucción documental debe realizarse utilizando técnica de picado de papel con el fin de preservar el medio ambiente.',
+                ],
+                documents: [],
+                formats: ['Inventario de documentos a eliminar', 'Acta de Comité de Archivo'],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: eliminacionDocumentalSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GD-OAC-02',
-              'Organización Archivo Central',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Definir las actividades que deben realizar los servidores públicos y contratistas para organizar el archivo de gestión bajo su responsabilidad y aplicar las Tablas de Retención Documental.',
-              scope:
-                'El procedimiento inicia con la clasificación de documentos según la TRD y finaliza con el diligenciamiento del Formato Único de Inventario Documental.',
-              definitions: [
-                'Archivo central: Archivo que agrupa documentos transferidos por los archivos de gestión de la entidad.',
-                'Archivo de gestión: Documentación sometida a continua utilización y consulta administrativa por las oficinas productoras.',
-                'Organización documental: Proceso archivístico orientado a la clasificación, ordenación y descripción de documentos.',
-                'Inventario único de documentos: Relación de expedientes que se entregan con datos de identificación y contenido.',
-              ],
-              generalDispositions: [
-                'Los documentos de los archivos de gestión son parte integral del patrimonio documental de la Alcaldía Municipal de Gachetá.',
-                'Los responsables de su manejo deben aplicar las Tablas de Retención Documental para conservarlos y organizarlos correctamente.',
-              ],
-              documents: [],
-              formats: ['Formato Único de Inventario Documental'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: organizacionArchivoCentralSteps,
+            {
+              ...procedure(
+                'PA-GD-TRD-06',
+                'Actualización de Tablas de Retención Documental',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer las actividades necesarias para la actualización de las Tablas de Retención Documental de las secretarías u oficinas de la Alcaldía Municipal de Gachetá.',
+                scope:
+                  'El procedimiento inicia con las solicitudes de modificación realizadas por las secretarías u oficinas al Archivo Central y finaliza con la actualización de las Tablas de Retención Documental de las dependencias.',
+                definitions: [
+                  'Archivo: Conjunto de documentos acumulados en el desarrollo de funciones.',
+                  'Tabla de Retención Documental TRD: Listado de series y subseries documentales con tiempos de permanencia y disposición final.',
+                  'Valor primario: Cualidad inmediata que adquieren los documentos mientras cumplen fines administrativos, fiscales, legales o contables.',
+                  'Valor permanente o secundario: Cualidad atribuida a documentos que deben conservarse por su importancia histórica, científica o cultural.',
+                ],
+                generalDispositions: [
+                  'Los documentos de los archivos de gestión son parte integral del patrimonio documental de la Alcaldía Municipal de Gachetá.',
+                  'Las secretarías u oficinas deben solicitar las modificaciones de las Tablas de Retención Documental por medio de oficio al Archivo Central.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: actualizacionTablasRetencionSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GD-CPD-03',
-              'Consulta y Préstamo de Documentos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer la metodología necesaria para la consulta y préstamo de documentos en el Archivo Central de la Alcaldía Municipal de Gachetá.',
-              scope:
-                'Inicia con la solicitud de consulta o préstamo de documentos por parte de las secretarías u oficinas de la Alcaldía Municipal de Gachetá o comunidad, y termina con la devolución y ubicación de los documentos al Archivo Central.',
-              definitions: [
-                'Archivo: Conjunto de documentos acumulados por una persona o entidad en desarrollo de sus funciones.',
-                'Archivo de gestión: Documentación sometida a continua utilización y consulta administrativa.',
-                'Archivo central: Archivo donde se agrupan documentos transferidos por los archivos de gestión.',
-                'Consulta de documentos: Derecho de acceso a documentos por parte de usuarios autorizados.',
-                'Reprografía: Reproducción de documentos por medios físicos o digitales.',
-              ],
-              generalDispositions: [
-                'Toda consulta debe ser registrada por el funcionario encargado del Archivo Central del Municipio de Gachetá.',
-                'No se permite el acceso directo a los documentos al personal ajeno al Archivo de Gestión, Central, sin autorización.',
-                'El préstamo de documentos es temporal y la dependencia solicitante debe reintegrarlos al Archivo Central en el plazo definido.',
-              ],
-              documents: [],
-              formats: ['Formato de Solicitud de Documentos'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: consultaPrestamoDocumentosSteps,
+          ]
+        },
+        {
+          id: 'pa-ga', code: 'PA-GA', name: 'Gestión Administrativa', procedures: [
+            {
+              ...procedure(
+                'PA-GA-GV-01',
+                'Gestión de Viáticos',
+                'Secretaría de Gobierno y Desarrollo Institucional',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se gestionarán los viáticos que deban ser concedidos al señor Alcalde Municipal.',
+                scope:
+                  'El procedimiento inicia con la solicitud a la Secretaría de Gobierno y Desarrollo Institucional para el otorgamiento de viáticos y finaliza con el pago de los viáticos.',
+                definitions: [
+                  'Viáticos: Conjunto de provisiones o dinero que se le da a una persona, especialmente a un funcionario, para realizar un viaje.',
+                ],
+                generalDispositions: [
+                  'La solicitud de los viáticos del señor alcalde solo puede ser solicitada por la Secretaría de Gobierno y otorgada por resolución expedida por la Secretaría de Gobierno.',
+                  'El pago solo puede ser realizado por la Tesorería de la entidad.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: gestionViaticosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GD-TD-04',
-              'Transferencias Documentales',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Remitir los documentos del archivo de gestión de cada dependencia al Archivo Central de la entidad, de forma histórica y organizada, conforme a los plazos establecidos en las Tablas de Retención Documental.',
-              scope:
-                'Inicia con la elaboración del Plan Anual de Transferencias y finaliza con la elaboración del Acta de Transferencia Documental.',
-              definitions: [
-                'Transferencia documental: Remisión de documentos del archivo de gestión al archivo central o histórico, de conformidad con las tablas de retención y valoración documental.',
-                'Transferencia primaria: Traslado de documentos del archivo de gestión al central sin alteración de sus propiedades.',
-                'Transferencia secundaria: Traslado de documentos del archivo central al histórico para conservación permanente.',
-                'Tiempo de retención: Ciclo de vida de los documentos en las diferentes fases del archivo.',
-              ],
-              generalDispositions: [
-                'La Oficina de Archivo Central brinda asesoría para la organización de los archivos de gestión en las dependencias que lo soliciten.',
-                'Las transferencias documentales se deben realizar conforme a los lineamientos de la Ley de Archivo Central.',
-              ],
-              documents: [],
-              formats: ['Acta de Transferencia Documental'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: transferenciasDocumentalesSteps,
+            {
+              ...procedure(
+                'PA-GA-PA-02',
+                'Proyección de Actos Administrativos y Documentos',
+                'Secretaría de Gobierno',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se proyectarán los actos administrativos y documentos cuya elaboración sea de competencia de la Secretaría de Gobierno y del señor Alcalde, de conformidad con lo establecido en las normas que regulen el asunto de cada documento a proyectar y elaborar.',
+                scope:
+                  'El procedimiento inicia con la solicitud de proyección y elaboración de los actos administrativos.',
+                definitions: [
+                  'Acto administrativo: Acto administrativo se refiere a aquella declaración voluntaria que el Estado o un organismo público realiza en nombre del ejercicio de la función pública.',
+                  'Documento: Cualquier documento que deba ser proyectado y elaborado, que no implique la manifestación de la administración, directrices o creación de situaciones generales, concretas o particulares.',
+                ],
+                generalDispositions: [
+                  'El acto administrativo emana de la Administración Pública y sirve de medio o resolución para imponer su voluntad en el ejercicio de una potestad administrativa.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: proyeccionActosAdministrativosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GD-ED-05',
-              'Eliminación Documental',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Definir los lineamientos para aplicar la eliminación técnicamente de los documentos de la Alcaldía Municipal de Gachetá, según lo indicado en las Tablas de Retención Documental o Tablas de Valoración Documental.',
-              scope:
-                'El procedimiento inicia con la aplicación a los documentos del Archivo Central o de las oficinas productoras que deben ser eliminados y finaliza con la destrucción del archivo.',
-              definitions: [
-                'Depuración documental: Fase del proceso de organización documental en la que se retiran documentos sin valores primarios ni secundarios.',
-                'Disposición final de documentos: Decisión resultante de la valoración documental.',
-                'Eliminación documental: Procedimiento mediante el cual se destruyen documentos que han perdido su valor administrativo, legal, fiscal o histórico.',
-              ],
-              generalDispositions: [
-                'Toda documentación que se requiera y pueda eliminar debe solicitarse al Comité de Archivo.',
-                'Ninguna serie o subserie documental podrá destruirse sin estar previamente registrada en la Tabla de Retención Documental o en las Tablas de Valoración Documental.',
-                'Toda destrucción documental debe realizarse utilizando técnica de picado de papel con el fin de preservar el medio ambiente.',
-              ],
-              documents: [],
-              formats: ['Inventario de documentos a eliminar', 'Acta de Comité de Archivo'],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: eliminacionDocumentalSteps,
+            {
+              ...procedure(
+                'PA-GA-RD-03',
+                'Revisión de Documentos',
+                'Secretaría de Gobierno',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se revisarán los documentos que sean de competencia de la Secretaría de Gobierno y del señor Alcalde, de conformidad con lo establecido en las normas que regulen el asunto de cada documento a revisar.',
+                scope:
+                  'El procedimiento inicia con la radicación de los actos administrativos que sean objeto de la Secretaría de Gobierno y finaliza con la entrega de documentos firmados por la dependencia de origen.',
+                definitions: [
+                  'Acto administrativo: Declaración voluntaria que el Estado o un organismo público realiza en ejercicio de la función pública y que genera efectos jurídicos.',
+                ],
+                generalDispositions: [
+                  'La gestión documental es el conjunto de procesos que se enfocan en la revisión, almacenamiento y recuperación de los documentos y de la información de importancia institucional.',
+                  'Este procedimiento debe caracterizarse por su practicidad al momento de llevar a cabo la administración de los archivos físicos y electrónicos.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: revisionDocumentosSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GD-TRD-06',
-              'Actualización de Tablas de Retención Documental',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer las actividades necesarias para la actualización de las Tablas de Retención Documental de las secretarías u oficinas de la Alcaldía Municipal de Gachetá.',
-              scope:
-                'El procedimiento inicia con las solicitudes de modificación realizadas por las secretarías u oficinas al Archivo Central y finaliza con la actualización de las Tablas de Retención Documental de las dependencias.',
-              definitions: [
-                'Archivo: Conjunto de documentos acumulados en el desarrollo de funciones.',
-                'Tabla de Retención Documental TRD: Listado de series y subseries documentales con tiempos de permanencia y disposición final.',
-                'Valor primario: Cualidad inmediata que adquieren los documentos mientras cumplen fines administrativos, fiscales, legales o contables.',
-                'Valor permanente o secundario: Cualidad atribuida a documentos que deben conservarse por su importancia histórica, científica o cultural.',
-              ],
-              generalDispositions: [
-                'Los documentos de los archivos de gestión son parte integral del patrimonio documental de la Alcaldía Municipal de Gachetá.',
-                'Las secretarías u oficinas deben solicitar las modificaciones de las Tablas de Retención Documental por medio de oficio al Archivo Central.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: actualizacionTablasRetencionSteps,
+            {
+              ...procedure(
+                'PA-GA-AA-04',
+                'Almacén e Inventario',
+                'Secretaría de Gobierno',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer las actividades y condiciones para ingresar, administrar, proveer y retirar temporal o definitivamente los bienes devolutivos y de consumo de la Alcaldía Municipal de Gachetá, con base en las disposiciones legales vigentes.',
+                scope:
+                  'Inicia con la entrada de los bienes devolutivos y de consumo, continúa con la descripción sobre la baja de bienes y sus diferentes disposiciones, y finaliza cuando la entrega de los comprobantes contables es enviada al encargado de almacén.',
+                definitions: [
+                  'Almacén: Espacio delimitado en donde se guardan elementos, bienes o mercancías de consumo o devolutivos suministrados a las dependencias.',
+                  'Almacenamiento: Labor de registro de los artículos y su distribución física desde que ingresan o se adquieren hasta que se requieren para su utilización.',
+                  'Bienes de consumo: Elementos que por su naturaleza se consumen con su primer uso.',
+                  'Bienes devolutivos: Bienes muebles, inmuebles o intangibles que no se extinguen o consumen de manera inmediata y requieren control administrativo.',
+                  'Inventario: Registro permanente y valorizado de los bienes que conforman el patrimonio del almacén.',
+                  'Placa: Etiqueta adhesiva que contiene el número consecutivo que permite identificar un bien devolutivo en el inventario.',
+                ],
+                generalDispositions: [
+                  'El ingreso de bienes está sujeto a la entrada física y documental de los bienes de consumo o devolutivos.',
+                  'El inventario de la entidad debe manejarse física y documentalmente, a través del registro de ingreso en el sistema de inventarios.',
+                ],
+                documents: [
+                  'Comprobante de almacén',
+                  'Boletín diario de movimiento de almacén',
+                  'Boletín mensual de almacén',
+                  'Comprobante de entrada de productos',
+                  'Comprobante de traspaso',
+                  'Orden de ingreso',
+                  'Póliza',
+                ],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: almacenInventarioSteps,
+              },
             },
-          },
-        ] },
-        { id: 'pa-ga', code: 'PA-GA', name: 'Gestión Administrativa', procedures: [
-          {
-            ...procedure(
-              'PA-GA-GV-01',
-              'Gestión de Viáticos',
-              'Secretaría de Gobierno y Desarrollo Institucional',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se gestionarán los viáticos que deban ser concedidos al señor Alcalde Municipal.',
-              scope:
-                'El procedimiento inicia con la solicitud a la Secretaría de Gobierno y Desarrollo Institucional para el otorgamiento de viáticos y finaliza con el pago de los viáticos.',
-              definitions: [
-                'Viáticos: Conjunto de provisiones o dinero que se le da a una persona, especialmente a un funcionario, para realizar un viaje.',
-              ],
-              generalDispositions: [
-                'La solicitud de los viáticos del señor alcalde solo puede ser solicitada por la Secretaría de Gobierno y otorgada por resolución expedida por la Secretaría de Gobierno.',
-                'El pago solo puede ser realizado por la Tesorería de la entidad.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: gestionViaticosSteps,
+          ]
+        },
+        {
+          id: 'pa-gf', code: 'PA-GF', name: 'Gestión Financiera', procedures: [
+            {
+              ...procedure(
+                'PA-GF-CPC-01',
+                'Cobro Persuasivo y Coactivo',
+                'Secretaría de Hacienda',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Facilitar a los funcionarios y personal de apoyo responsables de adelantar el proceso administrativo de cobro persuasivo y coactivo una herramienta eficaz para que directamente se hagan efectivos los créditos exigibles a su favor, y a su vez garantizar la seguridad jurídica y la transparencia del ejercicio de la función administrativa de cobro.',
+                scope:
+                  'El procedimiento inicia desde la libración del mandamiento de pago y finaliza con el auto que da por terminado el proceso.',
+                definitions: [
+                  'Funcionario ejecutor: Funcionario investido de la facultad de adelantar el cobro coactivo en la Oficina de Jurisdicción Coactiva.',
+                  'Cobro coactivo: Procedimiento mediante el cual las entidades públicas ejecutan directamente sus créditos a su favor, a través de sus propias dependencias, funcionarios y sin necesidad de acudir a la justicia ordinaria.',
+                ],
+                generalDispositions: [
+                  'El presente documento plasma las acciones que integran el proceso administrativo coactivo, contenido en los artículos 823 y siguientes del Decreto 624 de 1989, Estatuto Tributario Nacional, o las normas que lo modifiquen o adicionen.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: cobroPersuasivoCoactivoSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GA-PA-02',
-              'Proyección de Actos Administrativos y Documentos',
-              'Secretaría de Gobierno',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se proyectarán los actos administrativos y documentos cuya elaboración sea de competencia de la Secretaría de Gobierno y del señor Alcalde, de conformidad con lo establecido en las normas que regulen el asunto de cada documento a proyectar y elaborar.',
-              scope:
-                'El procedimiento inicia con la solicitud de proyección y elaboración de los actos administrativos.',
-              definitions: [
-                'Acto administrativo: Acto administrativo se refiere a aquella declaración voluntaria que el Estado o un organismo público realiza en nombre del ejercicio de la función pública.',
-                'Documento: Cualquier documento que deba ser proyectado y elaborado, que no implique la manifestación de la administración, directrices o creación de situaciones generales, concretas o particulares.',
-              ],
-              generalDispositions: [
-                'El acto administrativo emana de la Administración Pública y sirve de medio o resolución para imponer su voluntad en el ejercicio de una potestad administrativa.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: proyeccionActosAdministrativosSteps,
+            {
+              ...procedure(
+                'PA-GF-IEP-02',
+                'Informes de Ejecución Presupuestal',
+                'Secretaría de Hacienda',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GA-RD-03',
-              'Revisión de Documentos',
-              'Secretaría de Gobierno',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer el procedimiento y directrices generales que regirán el trámite por medio del cual se revisarán los documentos que sean de competencia de la Secretaría de Gobierno y del señor Alcalde, de conformidad con lo establecido en las normas que regulen el asunto de cada documento a revisar.',
-              scope:
-                'El procedimiento inicia con la radicación de los actos administrativos que sean objeto de la Secretaría de Gobierno y finaliza con la entrega de documentos firmados por la dependencia de origen.',
-              definitions: [
-                'Acto administrativo: Declaración voluntaria que el Estado o un organismo público realiza en ejercicio de la función pública y que genera efectos jurídicos.',
-              ],
-              generalDispositions: [
-                'La gestión documental es el conjunto de procesos que se enfocan en la revisión, almacenamiento y recuperación de los documentos y de la información de importancia institucional.',
-                'Este procedimiento debe caracterizarse por su practicidad al momento de llevar a cabo la administración de los archivos físicos y electrónicos.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: revisionDocumentosSteps,
+            {
+              ...procedure(
+                'PA-GF-GCB-03',
+                'Gestión de Cuentas Bancarias',
+                'Secretaría de Hacienda',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GA-AA-04',
-              'Almacén e Inventario',
-              'Secretaría de Gobierno',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer las actividades y condiciones para ingresar, administrar, proveer y retirar temporal o definitivamente los bienes devolutivos y de consumo de la Alcaldía Municipal de Gachetá, con base en las disposiciones legales vigentes.',
-              scope:
-                'Inicia con la entrada de los bienes devolutivos y de consumo, continúa con la descripción sobre la baja de bienes y sus diferentes disposiciones, y finaliza cuando la entrega de los comprobantes contables es enviada al encargado de almacén.',
-              definitions: [
-                'Almacén: Espacio delimitado en donde se guardan elementos, bienes o mercancías de consumo o devolutivos suministrados a las dependencias.',
-                'Almacenamiento: Labor de registro de los artículos y su distribución física desde que ingresan o se adquieren hasta que se requieren para su utilización.',
-                'Bienes de consumo: Elementos que por su naturaleza se consumen con su primer uso.',
-                'Bienes devolutivos: Bienes muebles, inmuebles o intangibles que no se extinguen o consumen de manera inmediata y requieren control administrativo.',
-                'Inventario: Registro permanente y valorizado de los bienes que conforman el patrimonio del almacén.',
-                'Placa: Etiqueta adhesiva que contiene el número consecutivo que permite identificar un bien devolutivo en el inventario.',
-              ],
-              generalDispositions: [
-                'El ingreso de bienes está sujeto a la entrada física y documental de los bienes de consumo o devolutivos.',
-                'El inventario de la entidad debe manejarse física y documentalmente, a través del registro de ingreso en el sistema de inventarios.',
-              ],
-              documents: [
-                'Comprobante de almacén',
-                'Boletín diario de movimiento de almacén',
-                'Boletín mensual de almacén',
-                'Comprobante de entrada de productos',
-                'Comprobante de traspaso',
-                'Orden de ingreso',
-                'Póliza',
-              ],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: almacenInventarioSteps,
+            {
+              ...procedure(
+                'PA-GF-RI-04',
+                'Recaudo de Ingresos',
+                'Secretaría de Hacienda',
+              ),
             },
-          },
-        ] },
-        { id: 'pa-gf', code: 'PA-GF', name: 'Gestión Financiera', procedures: [
-          {
-            ...procedure(
-              'PA-GF-CPC-01',
-              'Cobro Persuasivo y Coactivo',
-              'Secretaría de Hacienda',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Facilitar a los funcionarios y personal de apoyo responsables de adelantar el proceso administrativo de cobro persuasivo y coactivo una herramienta eficaz para que directamente se hagan efectivos los créditos exigibles a su favor, y a su vez garantizar la seguridad jurídica y la transparencia del ejercicio de la función administrativa de cobro.',
-              scope:
-                'El procedimiento inicia desde la libración del mandamiento de pago y finaliza con el auto que da por terminado el proceso.',
-              definitions: [
-                'Funcionario ejecutor: Funcionario investido de la facultad de adelantar el cobro coactivo en la Oficina de Jurisdicción Coactiva.',
-                'Cobro coactivo: Procedimiento mediante el cual las entidades públicas ejecutan directamente sus créditos a su favor, a través de sus propias dependencias, funcionarios y sin necesidad de acudir a la justicia ordinaria.',
-              ],
-              generalDispositions: [
-                'El presente documento plasma las acciones que integran el proceso administrativo coactivo, contenido en los artículos 823 y siguientes del Decreto 624 de 1989, Estatuto Tributario Nacional, o las normas que lo modifiquen o adicionen.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: cobroPersuasivoCoactivoSteps,
+            {
+              ...procedure(
+                'PA-GF-IDC-05',
+                'Informe Diario de Caja',
+                'Secretaría de Hacienda',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GF-CDP-06',
-              'Expedición de CDP y RP',
-              'Secretaría de Hacienda',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Expedir el registro presupuestal que perfecciona los compromisos adquiridos en cumplimiento de los planes, programas, proyectos institucionales y proyectos remunerados aprobados.',
-              scope:
-                'Este procedimiento inicia con la recepción y radicación de la solicitud de registro presupuestal enviada por la Secretaría de Hacienda y finaliza con el envío del registro de compromiso al solicitante.',
-              definitions: [
-                'Número registro: Número asignado por el aplicativo al momento de realizar el registro presupuestal.',
-                'Fecha: Corresponde a la fecha en la que se hace el registro presupuestal.',
-                'NIT: Corresponde a la cédula o NIT del proveedor o beneficiario de la cuenta.',
-                'A favor de: Corresponde al nombre del proveedor o beneficiario a quien se le expide el registro presupuestal.',
-                'Valor: Corresponde al valor del registro presupuestal.',
-              ],
-              generalDispositions: [
-                'Se definen los criterios de desarrollo del procedimiento o documento que deben tenerse en cuenta antes de iniciar las actividades de gestión del procedimiento.',
-              ],
-              documents: [
-                'Solicitud de Registro Presupuestal',
-                'Certificado de Registro Presupuestal',
-                'Certificado de Disponibilidad Presupuestal',
-              ],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: expedicionCdpRpSteps,
+            {
+              ...procedure(
+                'PA-GF-CDP-06',
+                'Expedición de CDP y RP',
+                'Secretaría de Hacienda',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Expedir el registro presupuestal que perfecciona los compromisos adquiridos en cumplimiento de los planes, programas, proyectos institucionales y proyectos remunerados aprobados.',
+                scope:
+                  'Este procedimiento inicia con la recepción y radicación de la solicitud de registro presupuestal enviada por la Secretaría de Hacienda y finaliza con el envío del registro de compromiso al solicitante.',
+                definitions: [
+                  'Número registro: Número asignado por el aplicativo al momento de realizar el registro presupuestal.',
+                  'Fecha: Corresponde a la fecha en la que se hace el registro presupuestal.',
+                  'NIT: Corresponde a la cédula o NIT del proveedor o beneficiario de la cuenta.',
+                  'A favor de: Corresponde al nombre del proveedor o beneficiario a quien se le expide el registro presupuestal.',
+                  'Valor: Corresponde al valor del registro presupuestal.',
+                ],
+                generalDispositions: [
+                  'Se definen los criterios de desarrollo del procedimiento o documento que deben tenerse en cuenta antes de iniciar las actividades de gestión del procedimiento.',
+                ],
+                documents: [
+                  'Solicitud de Registro Presupuestal',
+                  'Certificado de Registro Presupuestal',
+                  'Certificado de Disponibilidad Presupuestal',
+                ],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: expedicionCdpRpSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GF-GLA-09',
-              'Generación de Libros Auxiliares',
-              'Secretaría de Hacienda',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Presentar de una manera ordenada los registros contables realizados en determinado periodo de tiempo.',
-              scope:
-                'El procedimiento inicia con el ingreso al sistema y finaliza con la presentación e impresión del reporte.',
-              definitions: [
-                'Libro contable: Soporte material en la elaboración de la información financiera. Puede ser de carácter obligatorio o voluntario.',
-              ],
-              generalDispositions: [
-                'Para la elaboración de los auxiliares contables se requiere principalmente que la información contable se encuentre debidamente ordenada y clasificada según la normatividad legal vigente.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: generacionLibrosAuxiliaresSteps,
+            {
+              ...procedure(
+                'PA-GF-PT-07',
+                'Pagos a Terceros',
+                'Secretaría de Hacienda',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GF-OPD-11',
-              'Orden de Pago Definitiva',
-              'Secretaría de Hacienda',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Realizar la obligación presupuestal de los bienes recibidos a satisfacción y demás exigibilidades por la administración municipal.',
-              scope:
-                'El procedimiento inicia con el recibimiento de la solicitud de orden de pago y finaliza con la firma de la orden para que pase a la dependencia necesaria.',
-              definitions: [
-                'Orden de pago: Orden que se da por escrito para que el tesorero pague cierta cantidad de dinero a alguien.',
-                'CDP: Documento mediante el cual se garantiza el principio de legalidad, es decir, la existencia del rubro y la apropiación presupuestal suficiente para atender un gasto determinado.',
-                'RP: Registro presupuestal que perfecciona el compromiso, garantizando que los recursos comprometidos no sean desviados a ningún otro fin.',
-              ],
-              generalDispositions: [
-                'Sin excepción, todas las órdenes de pago se realizan a través del Sistema de Información Financiera.',
-                'Los pagos se realizarán una vez cumplan con todos los requisitos.',
-              ],
-              documents: [
-                'Orden de pago',
-                'Cuenta de cobro',
-                'Resolución',
-                'Nómina',
-              ],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: ordenPagoDefinitivaSteps,
+            {
+              ...procedure(
+                'PA-GF-CB-08',
+                'Conciliaciones Bancarias',
+                'Secretaría de Hacienda',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GF-COP-12',
-              'Cancelación de Orden de Pago',
-              'Secretaría de Hacienda',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Verificar y aprobar los pagos a través de los portales bancarios en convenio con la Alcaldía Municipal de Gachetá.',
-              scope:
-                'El procedimiento inicia desde la recepción de la orden de pago y finaliza con el cargue de la cuenta cancelada.',
-              definitions: [
-                'Pago: Tributo que se ofrece por contraprestación de un servicio o por la adquisición de un producto.',
-                'Portal bancario: Herramienta mediante la cual se realizan operaciones bancarias a través de una conexión a internet.',
-                'Orden de pago: Documento predeterminado por la administración central como soporte de reconocimiento de la obligación.',
-              ],
-              generalDispositions: [
-                'La orden de pago y el comprobante de egreso que este correctamente generado y cargado en el respectivo portal bancario para su cancelación.',
-              ],
-              documents: [
-                'Orden de pago',
-                'Comprobante de egreso',
-                'Soporte exitoso del pago',
-              ],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: cancelacionOrdenPagoSteps,
+            {
+              ...procedure(
+                'PA-GF-GLA-09',
+                'Generación de Libros Auxiliares',
+                'Secretaría de Hacienda',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Presentar de una manera ordenada los registros contables realizados en determinado periodo de tiempo.',
+                scope:
+                  'El procedimiento inicia con el ingreso al sistema y finaliza con la presentación e impresión del reporte.',
+                definitions: [
+                  'Libro contable: Soporte material en la elaboración de la información financiera. Puede ser de carácter obligatorio o voluntario.',
+                ],
+                generalDispositions: [
+                  'Para la elaboración de los auxiliares contables se requiere principalmente que la información contable se encuentre debidamente ordenada y clasificada según la normatividad legal vigente.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: generacionLibrosAuxiliaresSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PA-GF-ACIP-13',
-              'Actualización de Datos Cálculo del Impuesto Predial',
-              'Secretaría de Hacienda',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Definir la metodología para realizar el cálculo del impuesto predial de manera correcta y actualizada.',
-              scope:
-                'El procedimiento inicia desde la radicación de la solicitud de actualización y finaliza con el archivo del proceso de solicitud.',
-              definitions: [
-                'Tasa de usura: Límite máximo con el que un particular o una entidad pueden cobrar intereses sobre un compromiso adquirido.',
-              ],
-              generalDispositions: [
-                'Para el desarrollo de este procedimiento se debe tener en cuenta la normatividad legal vigente relacionada con la liquidación del impuesto predial, así como la actualización en las tasas de interés fijadas por el Banco de la República.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: actualizacionDatosImpuestoPredialSteps,
+            {
+              ...procedure(
+                'PA-GF-RGN-10',
+                'Elaboración Reporte Contaduría General de La Nación',
+                'Secretaría de Hacienda',
+              ),
             },
-          },
-          {
-            ...procedure(
-              'PA-GF-IRDI-14',
-              'Informes de Recaudo Diario Impuesto Predial',
-              'Secretaría de Hacienda',
-            ),
-            source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
-            detail: {
-              objective:
-                'Establecer los lineamientos con el fin de proceder a elaborar un adecuado reporte de los movimientos diarios de recaudo del impuesto predial realizados en la Secretaría de Hacienda.',
-              scope:
-                'El procedimiento inicia con la recepción de cancelación en caja y finaliza con la firma del informe por parte del Secretario de Hacienda.',
-              definitions: [
-                'Impuesto predial: Tributo que deben pagar los propietarios de un inmueble a los gobiernos municipales.',
-              ],
-              generalDispositions: [
-                'Diligenciar diariamente las operaciones de ingreso y consignación en la base de datos para tal fin.',
-              ],
-              documents: [
-                'Informe diario de recaudo',
-                'Planilla de recaudo',
-                'Soportes bancarios',
-              ],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: informeRecaudoDiarioPredialSteps,
+            {
+              ...procedure(
+                'PA-GF-OPD-11',
+                'Orden de Pago Definitiva',
+                'Secretaría de Hacienda',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Realizar la obligación presupuestal de los bienes recibidos a satisfacción y demás exigibilidades por la administración municipal.',
+                scope:
+                  'El procedimiento inicia con el recibimiento de la solicitud de orden de pago y finaliza con la firma de la orden para que pase a la dependencia necesaria.',
+                definitions: [
+                  'Orden de pago: Orden que se da por escrito para que el tesorero pague cierta cantidad de dinero a alguien.',
+                  'CDP: Documento mediante el cual se garantiza el principio de legalidad, es decir, la existencia del rubro y la apropiación presupuestal suficiente para atender un gasto determinado.',
+                  'RP: Registro presupuestal que perfecciona el compromiso, garantizando que los recursos comprometidos no sean desviados a ningún otro fin.',
+                ],
+                generalDispositions: [
+                  'Sin excepción, todas las órdenes de pago se realizan a través del Sistema de Información Financiera.',
+                  'Los pagos se realizarán una vez cumplan con todos los requisitos.',
+                ],
+                documents: [
+                  'Orden de pago',
+                  'Cuenta de cobro',
+                  'Resolución',
+                  'Nómina',
+                ],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: ordenPagoDefinitivaSteps,
+              },
             },
-          },
-        ] },
+            {
+              ...procedure(
+                'PA-GF-COP-12',
+                'Cancelación de Orden de Pago',
+                'Secretaría de Hacienda',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Verificar y aprobar los pagos a través de los portales bancarios en convenio con la Alcaldía Municipal de Gachetá.',
+                scope:
+                  'El procedimiento inicia desde la recepción de la orden de pago y finaliza con el cargue de la cuenta cancelada.',
+                definitions: [
+                  'Pago: Tributo que se ofrece por contraprestación de un servicio o por la adquisición de un producto.',
+                  'Portal bancario: Herramienta mediante la cual se realizan operaciones bancarias a través de una conexión a internet.',
+                  'Orden de pago: Documento predeterminado por la administración central como soporte de reconocimiento de la obligación.',
+                ],
+                generalDispositions: [
+                  'La orden de pago y el comprobante de egreso que este correctamente generado y cargado en el respectivo portal bancario para su cancelación.',
+                ],
+                documents: [
+                  'Orden de pago',
+                  'Comprobante de egreso',
+                  'Soporte exitoso del pago',
+                ],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: cancelacionOrdenPagoSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PA-GF-ACIP-13',
+                'Actualización de Datos Cálculo del Impuesto Predial',
+                'Secretaría de Hacienda',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Definir la metodología para realizar el cálculo del impuesto predial de manera correcta y actualizada.',
+                scope:
+                  'El procedimiento inicia desde la radicación de la solicitud de actualización y finaliza con el archivo del proceso de solicitud.',
+                definitions: [
+                  'Tasa de usura: Límite máximo con el que un particular o una entidad pueden cobrar intereses sobre un compromiso adquirido.',
+                ],
+                generalDispositions: [
+                  'Para el desarrollo de este procedimiento se debe tener en cuenta la normatividad legal vigente relacionada con la liquidación del impuesto predial, así como la actualización en las tasas de interés fijadas por el Banco de la República.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: actualizacionDatosImpuestoPredialSteps,
+              },
+            },
+            {
+              ...procedure(
+                'PA-GF-IRDI-14',
+                'Informes de Recaudo Diario Impuesto Predial',
+                'Secretaría de Hacienda',
+              ),
+              source: { pageStart: undefined, pageEnd: undefined, validationMode: 'visual_validated' },
+              detail: {
+                objective:
+                  'Establecer los lineamientos con el fin de proceder a elaborar un adecuado reporte de los movimientos diarios de recaudo del impuesto predial realizados en la Secretaría de Hacienda.',
+                scope:
+                  'El procedimiento inicia con la recepción de cancelación en caja y finaliza con la firma del informe por parte del Secretario de Hacienda.',
+                definitions: [
+                  'Impuesto predial: Tributo que deben pagar los propietarios de un inmueble a los gobiernos municipales.',
+                ],
+                generalDispositions: [
+                  'Diligenciar diariamente las operaciones de ingreso y consignación en la base de datos para tal fin.',
+                ],
+                documents: [
+                  'Informe diario de recaudo',
+                  'Planilla de recaudo',
+                  'Soportes bancarios',
+                ],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: informeRecaudoDiarioPredialSteps,
+              },
+            },
+          ]
+        },
       ],
     },
     {
       id: 'pec', code: 'PEC', name: 'Procesos de Evaluación y Control', type: 'evaluacion_control',
       processes: [
-        { id: 'pec-cve', code: 'PEC-CVE', name: 'Control, Verificación y Evaluación', procedures: [
-          {
-            ...procedure(
-              'PEC-CVE-SMR-01',
-              'Seguimiento a Mapa de Riesgos',
-              'Oficina de Control Interno',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+        {
+          id: 'pec-cve', code: 'PEC-CVE', name: 'Control, Verificación y Evaluación', procedures: [
+            {
+              ...procedure(
+                'PEC-CVE-SMR-01',
+                'Seguimiento a Mapa de Riesgos',
+                'Oficina de Control Interno',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Definir las actividades a desarrollar por parte de la Oficina de Control Interno durante la vigencia, con el fin de garantizar el cumplimiento del proceso de evaluación a todas las dependencias de la administración y realizar seguimiento periódico para verificar su ejecución y avance.',
+                scope:
+                  'El procedimiento inicia con la elaboración del Plan Anual de Auditorías y finaliza con la ejecución del Plan de Auditorías.',
+                definitions: [
+                  'Auditoría: Proceso sistemático, independiente y documentado para obtener evidencias de auditoría y evaluarlas de manera objetiva con el fin de determinar la extensión en que se cumplen los criterios de auditoría.',
+                  'Plan de auditoría: Descripción de las actividades y de los detalles acordados de una auditoría.',
+                  'Comité: Conjunto de personas elegidas para desempeñar una labor determinada, especialmente si tiene autoridad o actúa en representación de un colectivo.',
+                ],
+                generalDispositions: [
+                  'El plan de auditorías se elaborará una vez al año y se planificará al principio de cada vigencia.',
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: seguimientoMapaRiesgosSteps,
+              },
             },
-            detail: {
-              objective:
-                'Definir las actividades a desarrollar por parte de la Oficina de Control Interno durante la vigencia, con el fin de garantizar el cumplimiento del proceso de evaluación a todas las dependencias de la administración y realizar seguimiento periódico para verificar su ejecución y avance.',
-              scope:
-                'El procedimiento inicia con la elaboración del Plan Anual de Auditorías y finaliza con la ejecución del Plan de Auditorías.',
-              definitions: [
-                'Auditoría: Proceso sistemático, independiente y documentado para obtener evidencias de auditoría y evaluarlas de manera objetiva con el fin de determinar la extensión en que se cumplen los criterios de auditoría.',
-                'Plan de auditoría: Descripción de las actividades y de los detalles acordados de una auditoría.',
-                'Comité: Conjunto de personas elegidas para desempeñar una labor determinada, especialmente si tiene autoridad o actúa en representación de un colectivo.',
-              ],
-              generalDispositions: [
-                'El plan de auditorías se elaborará una vez al año y se planificará al principio de cada vigencia.',
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: seguimientoMapaRiesgosSteps,
+            {
+              ...procedure(
+                'PEC-CVE-ESG-02',
+                'Evaluación y Seguimiento a la Gestión Organizacional',
+                'Oficina de Control Interno',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Garantizar la correcta evaluación y seguimiento de la gestión organizacional.',
+                scope:
+                  'Este procedimiento inicia con la recepción de los informes de gestión por parte de las dependencias y culmina con la socialización de los resultados.',
+                definitions: [
+                  'Oficina de Control Interno: Componente del Sistema de Control Interno de nivel gerencial o directivo, encargado de medir y evaluar la eficiencia, eficacia y economía de los demás controles, asesorando a la dirección en la continuidad del proceso administrativo, la reevaluación de los planes establecidos y la introducción de correctivos necesarios para el cumplimiento de metas u objetivos previstos.',
+                  'Plan de Desarrollo: Herramienta de gestión que promueve el desarrollo social en un determinado territorio, sentando las bases para atender las necesidades insatisfechas de la población y mejorar la calidad de vida de los ciudadanos.',
+                  'Informe de gestión: Documento que incluye las actividades de coordinación, gestión, administración y dirección efectuadas durante un periodo de tiempo en una empresa.',
+                ],
+                generalDispositions: [
+                  'Los informes de gestión serán presentados por el ejecutivo municipal a la comunidad en audiencia pública, anualmente.',
+                  'La Oficina de Control Interno garantizará la correcta evaluación y seguimiento a la gestión organizacional, de conformidad con las metas propuestas en el Plan de Desarrollo Municipal.',
+                  'Igualmente, una vez el ejecutivo presente la rendición de cuentas a la comunidad, la Oficina de Control Interno realizará el informe final de rendición de cuentas o informe de gestión, para lo cual además del seguimiento realizado al Plan de Desarrollo en las auditorías internas, se elabora una encuesta a la comunidad sobre el desarrollo de la actividad realizada.',
+                ],
+                documents: [
+                  'Informe de gestión',
+                  'Plan de Desarrollo',
+                  'Plan de Acción',
+                  'Encuesta de satisfacción',
+                ],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: evaluacionSeguimientoGestionOrganizacionalSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PEC-CVE-ESG-02',
-              'Evaluación y Seguimiento a la Gestión Organizacional',
-              'Oficina de Control Interno',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PEC-CVE-PI-03',
+                'Presentación de Informes Oficina de Control Interno',
+                'Oficina de Control Interno',
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective:
+                  'Establecer las actividades que se deben seguir en la Oficina de Control Interno, para facilitar la preparación, verificación y presentación de los informes de acuerdo con los lineamientos establecidos por el Gobierno Nacional y ante los organismos de control.',
+                scope:
+                  'Este procedimiento inicia con la identificación de las fechas de entrega de los informes por parte de la administración y termina con el reporte oportuno de la información en la herramienta exigida, archivos planos, documentación en físico y medio magnético de los informes, y publicación en la web de la entidad de acuerdo a la norma.',
+                definitions: [
+                  'Oficina de Control Interno: Oficina de los componentes del Sistema de Control Interno de nivel gerencial o directivo, encargada de medir y evaluar la eficiencia, eficacia y economía de los demás controles, asesorando a la dirección en la continuidad del proceso administrativo, la reevaluación de los planes establecidos y la introducción de los correctivos necesarios para el cumplimiento de las metas u objetivos previstos.',
+                  'Informe de Gestión: Herramienta que hace públicos los principales logros obtenidos por una entidad durante una vigencia, el cual también se usa para presentar balances y resultados institucionales.',
+                  'Oficina de Control Interno: Unidad que realiza evaluación y seguimiento al Sistema de Control Interno, al cumplimiento de informes y a la presentación de reportes ante organismos de control.',
+                  'SISTEMA CHIP: Consolidador de Hacienda e Información Financiera Pública, herramienta a través de la cual se genera, transmite y difunde información financiera producida por las entidades públicas con destino al gobierno central, entidades de control y ciudadanía en general.',
+                  'FURAG: Formulario Único de Reporte y Avance de la Gestión en las entidades públicas.',
+                ],
+                generalDispositions: [
+                  'El informe de Evaluación de Control Interno FURAG se presenta anualmente al DAFP.',
+                  'El informe anual sobre la Evaluación del Control Interno Contable se presenta anualmente a la Contaduría General de la Nación a través del aplicativo CHIP.',
+                  'El informe de Evaluación del Sistema de Control Interno se presenta anualmente con corte al 31 de diciembre y se entrega a la Secretaría de Hacienda para subir los informes de fin de año.',
+                  'El seguimiento a Mapas de Riesgo de la vigencia se realiza periódicamente mediante el proceso de ejecución de las auditorías internas.',
+                  'El informe de Austeridad del Gasto se elabora trimestralmente y se publica en la página web del municipio.',
+                  'El informe de seguimiento a las Estrategias Anticorrupción y Mapa de Riesgo de Corrupción se realiza tres veces al año.',
+                  'El informe pormenorizado del estado del Control Interno se presenta cuatrimestralmente.',
+                ],
+                documents: [
+                  'Informe de Evaluación Oficina de Control Interno',
+                  'Autoevaluación',
+                  'Certificado',
+                  'Informe anual de Evaluación del Control Interno Contable',
+                  'Informe CHIP',
+                  'Informe de Evaluación del Sistema de Control Interno',
+                  'Informe de Gestión de la Oficina de Control Interno',
+                  'Mapa de riesgos de la vigencia',
+                  'Informe pormenorizado del estado de control interno',
+                  'Informe de austeridad en el gasto',
+                  'Informe de PQR',
+                  'Informe de seguimiento a estrategias anticorrupción',
+                  'Informe de Rendición de Cuentas',
+                ],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: presentacionInformesControlInternoSteps,
+              },
             },
-            detail: {
-              objective:
-                'Garantizar la correcta evaluación y seguimiento de la gestión organizacional.',
-              scope:
-                'Este procedimiento inicia con la recepción de los informes de gestión por parte de las dependencias y culmina con la socialización de los resultados.',
-              definitions: [
-                'Oficina de Control Interno: Componente del Sistema de Control Interno de nivel gerencial o directivo, encargado de medir y evaluar la eficiencia, eficacia y economía de los demás controles, asesorando a la dirección en la continuidad del proceso administrativo, la reevaluación de los planes establecidos y la introducción de correctivos necesarios para el cumplimiento de metas u objetivos previstos.',
-                'Plan de Desarrollo: Herramienta de gestión que promueve el desarrollo social en un determinado territorio, sentando las bases para atender las necesidades insatisfechas de la población y mejorar la calidad de vida de los ciudadanos.',
-                'Informe de gestión: Documento que incluye las actividades de coordinación, gestión, administración y dirección efectuadas durante un periodo de tiempo en una empresa.',
-              ],
-              generalDispositions: [
-                'Los informes de gestión serán presentados por el ejecutivo municipal a la comunidad en audiencia pública, anualmente.',
-                'La Oficina de Control Interno garantizará la correcta evaluación y seguimiento a la gestión organizacional, de conformidad con las metas propuestas en el Plan de Desarrollo Municipal.',
-                'Igualmente, una vez el ejecutivo presente la rendición de cuentas a la comunidad, la Oficina de Control Interno realizará el informe final de rendición de cuentas o informe de gestión, para lo cual además del seguimiento realizado al Plan de Desarrollo en las auditorías internas, se elabora una encuesta a la comunidad sobre el desarrollo de la actividad realizada.',
-              ],
-              documents: [
-                'Informe de gestión',
-                'Plan de Desarrollo',
-                'Plan de Acción',
-                'Encuesta de satisfacción',
-              ],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: evaluacionSeguimientoGestionOrganizacionalSteps,
+            {
+              ...procedure(
+                'PEC-CVE-ESP-04',
+                'Elaboración y seguimiento a plan de mejoramiento auditoría',
+                'Oficina de Control Interno',
+                undefined,
+                []
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective: 'Promover que los procesos internos de la administración se desarrollen en forma eficiente y transparente a través de la adopción y cumplimiento de las acciones correctivas y de la implementación de metodologías orientadas al mejoramiento continuo planteadas por los entes de control externos.',
+                scope: 'Este procedimiento inicia con la notificación del Informe Definitivo externo y culmina con el cierre de los hallazgos plasmados en el plan de mejoramiento.',
+                definitions: [
+                  'OFICINA DE CONTROL INTERNO: Es uno de los componentes del Sistema de Control Interno, de nivel gerencial o directivo, encargado de medir y evaluar la eficiencia, eficacia y economía de los demás controles, asesorando a la dirección en la continuidad del proceso administrativo, la reevaluación de los planes establecidos y en la introducción de los correctivos necesarios para el cumplimiento de las metas u objetivos previstos.',
+                  'AUDITORÍA EXTERNA: Mediante ella se realiza un análisis y control exhaustivos por parte de un auditor externo, el cual es totalmente ajeno a la actividad de la empresa, con el objetivo de emitir una opinión imparcial e independiente sobre el sistema de operación de la empresa y su control interno. Además, a través de la auditoría externa, se formulan sugerencias de mejora para la organización.',
+                  'HALLAZGOS DE LA AUDITORÍA: En el ejercicio del control interno se refiere a los hechos detectados en la auditoría, referente a deficiencias, desviaciones, irregularidades, errores, debilidades, fortalezas y/o necesidades de cambio',
+                  'PLAN DE MEJORAMIENTO: Documento que consolida un conjunto de acciones correctivas planteadas para los hallazgos detectados en cada uno de los procesos establecidos.'
+                ],
+                generalDispositions: [
+                  'El seguimiento de planes de auditorías externos debe ser realizado por el Municipio de Gachetá hasta cumplir con el 100% de las actividades propuestas en el Plan de Mejoramiento, y de lo cual la Oficina de Control Interno deberá efectuar al seguimiento respectivo dentro de los plazos establecidos por cada organismo de control.'
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: elaboracionSeguimientoPlanMejoramientoAuditoriaSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PEC-CVE-PI-03',
-              'Presentación de Informes Oficina de Control Interno',
-              'Oficina de Control Interno',
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PEC-CVE-SPMI-05',
+                'Seguimiento a planes de mejoramiento internos',
+                'Oficina de Control Interno',
+                undefined,
+                []
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective: 'Realizar seguimiento al cumplimiento de las acciones contenidas en el Plan de Mejoramiento Interno, producto de los resultados (Hallazgos) de las Auditorias realizadas por la Oficina de Control Interno a los diferentes procesos, a través del análisis de la información reportada por cada una de las dependencias, con el propósito de verificar las evidencias y determinar su estado y avance.',
+                scope: 'Este procedimiento inicia con la notificación del Informe Definitivo de Auditoria y culmina con el cierre de los hallazgos plasmados en el plan de mejoramiento.',
+                definitions: [
+                  'ACCIÓN CORRECTIVA: Gestión correctiva y/o preventiva que subsana la causa que dio origen a la observación identificada.',
+                  'HALLAZGO: En el ejercicio del control interno se refiere a los hechos detectados en la auditoria, referente a deficiencias, desviaciones, irregularidades, errores, debilidades, fortalezas y/o necesidades de cambio',
+                  'INFORME DEFINITIVO: Es un segundo informe que se construye después que el auditado da respuesta al informe preliminar, en este informe se contesta si se CONFIRMA o se DESVIRTÚAN los hallazgos, después de analizar todas las respuestas y evidencias allegadas por el auditado en el anterior informe.',
+                  'PLAN DE MEJORAMIENTO: Documento que consolida un conjunto de acciones correctivas planteadas para las no conformidades detectadas en cada uno de los procesos establecidos.'
+                ],
+                generalDispositions: [
+                  'El seguimiento a los planes de mejoramiento interno se realizará cada dos meses. Si el jefe de control interno cree que una acción correctiva planteada por la oficina auditada en el plan de mejoramiento no es pertinente para el hallazgo, se procede a devolver el mismo.'
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: seguimientoPlanesMejoramientoInternosSteps,
+              },
             },
-            detail: {
-              objective:
-                'Establecer las actividades que se deben seguir en la Oficina de Control Interno, para facilitar la preparación, verificación y presentación de los informes de acuerdo con los lineamientos establecidos por el Gobierno Nacional y ante los organismos de control.',
-              scope:
-                'Este procedimiento inicia con la identificación de las fechas de entrega de los informes por parte de la administración y termina con el reporte oportuno de la información en la herramienta exigida, archivos planos, documentación en físico y medio magnético de los informes, y publicación en la web de la entidad de acuerdo a la norma.',
-              definitions: [
-                'Oficina de Control Interno: Oficina de los componentes del Sistema de Control Interno de nivel gerencial o directivo, encargada de medir y evaluar la eficiencia, eficacia y economía de los demás controles, asesorando a la dirección en la continuidad del proceso administrativo, la reevaluación de los planes establecidos y la introducción de los correctivos necesarios para el cumplimiento de las metas u objetivos previstos.',
-                'Informe de Gestión: Herramienta que hace públicos los principales logros obtenidos por una entidad durante una vigencia, el cual también se usa para presentar balances y resultados institucionales.',
-                'Oficina de Control Interno: Unidad que realiza evaluación y seguimiento al Sistema de Control Interno, al cumplimiento de informes y a la presentación de reportes ante organismos de control.',
-                'SISTEMA CHIP: Consolidador de Hacienda e Información Financiera Pública, herramienta a través de la cual se genera, transmite y difunde información financiera producida por las entidades públicas con destino al gobierno central, entidades de control y ciudadanía en general.',
-                'FURAG: Formulario Único de Reporte y Avance de la Gestión en las entidades públicas.',
-              ],
-              generalDispositions: [
-                'El informe de Evaluación de Control Interno FURAG se presenta anualmente al DAFP.',
-                'El informe anual sobre la Evaluación del Control Interno Contable se presenta anualmente a la Contaduría General de la Nación a través del aplicativo CHIP.',
-                'El informe de Evaluación del Sistema de Control Interno se presenta anualmente con corte al 31 de diciembre y se entrega a la Secretaría de Hacienda para subir los informes de fin de año.',
-                'El seguimiento a Mapas de Riesgo de la vigencia se realiza periódicamente mediante el proceso de ejecución de las auditorías internas.',
-                'El informe de Austeridad del Gasto se elabora trimestralmente y se publica en la página web del municipio.',
-                'El informe de seguimiento a las Estrategias Anticorrupción y Mapa de Riesgo de Corrupción se realiza tres veces al año.',
-                'El informe pormenorizado del estado del Control Interno se presenta cuatrimestralmente.',
-              ],
-              documents: [
-                'Informe de Evaluación Oficina de Control Interno',
-                'Autoevaluación',
-                'Certificado',
-                'Informe anual de Evaluación del Control Interno Contable',
-                'Informe CHIP',
-                'Informe de Evaluación del Sistema de Control Interno',
-                'Informe de Gestión de la Oficina de Control Interno',
-                'Mapa de riesgos de la vigencia',
-                'Informe pormenorizado del estado de control interno',
-                'Informe de austeridad en el gasto',
-                'Informe de PQR',
-                'Informe de seguimiento a estrategias anticorrupción',
-                'Informe de Rendición de Cuentas',
-              ],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: presentacionInformesControlInternoSteps,
+            {
+              ...procedure(
+                'PEC-CVE-PAA-06',
+                'Elaboración y aprobación del plan anual de auditorías',
+                'Oficina de Control Interno',
+                undefined,
+                []
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective: 'Definir las actividades a desarrollar por parte de la Oficina de Control Interno durante la vigencia, con el fin de garantizar el cumplimiento del proceso de Evaluación a todas las dependencias de la administración, y realizar seguimiento periódico para verificar su ejecución y avance.',
+                scope: 'Cubre la programación de actividades para la respectiva vigencia y la comunicación del Plan Anual de Auditoría resultante al Comité de Control Interno, así como el seguimiento a su ejecución, con el fin de determinar su cumplimiento.',
+                definitions: [
+                  'AUDITORIA: Proceso sistemático, independiente y documentado para obtener evidencias de auditoría y evaluarlas de manera objetiva con el fin de determinar la extensión en que se cumplen los criterios de auditoria.',
+                  'PLAN DE AUDITORIA: Descripción de las actividades y de los detalles acordados de una Auditoría.',
+                  'COMITÉ: Conjunto de personas elegidas para desempeñar una labor determinada, especialmente si tiene autoridad o actúa en representación de un colectivo'
+                ],
+                generalDispositions: [
+                  'El plan de auditorías se elaborará una vez al año, y se planificará al principio de cada vigencia.'
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: elaboracionAprobacionPlanAnualAuditoriasSteps,
+              },
             },
-          },
-          {
-            ...procedure(
-              'PEC-CVE-ESP-04',
-              'Elaboración y seguimiento a plan de mejoramiento auditoría',
-              'Oficina de Control Interno',
-              undefined,
-              []
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
+            {
+              ...procedure(
+                'PEC-CVE-CT-07',
+                'Comités',
+                'Oficina de Control Interno',
+                undefined,
+                []
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective: 'Orientar el procedimiento de las reuniones del Comité Institucional de Coordinación de Control Interno',
+                scope: 'El procedimiento inicia con la citación a la reunión y finaliza con el archivo del acta de la sesión.',
+                definitions: [
+                  'Comité Institucional de Coordinación de Control Interno: Órgano de asesoría y decisión en los asuntos de control interno de la entidad. En su rol de responsable y facilitador hace parte de las instancias de articulación para el funcionamiento armónico del Sistema de Control Interno.',
+                  'Reunión: Espacio para discutir uno a varios temas, convocados mediante un orden del día y los acuerdos adoptados se incluyen en el acta de la reunión.',
+                  'Orden del Día: Agenda o programa de puntos a ser discutidos en una determinada reunión'
+                ],
+                generalDispositions: [
+                  'En concordancia con lo anterior, el artículo 2.2.21.1.5 del Decreto 1083 de 2015 dispone que las entidades y organismos del Estado están obligadas a establecer un Comité Institucional de Coordinación de Control Interno como órgano asesor e instancia decisoria en los asuntos de control interno'
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: comitesSteps,
+              },
             },
-            detail: {
-              objective: 'Promover que los procesos internos de la administración se desarrollen en forma eficiente y transparente a través de la adopción y cumplimiento de las acciones correctivas y de la implementación de metodologías orientadas al mejoramiento continuo planteadas por los entes de control externos.',
-              scope: 'Este procedimiento inicia con la notificación del Informe Definitivo externo y culmina con el cierre de los hallazgos plasmados en el plan de mejoramiento.',
-              definitions: [
-                'OFICINA DE CONTROL INTERNO: Es uno de los componentes del Sistema de Control Interno, de nivel gerencial o directivo, encargado de medir y evaluar la eficiencia, eficacia y economía de los demás controles, asesorando a la dirección en la continuidad del proceso administrativo, la reevaluación de los planes establecidos y en la introducción de los correctivos necesarios para el cumplimiento de las metas u objetivos previstos.',
-                'AUDITORÍA EXTERNA: Mediante ella se realiza un análisis y control exhaustivos por parte de un auditor externo, el cual es totalmente ajeno a la actividad de la empresa, con el objetivo de emitir una opinión imparcial e independiente sobre el sistema de operación de la empresa y su control interno. Además, a través de la auditoría externa, se formulan sugerencias de mejora para la organización.',
-                'HALLAZGOS DE LA AUDITORÍA: En el ejercicio del control interno se refiere a los hechos detectados en la auditoría, referente a deficiencias, desviaciones, irregularidades, errores, debilidades, fortalezas y/o necesidades de cambio',
-                'PLAN DE MEJORAMIENTO: Documento que consolida un conjunto de acciones correctivas planteadas para los hallazgos detectados en cada uno de los procesos establecidos.'
-              ],
-              generalDispositions: [
-                'El seguimiento de planes de auditorías externos debe ser realizado por el Municipio de Gachetá hasta cumplir con el 100% de las actividades propuestas en el Plan de Mejoramiento, y de lo cual la Oficina de Control Interno deberá efectuar al seguimiento respectivo dentro de los plazos establecidos por cada organismo de control.'
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: elaboracionSeguimientoPlanMejoramientoAuditoriaSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PEC-CVE-SPMI-05',
-              'Seguimiento a planes de mejoramiento internos',
-              'Oficina de Control Interno',
-              undefined,
-              []
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective: 'Realizar seguimiento al cumplimiento de las acciones contenidas en el Plan de Mejoramiento Interno, producto de los resultados (Hallazgos) de las Auditorias realizadas por la Oficina de Control Interno a los diferentes procesos, a través del análisis de la información reportada por cada una de las dependencias, con el propósito de verificar las evidencias y determinar su estado y avance.',
-              scope: 'Este procedimiento inicia con la notificación del Informe Definitivo de Auditoria y culmina con el cierre de los hallazgos plasmados en el plan de mejoramiento.',
-              definitions: [
-                'ACCIÓN CORRECTIVA: Gestión correctiva y/o preventiva que subsana la causa que dio origen a la observación identificada.',
-                'HALLAZGO: En el ejercicio del control interno se refiere a los hechos detectados en la auditoria, referente a deficiencias, desviaciones, irregularidades, errores, debilidades, fortalezas y/o necesidades de cambio',
-                'INFORME DEFINITIVO: Es un segundo informe que se construye después que el auditado da respuesta al informe preliminar, en este informe se contesta si se CONFIRMA o se DESVIRTÚAN los hallazgos, después de analizar todas las respuestas y evidencias allegadas por el auditado en el anterior informe.',
-                'PLAN DE MEJORAMIENTO: Documento que consolida un conjunto de acciones correctivas planteadas para las no conformidades detectadas en cada uno de los procesos establecidos.'
-              ],
-              generalDispositions: [
-                'El seguimiento a los planes de mejoramiento interno se realizará cada dos meses. Si el jefe de control interno cree que una acción correctiva planteada por la oficina auditada en el plan de mejoramiento no es pertinente para el hallazgo, se procede a devolver el mismo.'
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: seguimientoPlanesMejoramientoInternosSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PEC-CVE-PAA-06',
-              'Elaboración y aprobación del plan anual de auditorías',
-              'Oficina de Control Interno',
-              undefined,
-              []
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective: 'Definir las actividades a desarrollar por parte de la Oficina de Control Interno durante la vigencia, con el fin de garantizar el cumplimiento del proceso de Evaluación a todas las dependencias de la administración, y realizar seguimiento periódico para verificar su ejecución y avance.',
-              scope: 'Cubre la programación de actividades para la respectiva vigencia y la comunicación del Plan Anual de Auditoría resultante al Comité de Control Interno, así como el seguimiento a su ejecución, con el fin de determinar su cumplimiento.',
-              definitions: [
-                'AUDITORIA: Proceso sistemático, independiente y documentado para obtener evidencias de auditoría y evaluarlas de manera objetiva con el fin de determinar la extensión en que se cumplen los criterios de auditoria.',
-                'PLAN DE AUDITORIA: Descripción de las actividades y de los detalles acordados de una Auditoría.',
-                'COMITÉ: Conjunto de personas elegidas para desempeñar una labor determinada, especialmente si tiene autoridad o actúa en representación de un colectivo'
-              ],
-              generalDispositions: [
-                'El plan de auditorías se elaborará una vez al año, y se planificará al principio de cada vigencia.'
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: elaboracionAprobacionPlanAnualAuditoriasSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PEC-CVE-CT-07',
-              'Comités',
-              'Oficina de Control Interno',
-              undefined,
-              []
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective: 'Orientar el procedimiento de las reuniones del Comité Institucional de Coordinación de Control Interno',
-              scope: 'El procedimiento inicia con la citación a la reunión y finaliza con el archivo del acta de la sesión.',
-              definitions: [
-                'Comité Institucional de Coordinación de Control Interno: Órgano de asesoría y decisión en los asuntos de control interno de la entidad. En su rol de responsable y facilitador hace parte de las instancias de articulación para el funcionamiento armónico del Sistema de Control Interno.',
-                'Reunión: Espacio para discutir uno a varios temas, convocados mediante un orden del día y los acuerdos adoptados se incluyen en el acta de la reunión.',
-                'Orden del Día: Agenda o programa de puntos a ser discutidos en una determinada reunión'
-              ],
-              generalDispositions: [
-                'En concordancia con lo anterior, el artículo 2.2.21.1.5 del Decreto 1083 de 2015 dispone que las entidades y organismos del Estado están obligadas a establecer un Comité Institucional de Coordinación de Control Interno como órgano asesor e instancia decisoria en los asuntos de control interno'
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: comitesSteps,
-            },
-          },
-          {
-            ...procedure(
-              'PEC-CVE-OPI-08',
-              'Control interno disciplinario ordinario de primera instancia',
-              'Oficina de Control Interno',
-              undefined,
-              []
-            ),
-            source: {
-              pageStart: undefined,
-              pageEnd: undefined,
-              validationMode: 'visual_validated',
-            },
-            detail: {
-              objective: 'Adelantar las actividades encaminadas a investigar y/o a sancionar determinados comportamientos o conductas de los servidores públicos, que conlleven incumplimiento de deberes, extralimitación en el ejercicio de funciones, incurrir en prohibiciones y violación del régimen de inhabilidades, incompatibilidades, impedimentos y conflicto de intereses.',
-              scope: 'El procedimiento inicia con la recepción de la queja, informe del servidor público o conocimiento de una presunta falta disciplinaria, contempla las actividades de control disciplinario interno y finaliza con la emisión del fallo por parte de la instancia correspondiente.',
-              definitions: [
-                'AUTO: Acto administrativo mediante el cual se da inicio a una investigación preliminar o se pone fin a una actuación administrativa (fallo o sentencia)',
-                'QUEJA: Es el medio por el cual se da a conocer a la administración una presunta irregularidad cometida por un funcionario o ex funcionario.',
-                'FALTA DISCIPLINARIA: Es una presunta irregularidad en la que está incurso el funcionario que incumple sus deberes o se extralimite en sus funciones.',
-                'CONTROL INTERNO DISCIPLINARIO: Es la instancia encargada de juzgar las faltas disciplinarias en ejercicio de la función pública.'
-              ],
-              generalDispositions: [
-                'La función disciplinaria debe adelantarse con organización, planificación, manejo del tiempo, diligencia y eficiencia.',
-                'Los principios del debido proceso, el derecho de defensa, la presunción de inocencia, entre otros, deben regir el proceso disciplinario.',
-                'En los casos en que existe poder preferente por parte de la Personería de Gachetá, el ente de control envía un abogado comisionado para realizar visita administrativa.'
-              ],
-              documents: [],
-              formats: [],
-              legalRequirements: [],
-              variablesToMeasure: [],
-              flowSteps: controlInternoDisciplinarioPrimeraInstanciaSteps,
-            },
-          }
-        ] },
+            {
+              ...procedure(
+                'PEC-CVE-OPI-08',
+                'Control interno disciplinario ordinario de primera instancia',
+                'Oficina de Control Interno',
+                undefined,
+                []
+              ),
+              source: {
+                pageStart: undefined,
+                pageEnd: undefined,
+                validationMode: 'visual_validated',
+              },
+              detail: {
+                objective: 'Adelantar las actividades encaminadas a investigar y/o a sancionar determinados comportamientos o conductas de los servidores públicos, que conlleven incumplimiento de deberes, extralimitación en el ejercicio de funciones, incurrir en prohibiciones y violación del régimen de inhabilidades, incompatibilidades, impedimentos y conflicto de intereses.',
+                scope: 'El procedimiento inicia con la recepción de la queja, informe del servidor público o conocimiento de una presunta falta disciplinaria, contempla las actividades de control disciplinario interno y finaliza con la emisión del fallo por parte de la instancia correspondiente.',
+                definitions: [
+                  'AUTO: Acto administrativo mediante el cual se da inicio a una investigación preliminar o se pone fin a una actuación administrativa (fallo o sentencia)',
+                  'QUEJA: Es el medio por el cual se da a conocer a la administración una presunta irregularidad cometida por un funcionario o ex funcionario.',
+                  'FALTA DISCIPLINARIA: Es una presunta irregularidad en la que está incurso el funcionario que incumple sus deberes o se extralimite en sus funciones.',
+                  'CONTROL INTERNO DISCIPLINARIO: Es la instancia encargada de juzgar las faltas disciplinarias en ejercicio de la función pública.'
+                ],
+                generalDispositions: [
+                  'La función disciplinaria debe adelantarse con organización, planificación, manejo del tiempo, diligencia y eficiencia.',
+                  'Los principios del debido proceso, el derecho de defensa, la presunción de inocencia, entre otros, deben regir el proceso disciplinario.',
+                  'En los casos en que existe poder preferente por parte de la Personería de Gachetá, el ente de control envía un abogado comisionado para realizar visita administrativa.'
+                ],
+                documents: [],
+                formats: [],
+                legalRequirements: [],
+                variablesToMeasure: [],
+                flowSteps: controlInternoDisciplinarioPrimeraInstanciaSteps,
+              },
+            }
+          ]
+        },
       ],
     },
   ],
